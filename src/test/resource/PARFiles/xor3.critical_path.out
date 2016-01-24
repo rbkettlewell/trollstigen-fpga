@@ -1,0 +1,83 @@
+Node: 26  TN_INPAD_SOURCE Block #2 (top^b_in)
+Pin: inpad.inpad[0] pb (top^b_in)T_arr: 0  T_req: -9.70594e-10  Tdel: 0
+Internal Net: #2 (top^b_in).  Pins on net: 2.
+
+Node: 25  TN_INPAD_OPIN Block #2 (top^b_in)
+Pin: inpad.inpad[0] pb (top^b_in)
+T_arr: 0  T_req: -9.70594e-10  Tdel: 9.492e-11
+Internal Net: #2 (top^b_in).  Pins on net: 2.
+
+Node: 24  TN_CB_OPIN Block #2 (top^b_in)
+Pin: io.inpad[0] pb (top^b_in)
+T_arr: 9.492e-11  T_req: -8.75674e-10  Tdel: 2.98331e-10
+External-to-Block Net: #4 (top^b_in).  Pins on net: 2.
+
+Node: 15  TN_CB_IPIN Block #1 (top^BITWISE_XOR~0^LOGICAL_XOR~4)
+Pin: clb.I[0] pb (top^BITWISE_XOR~0^LOGICAL_XOR~4)
+T_arr: 3.93251e-10  T_req: -5.77343e-10  Tdel: 0
+Internal Net: #2 (top^b_in).  Pins on net: 2.
+
+Node: 18  TN_INTERMEDIATE_NODE Block #1 (top^BITWISE_XOR~0^LOGICAL_XOR~4)
+Pin: lut6.in[0] pb (top^BITWISE_XOR~0^LOGICAL_XOR~4)
+T_arr: 3.93251e-10  T_req: -5.77343e-10  Tdel: 0
+Internal Net: #2 (top^b_in).  Pins on net: 2.
+
+Node: 21  TN_PRIMITIVE_IPIN Block #1 (top^BITWISE_XOR~0^LOGICAL_XOR~4)
+Pin: lut.in[0] pb (top^BITWISE_XOR~0^LOGICAL_XOR~4)
+T_arr: 3.93251e-10  T_req: -5.77343e-10  Tdel: 1.679e-10
+Internal Net: #2 (top^b_in).  Pins on net: 2.
+
+Node: 23  TN_PRIMITIVE_OPIN Block #1 (top^BITWISE_XOR~0^LOGICAL_XOR~4)
+Pin: lut.out[0] pb (top^BITWISE_XOR~0^LOGICAL_XOR~4)
+T_arr: 5.61151e-10  T_req: -4.09443e-10  Tdel: 0
+Internal Net: #6 (top^BITWISE_XOR~0^LOGICAL_XOR~4).  Pins on net: 2.
+
+Node: 20  TN_INTERMEDIATE_NODE Block #1 (top^BITWISE_XOR~0^LOGICAL_XOR~4)
+Pin: lut6.out[0] pb (top^BITWISE_XOR~0^LOGICAL_XOR~4)
+T_arr: 5.61151e-10  T_req: -4.09443e-10  Tdel: 0
+Internal Net: #6 (top^BITWISE_XOR~0^LOGICAL_XOR~4).  Pins on net: 2.
+
+Node: 17  TN_CB_OPIN Block #1 (top^BITWISE_XOR~0^LOGICAL_XOR~4)
+Pin: clb.O[0] pb (top^BITWISE_XOR~0^LOGICAL_XOR~4)
+T_arr: 5.61151e-10  T_req: -4.09443e-10  Tdel: 2.96563e-10
+External-to-Block Net: #1 (top^BITWISE_XOR~0^LOGICAL_XOR~4).  Pins on net: 2.
+
+Node: 1  TN_CB_IPIN Block #0 (top^BITWISE_XOR~1^LOGICAL_XOR~3)
+Pin: clb.I[1] pb (top^BITWISE_XOR~1^LOGICAL_XOR~3)
+T_arr: 8.57714e-10  T_req: -1.1288e-10  Tdel: 0
+Internal Net: #6 (top^BITWISE_XOR~0^LOGICAL_XOR~4).  Pins on net: 2.
+
+Node: 5  TN_INTERMEDIATE_NODE Block #0 (top^BITWISE_XOR~1^LOGICAL_XOR~3)
+Pin: lut6.in[1] pb (top^BITWISE_XOR~1^LOGICAL_XOR~3)
+T_arr: 8.57714e-10  T_req: -1.1288e-10  Tdel: 0
+Internal Net: #6 (top^BITWISE_XOR~0^LOGICAL_XOR~4).  Pins on net: 2.
+
+Node: 8  TN_PRIMITIVE_IPIN Block #0 (top^BITWISE_XOR~1^LOGICAL_XOR~3)
+Pin: lut.in[1] pb (top^BITWISE_XOR~1^LOGICAL_XOR~3)
+T_arr: 8.57714e-10  T_req: -1.1288e-10  Tdel: 1.679e-10
+Internal Net: #6 (top^BITWISE_XOR~0^LOGICAL_XOR~4).  Pins on net: 2.
+
+Node: 9  TN_PRIMITIVE_OPIN Block #0 (top^BITWISE_XOR~1^LOGICAL_XOR~3)
+Pin: lut.out[0] pb (top^BITWISE_XOR~1^LOGICAL_XOR~3)
+T_arr: 1.02561e-09  T_req: 5.502e-11  Tdel: 0
+Internal Net: #4 (top^BITWISE_XOR~1^LOGICAL_XOR~3).  Pins on net: 2.
+
+Node: 6  TN_INTERMEDIATE_NODE Block #0 (top^BITWISE_XOR~1^LOGICAL_XOR~3)
+Pin: lut6.out[0] pb (top^BITWISE_XOR~1^LOGICAL_XOR~3)
+T_arr: 1.02561e-09  T_req: 5.502e-11  Tdel: 0
+Internal Net: #4 (top^BITWISE_XOR~1^LOGICAL_XOR~3).  Pins on net: 2.
+
+Node: 10  TN_FF_IPIN Block #0 (top^BITWISE_XOR~1^LOGICAL_XOR~3)
+Pin: dff.D[0] pb (top^temp_FF_NODE)
+T_arr: 1.02561e-09  T_req: 5.502e-11  Tdel: 3.99e-11
+Internal Net: #4 (top^BITWISE_XOR~1^LOGICAL_XOR~3).  Pins on net: 2.
+
+Node: 11  TN_FF_SINK Block #0 (top^BITWISE_XOR~1^LOGICAL_XOR~3)
+Pin: dff.D[0] pb (top^temp_FF_NODE)
+T_arr: 1.06551e-09  T_req: 9.492e-11  
+Internal Net: #4 (top^BITWISE_XOR~1^LOGICAL_XOR~3).  Pins on net: 2.
+
+
+Tnodes on critical path: 16  Non-global nets on critical path: 2.
+Global nets on critical path: 0.
+Total logic delay: 4.7062e-10 (s)  Total net delay: 5.94894e-10 (s)

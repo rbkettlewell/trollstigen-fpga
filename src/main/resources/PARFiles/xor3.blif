@@ -1,0 +1,24 @@
+.model xor3
+.inputs top^clock top^a_in top^b_in top^c_in
+.outputs top^z_out
+
+.names gnd
+.names unconn
+.names vcc
+1
+
+.latch top^BITWISE_XOR~1^LOGICAL_XOR~3 top^temp_FF_NODE re top^clock 3
+
+.names top^a_in top^b_in top^BITWISE_XOR~0^LOGICAL_XOR~4
+01 1
+10 1
+
+.names top^BITWISE_XOR~0^LOGICAL_XOR~4 top^c_in top^BITWISE_XOR~1^LOGICAL_XOR~3
+01 1
+10 1
+
+.names top^temp_FF_NODE top^z_out
+1 1
+
+.end
+

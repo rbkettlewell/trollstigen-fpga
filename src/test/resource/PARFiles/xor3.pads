@@ -1,0 +1,7 @@
+#block name	x	y	subblk	block number
+#----------	--	--	------	------------
+top^b_in	5	0	0	#2
+top^a_in	6	0	0	#3
+top^c_in	9	1	0	#4
+out:top^z_out	7	0	0	#5
+top^clock	1	0	0	#8
