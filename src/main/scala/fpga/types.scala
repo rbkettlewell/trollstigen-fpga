@@ -1,3 +1,5 @@
+import fpga.blocks.AnyBlock
+
 package fpga{
   object Types{
     type Direction = String
@@ -7,5 +9,6 @@ package fpga{
     type Path = (Segment,List[Segment])
     type PathDefinition = (Direction, Track => Track)
     type Connectivity = List[Path]
+    type FPGABlocks = Array[Array[AnyBlock]]
   }
 }

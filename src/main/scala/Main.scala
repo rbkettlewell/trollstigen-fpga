@@ -1,9 +1,10 @@
-import fpga.Types._
+import fpga.Bitgen
 import fpga.blocks._
 
 object Main {
   def main(args: Array[String]) {
-    val w = new SwitchBlock((0,0),List())
-    println("My switch block position is "+ w.location)
+    val bitstream = new Bitgen
+    bitstream.assembleFPGA()
+    println("My switch block data is "+ bitstream.fpga(0)(1).asInstanceOf[SwitchBlock].switches)
   }
 }
