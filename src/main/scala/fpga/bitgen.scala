@@ -40,6 +40,90 @@ package fpga{
       val evenChannels = (t : Track) => 2*t
 
       blockType match{
+        case "Northwest Corner" =>{
+          val toPathES = ("S",(t : Track ) => (21 - 2*t)%12)
+          val northwestCornerES = defineConnectivity(("E", oddChannels), List(toPathES))
+          val toPathSE = ("E",(t : Track ) => (20 - 2*t)%12)
+          val northwestCornerSE = defineConnectivity(("S", evenChannels), List(toPathSE))
+          val blockConnectivity = northwestCornerES ++ northwestCornerSE 
+          blockConnectivity
+        }
+        case "Northeast Corner" =>{
+          val toPathSW = ("W",(t : Track ) => (3 + 2*t)%12)
+          val northeastCornerSW = defineConnectivity(("S", evenChannels), List(toPathSW))
+          val toPathWS = ("S",(t : Track ) => (11 + 2*t)%12)
+          val northeastCornerWS = defineConnectivity(("W", evenChannels), List(toPathWS))
+          val blockConnectivity = northeastCornerSW ++ northeastCornerWS
+          blockConnectivity
+        }
+        case "Southeast Corner" =>{
+          val toPathNW = ("W",(t : Track ) => (13 - 2*t)%12)
+          val southeastCornerNW = defineConnectivity(("N", oddChannels), List(toPathNW))
+          val toPathWN = ("N",(t : Track ) => (12 - 2*t)%12)
+          val southeastCornerWN = defineConnectivity(("W", evenChannels), List(toPathWN))
+          val blockConnectivity = southeastCornerNW ++ southeastCornerWN
+          blockConnectivity
+        }
+        case "Southwest Corner" =>{
+          val toPathNE = ("E",(t : Track ) => (2 + 2*t)%12)
+          val southwestCornerNE = defineConnectivity(("N", oddChannels), List(toPathNE))
+          val toPathEN = ("N",(t : Track ) => (10 + 2*t)%12)
+          val southwestCornerEN = defineConnectivity(("E", oddChannels), List(toPathEN))
+          val blockConnectivity = southwestCornerNE ++ southwestCornerEN
+          blockConnectivity
+        }
+        case "North Switch Block" =>{
+          val toPathES = ("S",oddChannels)
+          val toPathEW = ("W",oddChannels)
+          val switchBlockEast = defineConnectivity(("E", oddChannels), List(toPathES, toPathEW))
+          val toPathSW = ("W",oddChannels)
+          val toPathSE = ("E",evenChannels)
+          val switchBlockSouth = defineConnectivity(("S", evenChannels), List(toPathSW, toPathSE))
+          val toPathWE = ("E",evenChannels)
+          val toPathWS = ("S",oddChannels)
+          val switchBlockWest = defineConnectivity(("W", evenChannels), List(toPathWE, toPathWS))
+          val blockConnectivity = switchBlockEast ++ switchBlockSouth ++ switchBlockWest
+          blockConnectivity
+        }
+        case "East Switch Block" =>{
+          val toPathNS = ("S",oddChannels)
+          val toPathNW = ("W",oddChannels)
+          val switchBlockNorth = defineConnectivity(("N", oddChannels), List(toPathNS, toPathNW))
+          val toPathSW = ("W",oddChannels)
+          val toPathSN = ("N",evenChannels)
+          val switchBlockSouth = defineConnectivity(("S", evenChannels), List(toPathSW, toPathSN))
+          val toPathWN = ("N",evenChannels)
+          val toPathWS = ("S",oddChannels)
+          val switchBlockWest = defineConnectivity(("W", evenChannels), List(toPathWN, toPathWS))
+          val blockConnectivity = switchBlockNorth ++ switchBlockSouth ++ switchBlockWest
+          blockConnectivity
+        }
+        case "South Switch Block" =>{
+          val toPathNE = ("E",evenChannels)
+          val toPathNW = ("W",oddChannels)
+          val switchBlockNorth = defineConnectivity(("N", oddChannels), List(toPathNE, toPathNW))
+          val toPathEW = ("W",oddChannels)
+          val toPathEN = ("N",evenChannels)
+          val switchBlockEast = defineConnectivity(("E", oddChannels), List(toPathEW, toPathEN))
+          val toPathWN = ("N",evenChannels)
+          val toPathWE = ("E",evenChannels)
+          val switchBlockWest = defineConnectivity(("W", evenChannels), List(toPathWN, toPathWE))
+          val blockConnectivity = switchBlockNorth ++ switchBlockEast ++ switchBlockWest
+          blockConnectivity
+        }
+        case "West Switch Block" =>{
+          val toPathNE = ("E",evenChannels)
+          val toPathNS = ("S",oddChannels)
+          val switchBlockNorth = defineConnectivity(("N", oddChannels), List(toPathNE, toPathNS))
+          val toPathES = ("S",oddChannels)
+          val toPathEN = ("N",evenChannels)
+          val switchBlockEast = defineConnectivity(("E", oddChannels), List(toPathES, toPathEN))
+          val toPathSN = ("N", evenChannels)
+          val toPathSE = ("E", evenChannels)
+          val switchBlockSouth = defineConnectivity(("S", evenChannels), List(toPathSN, toPathSE))
+          val blockConnectivity = switchBlockNorth ++ switchBlockEast ++ switchBlockSouth
+          blockConnectivity
+        }
         case "Internal Switch Block" =>{
           val toPathNE = ("E",(t : Track ) => (2 + 2*t)%12)
           val toPathNS = ("S",oddChannels)
@@ -58,6 +142,38 @@ package fpga{
           val toPathWS = ("S",(t : Track ) => (11 + 2*t)%12)
           val switchBlockWest = defineConnectivity(("W", evenChannels), List(toPathWN, toPathWE, toPathWS))
           val blockConnectivity = switchBlockNorth ++ switchBlockEast ++ switchBlockSouth ++ switchBlockWest
+          blockConnectivity
+        }
+        case "North Perimeter Connection Block" =>{
+          val northInput  = (("N",0),List(("S",2),("S",3),("S",6),("S",7),("S",10),("S",11)))
+          val northOutput = (("N",1),List(("S",0),("S",1),("S",2),("S",3),("N",4),("N",5)))
+          val southInputZero  = (("S",0),List(("N",0),("N",1),("N",4),("N",5),("N",8),("N",9)))
+          val southInputFour  = (("S",4),List(("N",0),("N",1),("N",2),("N",3),("N",4),("N",5)))
+          val blockConnectivity = List(northInput, northOutput, southInputZero, southInputFour)
+          blockConnectivity
+        }
+        case "South Perimeter Connection Block" =>{
+          val southInput  = (("S",0),List(("N",0),("N",1),("N",4),("N",5),("N",8),("N",9)))
+          val southOutput = (("S",1),List(("N",0),("N",1),("N",2),("N",3),("N",4),("N",5)))
+          val northInput  = (("N",2),List(("S",2),("S",3),("S",8),("S",9)))
+          val northOutput = (("N",6),List(("S",6),("S",7),("S",8),("S",9)))
+          val blockConnectivity = List(northInput, northOutput, southInput, southOutput)
+          blockConnectivity
+        }
+        case "East Perimeter Connection Block" =>{
+          val southInput  = (("S",0),List(("N",0),("N",1),("N",4),("N",5),("N",8),("N",9)))
+          val southOutput = (("S",1),List(("N",0),("N",1),("N",2),("N",3),("N",4),("N",5)))
+          val northInput  = (("N",2),List(("S",2),("S",3),("S",8),("S",9)))
+          val northOutput = (("N",6),List(("S",6),("S",7),("S",8),("S",9)))
+          val blockConnectivity = List(northInput, northOutput, southInput, southOutput)
+          blockConnectivity
+        }
+        case "West Perimeter Connection Block" =>{
+          val southInput  = (("S",0),List(("N",0),("N",1),("N",4),("N",5),("N",8),("N",9)))
+          val southOutput = (("S",1),List(("N",0),("N",1),("N",2),("N",3),("N",4),("N",5)))
+          val northInput  = (("N",2),List(("S",2),("S",3),("S",8),("S",9)))
+          val northOutput = (("N",6),List(("S",6),("S",7),("S",8),("S",9)))
+          val blockConnectivity = List(northInput, northOutput, southInput, southOutput)
           blockConnectivity
         }
         case _ => List() // TODO change this to an exception.
