@@ -145,14 +145,14 @@ package fpga{
           blockConnectivity
         }
         case "North Perimeter Connection Block" =>{
-          val northInput  = (("N",0),List(("S",2),("S",3),("S",6),("S",7),("S",10),("S",11)))
-          val northOutput = (("N",1),List(("S",0),("S",1),("S",2),("S",3),("N",4),("N",5)))
-          val southInputZero  = (("S",0),List(("N",0),("N",1),("N",4),("N",5),("N",8),("N",9)))
-          val southInputFour  = (("S",4),List(("N",0),("N",1),("N",2),("N",3),("N",4),("N",5)))
-          val blockConnectivity = List(northInput, northOutput, southInputZero, southInputFour)
+          val northInput  = List(2,3,6,7,10,11).map(t => (("S",t,false),List(("N",0,false))))
+          val northOutput = List((("N",1),List(("S",0),("S",1),("S",2),("S",3),("N",4),("N",5))))
+          val southInputZero = List(0,1,4,5,8,9).map(t => (("N",t,false),List(("S",0,false))))
+          val southInputFour = List(0,1,2,3,4,5).map(t => (("N",t,false),List(("S",4,false))))
+          val blockConnectivity = northInput ++ northOutput ++ southInputZero ++ southInputFour
           blockConnectivity
         }
-        case "South Perimeter Connection Block" =>{
+        /*case "South Perimeter Connection Block" =>{
           val southInput  = (("S",0),List(("N",0),("N",1),("N",4),("N",5),("N",8),("N",9)))
           val southOutput = (("S",1),List(("N",0),("N",1),("N",2),("N",3),("N",4),("N",5)))
           val northInput  = (("N",2),List(("S",2),("S",3),("S",8),("S",9)))
@@ -175,7 +175,7 @@ package fpga{
           val northOutput = (("N",6),List(("S",6),("S",7),("S",8),("S",9)))
           val blockConnectivity = List(northInput, northOutput, southInput, southOutput)
           blockConnectivity
-        }
+        }*/
         case _ => List() // TODO change this to an exception.
       }
     }
