@@ -72,7 +72,7 @@ package fpga{
           val blockConnectivity = southwestCornerNE ++ southwestCornerEN
           blockConnectivity
         }
-        case "North Switch Block" =>{
+        case "Perimeter North Switch Block" =>{
           val toPathES = ("S",oddChannels)
           val toPathEW = ("W",oddChannels)
           val switchBlockEast = defineConnectivity(("E", oddChannels), List(toPathES, toPathEW))
@@ -85,7 +85,7 @@ package fpga{
           val blockConnectivity = switchBlockEast ++ switchBlockSouth ++ switchBlockWest
           blockConnectivity
         }
-        case "East Switch Block" =>{
+        case "Perimeter East Switch Block" =>{
           val toPathNS = ("S",oddChannels)
           val toPathNW = ("W",oddChannels)
           val switchBlockNorth = defineConnectivity(("N", oddChannels), List(toPathNS, toPathNW))
@@ -98,7 +98,7 @@ package fpga{
           val blockConnectivity = switchBlockNorth ++ switchBlockSouth ++ switchBlockWest
           blockConnectivity
         }
-        case "South Switch Block" =>{
+        case "Perimeter South Switch Block" =>{
           val toPathNE = ("E",evenChannels)
           val toPathNW = ("W",oddChannels)
           val switchBlockNorth = defineConnectivity(("N", oddChannels), List(toPathNE, toPathNW))
@@ -111,7 +111,7 @@ package fpga{
           val blockConnectivity = switchBlockNorth ++ switchBlockEast ++ switchBlockWest
           blockConnectivity
         }
-        case "West Switch Block" =>{
+        case "Perimeter West Switch Block" =>{
           val toPathNE = ("E",evenChannels)
           val toPathNS = ("S",oddChannels)
           val switchBlockNorth = defineConnectivity(("N", oddChannels), List(toPathNE, toPathNS))
@@ -144,20 +144,65 @@ package fpga{
           val blockConnectivity = switchBlockNorth ++ switchBlockEast ++ switchBlockSouth ++ switchBlockWest
           blockConnectivity
         }
-        case "North Perimeter Connection Block" =>{
-          val northInput  = List(2,3,6,7,10,11).map(t => (("S",t,false),List(("N",0,false))))
-          val northOutput = List((("N",1,false),List(1,2,3,4,5).map(t=>("S",t,false))))
-          val southInputZero = List(0,1,4,5,8,9).map(t => (("N",t,false),List(("S",0,false))))
-          val southInputFour = List(0,1,2,3,4,5).map(t => (("N",t,false),List(("S",4,false))))
+        case "Internal North Connection Block" =>{
+          val northInput  = List(2,3,8,9).map(t => (("S",t,false),List(("N",2,false))))
+          val northOutput = List((("N",6,false),List(6,7,8,9).map(t=>("S",t,false))))
+          val southInputZero = List(0,1,6,7).map(t => (("N",t,false),List(("S",0,false))))
+          val southInputFour = List(4,5,10,11).map(t => (("N",t,false),List(("S",4,false))))
           val blockConnectivity = northInput ++ northOutput ++ southInputZero ++ southInputFour
           blockConnectivity
         }
-        case "South Perimeter Connection Block" =>{
+        case "Internal East Connection Block" =>{
+          val eastInput  = List(2,3,8,9).map(t => (("W",t,false),List(("E",3,false))))
+          val westInputOne  = List(0,1,6,7).map(t => (("E",t,false),List(("W",1,false))))
+          val westInputFive = List(4,5,10,11).map(t => (("E",t,false),List(("W",5,false))))
+          val blockConnectivity = eastInput ++ westInputOne ++ westInputFive
+          blockConnectivity
+        }
+        case "Internal South Connection Block" =>{
+          val northInput  = List(2,3,8,9).map(t => (("S",t,false),List(("N",2,false))))
+          val northOutput = List((("N",6,false),List(6,7,8,9).map(t=>("S",t,false))))
+          val southInputZero = List(0,1,6,7).map(t => (("N",t,false),List(("S",0,false))))
+          val southInputFour = List(4,5,10,11).map(t => (("N",t,false),List(("S",4,false))))
+          val blockConnectivity = northInput ++ northOutput ++ southInputZero ++ southInputFour
+          blockConnectivity
+        }
+        case "Internal West Connection Block" =>{
+          val eastInput  = List(2,3,8,9).map(t => (("W",t,false),List(("E",3,false))))
+          val westInputOne  = List(0,1,6,7).map(t => (("E",t,false),List(("W",1,false))))
+          val westInputFive = List(4,5,10,11).map(t => (("E",t,false),List(("W",5,false))))
+          val blockConnectivity = eastInput ++ westInputOne ++ westInputFive
+          blockConnectivity
+        }
+        case "Perimeter North Connection Block" =>{
+          val northInput  = List(2,3,6,7,10,11).map(t => (("S",t,false),List(("N",0,false))))
+          val northOutput = List((("N",1,false),List(0,1,2,3,4,5).map(t=>("S",t,false))))
+          val southInputZero = List(0,1,6,7).map(t => (("N",t,false),List(("S",0,false))))
+          val southInputFour = List(4,5,10,11).map(t => (("N",t,false),List(("S",4,false))))
+          val blockConnectivity = northInput ++ northOutput ++ southInputZero ++ southInputFour
+          blockConnectivity
+        }
+        case "Perimeter East Connection Block" =>{
+          val eastOutput = List((("E",1,false),List(0,1,2,3,4,5).map(t=>("W",t,false))))
+          val eastInput = List(2,3,6,7,10,11).map(t => (("W",t,false),List(("E",0,false))))
+          val westInputOne  = List(0,1,6,7).map(t => (("E",t,false),List(("W",1,false))))
+          val westInputFive = List(4,5,10,11).map(t => (("E",t,false),List(("W",5,false))))
+          val blockConnectivity = eastInput ++ eastOutput ++ westInputOne ++ westInputFive
+          blockConnectivity
+        }
+        case "Perimeter South Connection Block" =>{
           val northInput  = List(2,3,8,9).map(t => (("S",t,false),List(("N",2,false))))
           val northOutput = List((("N",6,false),List(6,7,8,9).map(t=>("S",t,false))))
           val southInput  = List(0,1,4,5,8,9).map(t => (("N",t,false),List(("S",0,false))))
-          val southOutput = List((("S",1,false),List(1,2,3,4,5).map(t=>("S",t,false))))
+          val southOutput = List((("S",1,false),List(0,1,2,3,4,5).map(t=>("S",t,false))))
           val blockConnectivity = northInput ++ northOutput ++ southInput ++ southOutput
+          blockConnectivity
+        }
+        case "Perimeter West Connection Block" =>{
+          val eastInput  = List(2,3,8,9).map(t => (("W",t,false),List(("E",3,false))))
+          val westInput  = List(0,1,4,5,8,9).map(t => (("E",t,false),List(("W",0,false))))
+          val westOutput = List((("W",1,false),List(0,1,2,3,4,5).map(t=>("E",t,false))))
+          val blockConnectivity = eastInput ++ westInput ++ westOutput
           blockConnectivity
         }
         case _ => List() // TODO change this to an exception.
