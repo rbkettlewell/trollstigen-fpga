@@ -6,8 +6,8 @@ package fpga{
     private val chanWidth = 12
     private val xTiles = 8
     private val yTiles = 16
-    private val rows = (xTiles + 1)*2
-    private val cols = (yTiles + 1)*2
+    private val rows = xTiles*2 + 3
+    private val cols = yTiles*2 + 3
 
     var fpga = Array.ofDim(rows, cols) : FPGABlocks
 
@@ -146,36 +146,20 @@ package fpga{
         }
         case "North Perimeter Connection Block" =>{
           val northInput  = List(2,3,6,7,10,11).map(t => (("S",t,false),List(("N",0,false))))
-          val northOutput = List((("N",1),List(("S",0),("S",1),("S",2),("S",3),("N",4),("N",5))))
+          val northOutput = List((("N",1,false),List(1,2,3,4,5).map(t=>("S",t,false))))
           val southInputZero = List(0,1,4,5,8,9).map(t => (("N",t,false),List(("S",0,false))))
           val southInputFour = List(0,1,2,3,4,5).map(t => (("N",t,false),List(("S",4,false))))
           val blockConnectivity = northInput ++ northOutput ++ southInputZero ++ southInputFour
           blockConnectivity
         }
-        /*case "South Perimeter Connection Block" =>{
-          val southInput  = (("S",0),List(("N",0),("N",1),("N",4),("N",5),("N",8),("N",9)))
-          val southOutput = (("S",1),List(("N",0),("N",1),("N",2),("N",3),("N",4),("N",5)))
-          val northInput  = (("N",2),List(("S",2),("S",3),("S",8),("S",9)))
-          val northOutput = (("N",6),List(("S",6),("S",7),("S",8),("S",9)))
-          val blockConnectivity = List(northInput, northOutput, southInput, southOutput)
+        case "South Perimeter Connection Block" =>{
+          val northInput  = List(2,3,8,9).map(t => (("S",t,false),List(("N",2,false))))
+          val northOutput = List((("N",6,false),List(6,7,8,9).map(t=>("S",t,false))))
+          val southInput  = List(0,1,4,5,8,9).map(t => (("N",t,false),List(("S",0,false))))
+          val southOutput = List((("S",1,false),List(1,2,3,4,5).map(t=>("S",t,false))))
+          val blockConnectivity = northInput ++ northOutput ++ southInput ++ southOutput
           blockConnectivity
         }
-        case "East Perimeter Connection Block" =>{
-          val southInput  = (("S",0),List(("N",0),("N",1),("N",4),("N",5),("N",8),("N",9)))
-          val southOutput = (("S",1),List(("N",0),("N",1),("N",2),("N",3),("N",4),("N",5)))
-          val northInput  = (("N",2),List(("S",2),("S",3),("S",8),("S",9)))
-          val northOutput = (("N",6),List(("S",6),("S",7),("S",8),("S",9)))
-          val blockConnectivity = List(northInput, northOutput, southInput, southOutput)
-          blockConnectivity
-        }
-        case "West Perimeter Connection Block" =>{
-          val southInput  = (("S",0),List(("N",0),("N",1),("N",4),("N",5),("N",8),("N",9)))
-          val southOutput = (("S",1),List(("N",0),("N",1),("N",2),("N",3),("N",4),("N",5)))
-          val northInput  = (("N",2),List(("S",2),("S",3),("S",8),("S",9)))
-          val northOutput = (("N",6),List(("S",6),("S",7),("S",8),("S",9)))
-          val blockConnectivity = List(northInput, northOutput, southInput, southOutput)
-          blockConnectivity
-        }*/
         case _ => List() // TODO change this to an exception.
       }
     }
