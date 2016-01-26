@@ -1,4 +1,5 @@
 import fpga.Types._
+import fpga.BlockEnum._
 import fpga.blocks._
 
 package fpga{
@@ -10,6 +11,11 @@ package fpga{
     private val cols = yTiles*2 + 3
 
     var fpga = Array.ofDim(rows, cols) : FPGABlocks
+
+    def isEven(num : Int): Boolean = {
+      val evenTrue = num%2 == 0
+      evenTrue
+    }
 
     // Description: mapPaths creates a range based on the channel width and then applies the PathDefinition function to the
     // elements of the range. The returned track numbers are bundled into tuples containing their respective direction
@@ -32,15 +38,30 @@ package fpga{
       pathConnectivity
     }
 
+    def getBlockEnum(locationXY : (Int,Int)): BlockEnum ={
+      val row = locationXY._1
+      val col = locationXY._2
+
+      if (row == 1 && col == 1){
+        SWC 
+      }else if (isEven(row) && (col == 0 || col == cols - 1)){
+        IOB
+      }else if(isEven(col) && (row == 0 || row == rows - 1)){
+        IOB
+      }else{
+        Empty
+      }
+    }
+
     // Description: getBlockConnectivity takes a string descriptor of a specific fpga block and then builds a
     // connectivity list for that specific fpga primitive. This method helps break up the complexity of the
     // assembleFPGA method.
-    def getBlockConnectivity(blockType : String): Connectivity = {
+    def getBlockConnectivity(block : BlockEnum): Connectivity = {
       val oddChannels  = (t : Track) => 1 + 2*t
       val evenChannels = (t : Track) => 2*t
 
-      blockType match{
-        case "Northwest Corner" =>{
+      block match{
+        case NWC =>{
           val toPathES = ("S",(t : Track ) => (21 - 2*t)%12)
           val northwestCornerES = defineConnectivity(("E", oddChannels), List(toPathES))
           val toPathSE = ("E",(t : Track ) => (20 - 2*t)%12)
@@ -48,15 +69,7 @@ package fpga{
           val blockConnectivity = northwestCornerES ++ northwestCornerSE 
           blockConnectivity
         }
-        case "Northeast Corner" =>{
-          val toPathSW = ("W",(t : Track ) => (3 + 2*t)%12)
-          val northeastCornerSW = defineConnectivity(("S", evenChannels), List(toPathSW))
-          val toPathWS = ("S",(t : Track ) => (11 + 2*t)%12)
-          val northeastCornerWS = defineConnectivity(("W", evenChannels), List(toPathWS))
-          val blockConnectivity = northeastCornerSW ++ northeastCornerWS
-          blockConnectivity
-        }
-        case "Southeast Corner" =>{
+        case SEC =>{
           val toPathNW = ("W",(t : Track ) => (13 - 2*t)%12)
           val southeastCornerNW = defineConnectivity(("N", oddChannels), List(toPathNW))
           val toPathWN = ("N",(t : Track ) => (12 - 2*t)%12)
@@ -64,7 +77,7 @@ package fpga{
           val blockConnectivity = southeastCornerNW ++ southeastCornerWN
           blockConnectivity
         }
-        case "Southwest Corner" =>{
+        case SWC =>{
           val toPathNE = ("E",(t : Track ) => (2 + 2*t)%12)
           val southwestCornerNE = defineConnectivity(("N", oddChannels), List(toPathNE))
           val toPathEN = ("N",(t : Track ) => (10 + 2*t)%12)
@@ -72,6 +85,14 @@ package fpga{
           val blockConnectivity = southwestCornerNE ++ southwestCornerEN
           blockConnectivity
         }
+        case NEC =>{
+          val toPathSW = ("W",(t : Track ) => (3 + 2*t)%12)
+          val northeastCornerSW = defineConnectivity(("S", evenChannels), List(toPathSW))
+          val toPathWS = ("S",(t : Track ) => (11 + 2*t)%12)
+          val northeastCornerWS = defineConnectivity(("W", evenChannels), List(toPathWS))
+          val blockConnectivity = northeastCornerSW ++ northeastCornerWS
+          blockConnectivity
+        }/*
         case "Perimeter North Switch Block" =>{
           val toPathES = ("S",oddChannels)
           val toPathEW = ("W",oddChannels)
@@ -204,23 +225,21 @@ package fpga{
           val westOutput = List((("W",1,false),List(0,1,2,3,4,5).map(t=>("E",t,false))))
           val blockConnectivity = eastInput ++ westInput ++ westOutput
           blockConnectivity
-        }
+        }*/
         case _ => List() // TODO change this to an exception.
       }
     }
 
-    def assembleFPGA(){
-      val internalSwitchConnectivity = getBlockConnectivity("Internal Switch Block")
 
-      // Define the primitive fpga block types (i.e. SwitchBlock, CLB etc.) based on the X,Y position 
-      // within the SRAM block hierarchy. All switches begin in the off state when the block objects are
-      // instantiated.
+    def assembleFPGA(){
       for (row <- 0 until rows){
         for (col <- 0 until cols){
-          var locationXY = (row, col)
-          locationXY match{
-            case (0,0) => new EmptyBlock(locationXY)
-            case (0,c) if c < cols - 1 => fpga(row)(col) = new SwitchBlock(locationXY, internalSwitchConnectivity)
+          val locationXY = (row, col)
+          val blockEnumeration = getBlockEnum(locationXY)
+          val blockConnectivity = getBlockConnectivity(blockEnumeration)
+
+          blockEnumeration match{
+            case SWC  => fpga(row)(col) = new SwitchBlock(locationXY, blockConnectivity)
             case _ => new EmptyBlock(locationXY) 
           }
         }
