@@ -3,8 +3,8 @@ package fpga{
     type BlockEnum = Value
     /* Fpga Block Enum mapping:
       ("Northeast Corner")                : NEC
-      ("Southwest Corner")                : SWC
       ("Southeast Corner")                : SEC
+      ("Southwest Corner")                : SWC
       ("Northwest Corner")                : NWC
 
       ("Perimeter North Connection Block"): PNCB
@@ -26,10 +26,10 @@ package fpga{
       ("Configurable Logic Block")        : CLB
       ("Input Ouput Logic Block")         : IOB */
 
-     val NEC, SWC, SEC, NWC,
+     val NEC, SEC, SWC, NWC,
       PNCB, PECB, PSCB, PWCB,
       PNSB, PESB, PSSB, PWSB,
-      INCB, IECN, ISCB, IWCB,
+      INCB, IECB, ISCB, IWCB,
       ISB, CLB, IOB, Empty = Value
   }
 }
