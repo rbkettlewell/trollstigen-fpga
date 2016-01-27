@@ -1,8 +1,10 @@
+import fpga.BlockEnum._
 import fpga.blocks.AnyBlock
 
 package fpga.blocks{
-  class CLB(locationXY: (Int,Int)) extends AnyBlock{
+  class CLB(locationXY: (Int,Int), pbEnum : BlockEnum) extends AnyBlock{
     val location = locationXY
+    val blockEnumeration = pbEnum
     var inputsEnable = Array.fill[Boolean](6)(false)
     var outputEnable = false
     var clockEnable  = false

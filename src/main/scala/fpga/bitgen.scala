@@ -67,9 +67,9 @@ package fpga{
         PSSB
       }else if ((0 < row && row < rows - 2) && col == 1 && isOdd(row)){
         PWSB
-      }else if (isOdd(row) && !isOdd(col) && (1 < row && row < rows - 3)){
+      }else if (isOdd(row) && !isOdd(col) && (1 < row && row < rows - 3) && (1 < col && col < cols - 3)){
         IVCB 
-      }else if (!isOdd(row) && isOdd(col) && (1 < col && col < cols - 3)){
+      }else if (!isOdd(row) && isOdd(col) && (1 < row && row < rows - 3) && (1 < col && col < cols - 3)){
         IHCB 
       }else if (isOdd(row) && isOdd(col) && (1 < col && col < cols - 3) && (1 < row && row < rows - 3)){
         ISB
@@ -260,6 +260,32 @@ package fpga{
       }
     }
 
+    def prettyPrint(printType : String): Unit = {
+      println
+      for (row <- rows - 1 to 0 by -1){
+        var fpgaRow = ""
+        for (col <- 0 until cols){
+          val block = fpga(row)(col)
+
+          if (printType == "Basic"){
+            block match{
+              case b : SwitchBlock     => fpgaRow = fpgaRow ++ " S "
+              case b : ConnectionBlock => fpgaRow = fpgaRow ++ " C "
+              case b : CLB             => fpgaRow = fpgaRow ++ " L "
+              case b : IOB             => fpgaRow = fpgaRow ++ " P "
+              case b : EmptyBlock      => fpgaRow = fpgaRow ++ " E "
+            }
+          }else if (printType == "Detailed"){
+              fpgaRow = fpgaRow ++ block.blockEnumeration.toString.take(3) ++ " " 
+          }else{
+            println("Invalid prettyPrint configuration parameter")
+          }
+        }
+        println(fpgaRow)
+      }
+      println
+    }
+
     def assembleFPGA(){
 
       for (row <- 0 until rows){
@@ -272,11 +298,11 @@ package fpga{
           val connectionBlocks = List(PNCB,PECB,PSCB,PWCB,IVCB,IHCB)
 
           blockEnumeration match{
-            case s if switchBlocks.exists(_==s)     => fpga(row)(col) = new SwitchBlock(locationXY, blockConnectivity)
-            case c if connectionBlocks.exists(_==c) => fpga(row)(col) = new ConnectionBlock(locationXY, blockConnectivity)
-            case CLB   => fpga(row)(col) = new CLB(locationXY)
-            case IOB   => fpga(row)(col) = new IOB(locationXY)
-            case Empty => fpga(row)(col) = new EmptyBlock(locationXY)
+            case s if switchBlocks.exists(_==s)     => fpga(row)(col) = new SwitchBlock(locationXY, blockEnumeration, blockConnectivity)
+            case c if connectionBlocks.exists(_==c) => fpga(row)(col) = new ConnectionBlock(locationXY, blockEnumeration, blockConnectivity)
+            case CLB   => fpga(row)(col) = new CLB(locationXY, blockEnumeration)
+            case IOB   => fpga(row)(col) = new IOB(locationXY, blockEnumeration)
+            case Empty => fpga(row)(col) = new EmptyBlock(locationXY, blockEnumeration)
           }
         }
       }
