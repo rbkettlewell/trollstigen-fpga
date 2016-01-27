@@ -7,8 +7,8 @@ package fpga{
     private val chanWidth = 12
     private val xTiles = 8
     private val yTiles = 16
-    private val rows = xTiles*2 + 3
-    private val cols = yTiles*2 + 3
+    private val cols = xTiles*2 + 3
+    private val rows = yTiles*2 + 3
 
     var fpga = Array.ofDim(rows, cols) : FPGABlocks
 
