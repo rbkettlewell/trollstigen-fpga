@@ -38,6 +38,7 @@ package fpga{
       pathConnectivity
     }
 
+    //Description: getBlockEnum defines the fpga block specialization based on location in the FPGA grid.
     def getBlockEnum(locationXY : (Int,Int)): BlockEnum ={
       val row = locationXY._1
       val col = locationXY._2
@@ -50,7 +51,33 @@ package fpga{
         SWC 
       }else if (row == rows - 2 && col == 1){
         NWC
-      }else if((row == 0 || row == rows - 1) && isOdd(col)){
+      }else if (row == rows - 2 && (col > 0 && col < cols - 2) && !isOdd(col)){
+        PNCB
+      }else if ((0 < row && row < rows - 2) && col == cols - 2 && !isOdd(row)){
+        PECB
+      }else if (row == 1 && (col > 0 && col < cols - 1) && !isOdd(col)){
+        PSCB
+      }else if ((0 < row && row < rows - 1) && col == 1 && !isOdd(row)){
+        PWCB
+      }else if((row == rows - 2) && (col > 0 && col < cols - 2) && isOdd(col)){
+        PNSB
+      }else if ((0 < row && row < rows - 2) && col == cols - 2 && isOdd(row)){
+        PESB
+      }else if (row == 1 && (col > 0 && col < cols - 2) && isOdd(col)){
+        PSSB
+      }else if ((0 < row && row < rows - 2) && col == 1 && isOdd(row)){
+        PWSB
+      }else if (isOdd(row) && !isOdd(col) && (1 < row && row < rows - 3)){
+        IVCB 
+      }else if (!isOdd(row) && isOdd(col) && (1 < col && col < cols - 3)){
+        IHCB 
+      }else if (isOdd(row) && isOdd(col) && (1 < col && col < cols - 3) && (1 < row && row < rows - 3)){
+        ISB
+      }else if (!isOdd(row) && !isOdd(col) && (1 < col && col < cols - 3) && (1 < row && row < rows - 3)){
+        CLB
+      }else if((row == 0 || row == rows - 1) && (0 < col && col < cols - 1) && !isOdd(col)){
+        IOB
+      }else if((col == 0 || col == cols - 1) && (0 < row && row < rows - 1) && !isOdd(row)){
         IOB
       }else{
         Empty
@@ -191,38 +218,21 @@ package fpga{
           val blockConnectivity = switchBlockNorth ++ switchBlockEast ++ switchBlockSouth
           blockConnectivity
         }
-        //("Internal North Connection Block") : INCB
-        case INCB =>{
-          val northInput  = List(2,3,8,9).map(t => (("S",t,false),List(("N",2,false))))
-          val northOutput = List((("N",6,false),List(6,7,8,9).map(t=>("S",t,false))))
-          val southInputZero = List(0,1,6,7).map(t => (("N",t,false),List(("S",0,false))))
-          val southInputFour = List(4,5,10,11).map(t => (("N",t,false),List(("S",4,false))))
-          val blockConnectivity = northInput ++ northOutput ++ southInputZero ++ southInputFour
-          blockConnectivity
-        }
-        //("Internal East Connection Block")  : IECB
-        case IECB =>{
+        //("Internal Horizontal Connection Block")  : IECB
+        case IHCB =>{
           val eastInput  = List(2,3,8,9).map(t => (("W",t,false),List(("E",3,false))))
           val westInputOne  = List(0,1,6,7).map(t => (("E",t,false),List(("W",1,false))))
           val westInputFive = List(4,5,10,11).map(t => (("E",t,false),List(("W",5,false))))
           val blockConnectivity = eastInput ++ westInputOne ++ westInputFive
           blockConnectivity
         }
-        //("Internal South Connection Block") : ISCB
-        case ISCB =>{
+        //("Internal Vertical Connection Block") : ISCB
+        case IVCB =>{
           val northInput  = List(2,3,8,9).map(t => (("S",t,false),List(("N",2,false))))
           val northOutput = List((("N",6,false),List(6,7,8,9).map(t=>("S",t,false))))
           val southInputZero = List(0,1,6,7).map(t => (("N",t,false),List(("S",0,false))))
           val southInputFour = List(4,5,10,11).map(t => (("N",t,false),List(("S",4,false))))
           val blockConnectivity = northInput ++ northOutput ++ southInputZero ++ southInputFour
-          blockConnectivity
-        }
-        //("Internal West Connection Block")  : IWCB
-        case IWCB =>{
-          val eastInput  = List(2,3,8,9).map(t => (("W",t,false),List(("E",3,false))))
-          val westInputOne  = List(0,1,6,7).map(t => (("E",t,false),List(("W",1,false))))
-          val westInputFive = List(4,5,10,11).map(t => (("E",t,false),List(("W",5,false))))
-          val blockConnectivity = eastInput ++ westInputOne ++ westInputFive
           blockConnectivity
         }
         //("Internal Switch Block")           : ISB
@@ -251,15 +261,22 @@ package fpga{
     }
 
     def assembleFPGA(){
+
       for (row <- 0 until rows){
         for (col <- 0 until cols){
+
           val locationXY = (row, col)
           val blockEnumeration = getBlockEnum(locationXY)
           val blockConnectivity = getBlockConnectivity(blockEnumeration)
+          val switchBlocks = List(NEC,SEC,SWC,NWC,PNSB,PESB,PSSB,PWSB,ISB)
+          val connectionBlocks = List(PNCB,PECB,PSCB,PWCB,IVCB,IHCB)
 
           blockEnumeration match{
-            case SWC  => fpga(row)(col) = new SwitchBlock(locationXY, blockConnectivity)
-            case _ => new EmptyBlock(locationXY) 
+            case s if switchBlocks.exists(_==s)     => fpga(row)(col) = new SwitchBlock(locationXY, blockConnectivity)
+            case c if connectionBlocks.exists(_==c) => fpga(row)(col) = new ConnectionBlock(locationXY, blockConnectivity)
+            case CLB   => fpga(row)(col) = new CLB(locationXY)
+            case IOB   => fpga(row)(col) = new IOB(locationXY)
+            case Empty => fpga(row)(col) = new EmptyBlock(locationXY)
           }
         }
       }

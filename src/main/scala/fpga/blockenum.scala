@@ -17,10 +17,8 @@ package fpga{
       ("Perimeter South Switch Block")    : PSSB
       ("Perimeter West Switch Block")     : PWSB
 
-      ("Internal North Connection Block") : INCB
-      ("Internal East Connection Block")  : IECB
-      ("Internal South Connection Block") : ISCB
-      ("Internal West Connection Block")  : IWCB
+      ("Internal Vertical Connection Block")    : IVCB
+      ("Internal Horizontal Connection Block")  : IHCB
 
       ("Internal Switch Block")           : ISB
       ("Configurable Logic Block")        : CLB
@@ -29,7 +27,7 @@ package fpga{
      val NEC, SEC, SWC, NWC,
       PNCB, PECB, PSCB, PWCB,
       PNSB, PESB, PSSB, PWSB,
-      INCB, IECB, ISCB, IWCB,
+      IVCB, IHCB, 
       ISB, CLB, IOB, Empty = Value
   }
 }
