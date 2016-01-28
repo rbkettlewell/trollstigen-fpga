@@ -1,16 +1,23 @@
 import fpga.Types._
 import fpga.BlockEnum._
 import fpga.blocks._
+import fpga.parsers._
 
 package fpga{
-  class Bitgen{
+  class Bitgen(synthesisFiles : List[String]){
     private val chanWidth = 12
     private val xTiles = 8
     private val yTiles = 16
     private val cols = xTiles*2 + 3
     private val rows = yTiles*2 + 3
+    private val blifFile  = synthesisFiles(0)
+    private val netFile   = synthesisFiles(1)
+    private val placeFile = synthesisFiles(3)
+    private val routeFile = synthesisFiles(3) //TODO Fix the broken file extension finder, add error detection
 
     var fpga = Array.ofDim(rows, cols) : FPGABlocks
+
+    var place = new PlaceParser(placeFile)
 
     def isOdd(num : Int): Boolean = {
       val oddTrue = num%2 == 1
@@ -37,6 +44,7 @@ package fpga{
       val pathConnectivity = List.range(0,chanWidth/2).map(i => (fromPaths(i), toPathConections.map(toPath => toPath(i))))
       pathConnectivity
     }
+
 
     //Description: getBlockEnum defines the fpga block specialization based on location in the FPGA grid.
     def getBlockEnum(locationXY : (Int,Int)): BlockEnum ={
