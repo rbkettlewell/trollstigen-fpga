@@ -7,7 +7,8 @@ Installation Requirements:
 2) sbt
 
 Compilation Instructions:
-To compile the source enter the following in a bash terminal at this level top level directory: sbt run
+To compile the source enter the following in a bash terminal at this level top level directory: 
+sbt "run <path to synthesis files>"
 
 FPGA Block Organization Display for 8X16 CLB Device:
 
