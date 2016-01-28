@@ -7,9 +7,14 @@ package fpga.blocks{
     val location = locationXY
     val blockEnumeration = pbEnum
     var switches = switchConnectivity
-  }
-  object SwitchBlock{
+
     def setSwitch(fromSegment : Segment , toSegment : Segment){
+
+    }
+    override def toString(): String = {
+      val pbStart = "Block: " ++ blockEnumeration.toString ++ "\n"
+      val allPaths = switches.map(p => ("From: " ++ p._1.toString ++ ", To: " ++ p._2.mkString(",") ++"\n"))
+      pbStart ++ allPaths.mkString("") 
     }
   }
 }

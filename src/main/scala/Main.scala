@@ -16,6 +16,6 @@ object Main {
     bitstream.prettyPrint("Detailed")
     println(bitstream.place.getPlacement)
 
-    println("My switch block data is "+ bitstream.fpga(1)(1).asInstanceOf[SwitchBlock].switches(0))
+    println("My switch block data is \n"+ bitstream.fpga(1)(1).asInstanceOf[SwitchBlock].toString)
   }
 }
