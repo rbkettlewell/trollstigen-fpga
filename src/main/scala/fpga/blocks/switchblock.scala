@@ -8,4 +8,8 @@ package fpga.blocks{
     val blockEnumeration = pbEnum
     var switches = switchConnectivity
   }
+  object SwitchBlock{
+    def setSwitch(fromSegment : Segment , toSegment : Segment){
+    }
+  }
 }
