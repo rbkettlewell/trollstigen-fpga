@@ -1,5 +1,4 @@
 import fpga.BlockEnum._
-import fpga.blocks.AnyBlock
 
 package fpga.blocks{
   class CLB(locationXY: (Int,Int), pbEnum : BlockEnum) extends AnyBlock{

@@ -301,7 +301,7 @@ package fpga{
 
           val locationXY = (row, col)
           val blockEnumeration = getBlockEnum(locationXY)
-          val blockConnectivity = getBlockConnectivity(blockEnumeration)
+          var blockConnectivity = getBlockConnectivity(blockEnumeration)
           val switchBlocks = List(NEC,SEC,SWC,NWC,PNSB,PESB,PSSB,PWSB,ISB)
           val connectionBlocks = List(PNCB,PECB,PSCB,PWCB,IVCB,IHCB)
 
