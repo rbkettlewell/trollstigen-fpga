@@ -16,5 +16,7 @@ package fpga{
     type Subblock  = Int
     type PlaceInfo = (BlockName, LocationXY, Subblock)
     type Placement = List[PlaceInfo]
+    type Route = (LocationXY, Segment, Segment)
+    type Routes = Array[Route]
   }
 }

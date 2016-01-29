@@ -18,6 +18,8 @@ package fpga{
     var fpga = Array.ofDim(rows, cols) : FPGABlocks
 
     var place = new PlaceParser(placeFile)
+    
+    var route = new RouteParser(routeFile)
 
     def isOdd(num : Int): Boolean = {
       val oddTrue = num%2 == 1
@@ -75,13 +77,13 @@ package fpga{
         PSSB
       }else if ((0 < row && row < rows - 2) && col == 1 && isOdd(row)){
         PWSB
-      }else if (isOdd(row) && !isOdd(col) && (1 < row && row < rows - 3) && (1 < col && col < cols - 3)){
+      }else if (isOdd(row) && !isOdd(col) && (1 < row && row < rows - 2) && (1 < col && col < cols - 2)){
         IVCB 
-      }else if (!isOdd(row) && isOdd(col) && (1 < row && row < rows - 3) && (1 < col && col < cols - 3)){
+      }else if (!isOdd(row) && isOdd(col) && (1 < row && row < rows - 2) && (1 < col && col < cols - 2)){
         IHCB 
-      }else if (isOdd(row) && isOdd(col) && (1 < col && col < cols - 3) && (1 < row && row < rows - 3)){
+      }else if (isOdd(row) && isOdd(col) && (1 < col && col < cols - 2) && (1 < row && row < rows - 2)){
         ISB
-      }else if (!isOdd(row) && !isOdd(col) && (1 < col && col < cols - 3) && (1 < row && row < rows - 3)){
+      }else if (!isOdd(row) && !isOdd(col) && (1 < col && col < cols - 2) && (1 < row && row < rows - 2)){
         CLB
       }else if((row == 0 || row == rows - 1) && (0 < col && col < cols - 1) && !isOdd(col)){
         IOB
@@ -158,7 +160,7 @@ package fpga{
           val northInput  = Array(2,3,8,9).map(t => (("S",t,false),Array(("N",2,false))))
           val northOutput = Array((("N",6,false),Array(6,7,8,9).map(t=>("S",t,false))))
           val southInput  = Array(0,1,4,5,8,9).map(t => (("N",t,false),Array(("S",0,false))))
-          val southOutput = Array((("S",1,false),Array(0,1,2,3,4,5).map(t=>("S",t,false))))
+          val southOutput = Array((("S",1,false),Array(0,1,2,3,4,5).map(t=>("N",t,false))))
           val blockConnectivity = northInput ++ northOutput ++ southInput ++ southOutput
           blockConnectivity
         }
@@ -301,7 +303,7 @@ package fpga{
 
           val locationXY = (row, col)
           val blockEnumeration = getBlockEnum(locationXY)
-          var blockConnectivity = getBlockConnectivity(blockEnumeration)
+          val blockConnectivity = getBlockConnectivity(blockEnumeration)
           val switchBlocks = List(NEC,SEC,SWC,NWC,PNSB,PESB,PSSB,PWSB,ISB)
           val connectionBlocks = List(PNCB,PECB,PSCB,PWCB,IVCB,IHCB)
 

@@ -11,16 +11,24 @@ package fpga.blocks{
     var blockBits = Array.fill(BlockSize){"0"}
 
     def setSwitch(fromSegment : Segment , toSegment : Segment){
-      for(i<- 0 until switches.length){
-        val startPath = switches(i)
-        if(startPath._1 == fromSegment){
-          for(j <- 0 until startPath._2.length){
-            val endSegment = startPath._2(j)
-            if(endSegment == toSegment){
-              switches(i)._2(j) = (endSegment._1, endSegment._2, true)
+      var switchFound = false
+      try{
+        for(i<- 0 until switches.length){
+          val startPath = switches(i)
+          if(startPath._1 == fromSegment){
+            for(j <- 0 until startPath._2.length){
+              val endSegment = startPath._2(j)
+              if(endSegment == toSegment){
+                switches(i)._2(j) = (endSegment._1, endSegment._2, true)
+                switchFound = true
+              }
             }
           }
         }
+        if(!switchFound)
+          throw new IllegalStateException("Invalid switch connection: " ++ fromSegment.toString ++" -> " ++ toSegment.toString)
+      }catch{
+        case e: Exception => println("Exception caught: " + e);
       }
     }
 
