@@ -91,9 +91,20 @@ package fpga.parsers{
     def parse(filename : String): Routes = {
       val lines = Source.fromFile(filename).getLines().drop(StartLine - 1)
       var routes : Routes = Array()
+      var nodes : Array[RouteInfo] = Array()
       for(line <- lines){
-        if(line.contains("Net")){
-          println(line)
+        if(line.contains("Node:")){
+          val node = line.split("[^\\w']+")
+          // Example node data: Array(Node, 528, OPIN, 2, 10, Pin, 6, clb, O, 0)
+          nodes = nodes ++ Array(((node(3).toInt ,node(4).toInt),node(2),node(6).toInt))
+        }
+      }
+      for(i <- 0 until nodes.length - 1){
+        val start = nodes(i)
+        val end = nodes(i+1)
+        if(start._2 != "SOURCE" && start._2 != "SINK"){
+          if(end._2 != "SOURCE" && end._2 != "SINK")
+            routes = routes ++ Array(getRoute(start,end))
         }
       }
       routes

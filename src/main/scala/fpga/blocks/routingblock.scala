@@ -26,7 +26,8 @@ package fpga.blocks{
           }
         }
         if(!switchFound)
-          throw new IllegalStateException("Invalid switch connection: " ++ fromSegment.toString ++" -> " ++ toSegment.toString)
+          throw new IllegalStateException("Invalid " ++ blockEnumeration.toString ++ " connection at : " ++ 
+            location.toString ++ " " ++ fromSegment.toString ++" -> " ++ toSegment.toString)
       }catch{
         case e: Exception => println("Exception caught: " + e);
       }

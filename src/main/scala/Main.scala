@@ -13,13 +13,11 @@ object Main {
     var bitstream = new Bitgen(synthesisFiles)
 
     bitstream.assembleFPGA
+    bitstream.configureFPGA
     bitstream.prettyPrint("Detailed")
-    println(bitstream.place.getPlacement)
-
-    println("My switch block data is \n"+ bitstream.fpga(1)(12).asInstanceOf[ConnectionBlock].toString)
-    bitstream.fpga(1)(1).asInstanceOf[SwitchBlock].setSwitch(("N",9,false),("E",10,false))
-    println("My modified switch block data is \n"+ bitstream.fpga(1)(1).asInstanceOf[SwitchBlock].toString)
-    bitstream.fpga(1)(1).asInstanceOf[SwitchBlock].setBits
-    println("Block programming bits:\n" ++ bitstream.fpga(1)(1).asInstanceOf[SwitchBlock].getBits)
+    
+    println("My switch block data is \n"+ bitstream.fpga(1)(14).asInstanceOf[ConnectionBlock].toString)
+    println("Block programming bits:\n" ++ bitstream.fpga(1)(14).asInstanceOf[ConnectionBlock].getBits)
+    println("Routing Connections:\n" ++ bitstream.route.routing.mkString("\n"))
   }
 }

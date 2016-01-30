@@ -270,6 +270,41 @@ package fpga{
       }
     }
 
+    // Description: This method sequentially reads all the routing node connections and sets the specific block
+    // switches accordingly.
+    def configureRouting(){
+      //Set all the transmission gate values
+      route.routing.foreach{r =>
+        // Note: The vpr coordinate notation is (X,Y) where we define X => column and Y => row
+        val col = r._1._1
+        val row = r._1._2
+        var block = fpga(row)(col)
+          block match{
+            case b : SwitchBlock     => fpga(row)(col).asInstanceOf[SwitchBlock].setSwitch(r._2,r._3)
+            case b : ConnectionBlock => fpga(row)(col).asInstanceOf[ConnectionBlock].setSwitch(r._2,r._3)
+          }
+      }
+    }
+
+    def configureFPGA(){
+
+      configureRouting()
+
+      for (row <- 0 until rows){
+        for (col <- 0 until cols){
+          val block = fpga(row)(col)
+          block match{
+            case b : SwitchBlock     => fpga(row)(col).asInstanceOf[SwitchBlock].setBits
+            case b : ConnectionBlock => fpga(row)(col).asInstanceOf[ConnectionBlock].setBits
+            case b : CLB             =>
+            case b : IOB             =>
+            case b : EmptyBlock      =>
+          }
+        }
+      }
+    }
+
+
     def prettyPrint(printType : String): Unit = {
       println
       for (row <- rows - 1 to 0 by -1){
