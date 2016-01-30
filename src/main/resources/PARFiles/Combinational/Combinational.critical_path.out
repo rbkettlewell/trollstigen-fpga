@@ -1,0 +1,512 @@
+Node: 380  TN_INPAD_SOURCE Block #33 (top^io_x~0)
+Pin: inpad.inpad[0] pb (top^io_x~0)T_arr: 0  T_req: -9.08518e-09  Tdel: 0
+Internal Net: #0 (top^io_x~0).  Pins on net: 3.
+
+Node: 379  TN_INPAD_OPIN Block #33 (top^io_x~0)
+Pin: inpad.inpad[0] pb (top^io_x~0)
+T_arr: 0  T_req: -9.08518e-09  Tdel: 9.492e-11
+Internal Net: #0 (top^io_x~0).  Pins on net: 3.
+
+Node: 378  TN_CB_OPIN Block #33 (top^io_x~0)
+Pin: io.inpad[0] pb (top^io_x~0)
+T_arr: 9.492e-11  T_req: -8.99026e-09  Tdel: 2.98331e-10
+External-to-Block Net: #46 (top^io_x~0).  Pins on net: 3.
+
+Node: 180  TN_CB_IPIN Block #15 (top^ADD~0^CARRY_FUNC~18)
+Pin: clb.I[0] pb (top^ADD~0^CARRY_FUNC~18)
+T_arr: 3.93251e-10  T_req: -8.69193e-09  Tdel: 0
+Internal Net: #0 (top^io_x~0).  Pins on net: 3.
+
+Node: 184  TN_INTERMEDIATE_NODE Block #15 (top^ADD~0^CARRY_FUNC~18)
+Pin: lut6.in[0] pb (top^ADD~0^CARRY_FUNC~18)
+T_arr: 3.93251e-10  T_req: -8.69193e-09  Tdel: 0
+Internal Net: #0 (top^io_x~0).  Pins on net: 3.
+
+Node: 188  TN_PRIMITIVE_IPIN Block #15 (top^ADD~0^CARRY_FUNC~18)
+Pin: lut.in[0] pb (top^ADD~0^CARRY_FUNC~18)
+T_arr: 3.93251e-10  T_req: -8.69193e-09  Tdel: 1.679e-10
+Internal Net: #0 (top^io_x~0).  Pins on net: 3.
+
+Node: 191  TN_PRIMITIVE_OPIN Block #15 (top^ADD~0^CARRY_FUNC~18)
+Pin: lut.out[0] pb (top^ADD~0^CARRY_FUNC~18)
+T_arr: 5.61151e-10  T_req: -8.52403e-09  Tdel: 0
+Internal Net: #34 (top^ADD~0^CARRY_FUNC~18).  Pins on net: 3.
+
+Node: 187  TN_INTERMEDIATE_NODE Block #15 (top^ADD~0^CARRY_FUNC~18)
+Pin: lut6.out[0] pb (top^ADD~0^CARRY_FUNC~18)
+T_arr: 5.61151e-10  T_req: -8.52403e-09  Tdel: 0
+Internal Net: #34 (top^ADD~0^CARRY_FUNC~18).  Pins on net: 3.
+
+Node: 183  TN_CB_OPIN Block #15 (top^ADD~0^CARRY_FUNC~18)
+Pin: clb.O[0] pb (top^ADD~0^CARRY_FUNC~18)
+T_arr: 5.61151e-10  T_req: -8.52403e-09  Tdel: 3.73618e-10
+External-to-Block Net: #45 (top^ADD~0^CARRY_FUNC~18).  Pins on net: 3.
+
+Node: 170  TN_CB_IPIN Block #14 (top^ADD~0^CARRY_FUNC~20)
+Pin: clb.I[2] pb (top^ADD~0^CARRY_FUNC~20)
+T_arr: 9.3477e-10  T_req: -8.15041e-09  Tdel: 0
+Internal Net: #34 (top^ADD~0^CARRY_FUNC~18).  Pins on net: 3.
+
+Node: 174  TN_INTERMEDIATE_NODE Block #14 (top^ADD~0^CARRY_FUNC~20)
+Pin: lut6.in[2] pb (top^ADD~0^CARRY_FUNC~20)
+T_arr: 9.3477e-10  T_req: -8.15041e-09  Tdel: 0
+Internal Net: #34 (top^ADD~0^CARRY_FUNC~18).  Pins on net: 3.
+
+Node: 178  TN_PRIMITIVE_IPIN Block #14 (top^ADD~0^CARRY_FUNC~20)
+Pin: lut.in[2] pb (top^ADD~0^CARRY_FUNC~20)
+T_arr: 9.3477e-10  T_req: -8.15041e-09  Tdel: 1.679e-10
+Internal Net: #34 (top^ADD~0^CARRY_FUNC~18).  Pins on net: 3.
+
+Node: 179  TN_PRIMITIVE_OPIN Block #14 (top^ADD~0^CARRY_FUNC~20)
+Pin: lut.out[0] pb (top^ADD~0^CARRY_FUNC~20)
+T_arr: 1.10267e-09  T_req: -7.98251e-09  Tdel: 0
+Internal Net: #36 (top^ADD~0^CARRY_FUNC~20).  Pins on net: 3.
+
+Node: 175  TN_INTERMEDIATE_NODE Block #14 (top^ADD~0^CARRY_FUNC~20)
+Pin: lut6.out[0] pb (top^ADD~0^CARRY_FUNC~20)
+T_arr: 1.10267e-09  T_req: -7.98251e-09  Tdel: 0
+Internal Net: #36 (top^ADD~0^CARRY_FUNC~20).  Pins on net: 3.
+
+Node: 171  TN_CB_OPIN Block #14 (top^ADD~0^CARRY_FUNC~20)
+Pin: clb.O[0] pb (top^ADD~0^CARRY_FUNC~20)
+T_arr: 1.10267e-09  T_req: -7.98251e-09  Tdel: 4.4979e-10
+External-to-Block Net: #42 (top^ADD~0^CARRY_FUNC~20).  Pins on net: 3.
+
+Node: 158  TN_CB_IPIN Block #13 (top^ADD~0^CARRY_FUNC~22)
+Pin: clb.I[2] pb (top^ADD~0^CARRY_FUNC~22)
+T_arr: 1.55246e-09  T_req: -7.53272e-09  Tdel: 0
+Internal Net: #36 (top^ADD~0^CARRY_FUNC~20).  Pins on net: 3.
+
+Node: 162  TN_INTERMEDIATE_NODE Block #13 (top^ADD~0^CARRY_FUNC~22)
+Pin: lut6.in[2] pb (top^ADD~0^CARRY_FUNC~22)
+T_arr: 1.55246e-09  T_req: -7.53272e-09  Tdel: 0
+Internal Net: #36 (top^ADD~0^CARRY_FUNC~20).  Pins on net: 3.
+
+Node: 166  TN_PRIMITIVE_IPIN Block #13 (top^ADD~0^CARRY_FUNC~22)
+Pin: lut.in[2] pb (top^ADD~0^CARRY_FUNC~22)
+T_arr: 1.55246e-09  T_req: -7.53272e-09  Tdel: 1.679e-10
+Internal Net: #36 (top^ADD~0^CARRY_FUNC~20).  Pins on net: 3.
+
+Node: 167  TN_PRIMITIVE_OPIN Block #13 (top^ADD~0^CARRY_FUNC~22)
+Pin: lut.out[0] pb (top^ADD~0^CARRY_FUNC~22)
+T_arr: 1.72036e-09  T_req: -7.36482e-09  Tdel: 0
+Internal Net: #38 (top^ADD~0^CARRY_FUNC~22).  Pins on net: 3.
+
+Node: 163  TN_INTERMEDIATE_NODE Block #13 (top^ADD~0^CARRY_FUNC~22)
+Pin: lut6.out[0] pb (top^ADD~0^CARRY_FUNC~22)
+T_arr: 1.72036e-09  T_req: -7.36482e-09  Tdel: 0
+Internal Net: #38 (top^ADD~0^CARRY_FUNC~22).  Pins on net: 3.
+
+Node: 159  TN_CB_OPIN Block #13 (top^ADD~0^CARRY_FUNC~22)
+Pin: clb.O[0] pb (top^ADD~0^CARRY_FUNC~22)
+T_arr: 1.72036e-09  T_req: -7.36482e-09  Tdel: 2.23044e-10
+External-to-Block Net: #39 (top^ADD~0^CARRY_FUNC~22).  Pins on net: 3.
+
+Node: 146  TN_CB_IPIN Block #12 (top^ADD~0^CARRY_FUNC~24)
+Pin: clb.I[2] pb (top^ADD~0^CARRY_FUNC~24)
+T_arr: 1.9434e-09  T_req: -7.14178e-09  Tdel: 0
+Internal Net: #38 (top^ADD~0^CARRY_FUNC~22).  Pins on net: 3.
+
+Node: 150  TN_INTERMEDIATE_NODE Block #12 (top^ADD~0^CARRY_FUNC~24)
+Pin: lut6.in[2] pb (top^ADD~0^CARRY_FUNC~24)
+T_arr: 1.9434e-09  T_req: -7.14178e-09  Tdel: 0
+Internal Net: #38 (top^ADD~0^CARRY_FUNC~22).  Pins on net: 3.
+
+Node: 154  TN_PRIMITIVE_IPIN Block #12 (top^ADD~0^CARRY_FUNC~24)
+Pin: lut.in[2] pb (top^ADD~0^CARRY_FUNC~24)
+T_arr: 1.9434e-09  T_req: -7.14178e-09  Tdel: 1.679e-10
+Internal Net: #38 (top^ADD~0^CARRY_FUNC~22).  Pins on net: 3.
+
+Node: 155  TN_PRIMITIVE_OPIN Block #12 (top^ADD~0^CARRY_FUNC~24)
+Pin: lut.out[0] pb (top^ADD~0^CARRY_FUNC~24)
+T_arr: 2.1113e-09  T_req: -6.97388e-09  Tdel: 0
+Internal Net: #40 (top^ADD~0^CARRY_FUNC~24).  Pins on net: 3.
+
+Node: 151  TN_INTERMEDIATE_NODE Block #12 (top^ADD~0^CARRY_FUNC~24)
+Pin: lut6.out[0] pb (top^ADD~0^CARRY_FUNC~24)
+T_arr: 2.1113e-09  T_req: -6.97388e-09  Tdel: 0
+Internal Net: #40 (top^ADD~0^CARRY_FUNC~24).  Pins on net: 3.
+
+Node: 147  TN_CB_OPIN Block #12 (top^ADD~0^CARRY_FUNC~24)
+Pin: clb.O[0] pb (top^ADD~0^CARRY_FUNC~24)
+T_arr: 2.1113e-09  T_req: -6.97388e-09  Tdel: 9.75915e-10
+External-to-Block Net: #36 (top^ADD~0^CARRY_FUNC~24).  Pins on net: 3.
+
+Node: 134  TN_CB_IPIN Block #11 (top^ADD~0^CARRY_FUNC~26)
+Pin: clb.I[2] pb (top^ADD~0^CARRY_FUNC~26)
+T_arr: 3.08722e-09  T_req: -5.99796e-09  Tdel: 0
+Internal Net: #40 (top^ADD~0^CARRY_FUNC~24).  Pins on net: 3.
+
+Node: 138  TN_INTERMEDIATE_NODE Block #11 (top^ADD~0^CARRY_FUNC~26)
+Pin: lut6.in[2] pb (top^ADD~0^CARRY_FUNC~26)
+T_arr: 3.08722e-09  T_req: -5.99796e-09  Tdel: 0
+Internal Net: #40 (top^ADD~0^CARRY_FUNC~24).  Pins on net: 3.
+
+Node: 142  TN_PRIMITIVE_IPIN Block #11 (top^ADD~0^CARRY_FUNC~26)
+Pin: lut.in[2] pb (top^ADD~0^CARRY_FUNC~26)
+T_arr: 3.08722e-09  T_req: -5.99796e-09  Tdel: 1.679e-10
+Internal Net: #40 (top^ADD~0^CARRY_FUNC~24).  Pins on net: 3.
+
+Node: 143  TN_PRIMITIVE_OPIN Block #11 (top^ADD~0^CARRY_FUNC~26)
+Pin: lut.out[0] pb (top^ADD~0^CARRY_FUNC~26)
+T_arr: 3.25512e-09  T_req: -5.83006e-09  Tdel: 0
+Internal Net: #42 (top^ADD~0^CARRY_FUNC~26).  Pins on net: 3.
+
+Node: 139  TN_INTERMEDIATE_NODE Block #11 (top^ADD~0^CARRY_FUNC~26)
+Pin: lut6.out[0] pb (top^ADD~0^CARRY_FUNC~26)
+T_arr: 3.25512e-09  T_req: -5.83006e-09  Tdel: 0
+Internal Net: #42 (top^ADD~0^CARRY_FUNC~26).  Pins on net: 3.
+
+Node: 135  TN_CB_OPIN Block #11 (top^ADD~0^CARRY_FUNC~26)
+Pin: clb.O[0] pb (top^ADD~0^CARRY_FUNC~26)
+T_arr: 3.25512e-09  T_req: -5.83006e-09  Tdel: 2.23044e-10
+External-to-Block Net: #33 (top^ADD~0^CARRY_FUNC~26).  Pins on net: 3.
+
+Node: 122  TN_CB_IPIN Block #10 (top^ADD~0^CARRY_FUNC~28)
+Pin: clb.I[2] pb (top^ADD~0^CARRY_FUNC~28)
+T_arr: 3.47816e-09  T_req: -5.60702e-09  Tdel: 0
+Internal Net: #42 (top^ADD~0^CARRY_FUNC~26).  Pins on net: 3.
+
+Node: 126  TN_INTERMEDIATE_NODE Block #10 (top^ADD~0^CARRY_FUNC~28)
+Pin: lut6.in[2] pb (top^ADD~0^CARRY_FUNC~28)
+T_arr: 3.47816e-09  T_req: -5.60702e-09  Tdel: 0
+Internal Net: #42 (top^ADD~0^CARRY_FUNC~26).  Pins on net: 3.
+
+Node: 130  TN_PRIMITIVE_IPIN Block #10 (top^ADD~0^CARRY_FUNC~28)
+Pin: lut.in[2] pb (top^ADD~0^CARRY_FUNC~28)
+T_arr: 3.47816e-09  T_req: -5.60702e-09  Tdel: 1.679e-10
+Internal Net: #42 (top^ADD~0^CARRY_FUNC~26).  Pins on net: 3.
+
+Node: 131  TN_PRIMITIVE_OPIN Block #10 (top^ADD~0^CARRY_FUNC~28)
+Pin: lut.out[0] pb (top^ADD~0^CARRY_FUNC~28)
+T_arr: 3.64606e-09  T_req: -5.43912e-09  Tdel: 0
+Internal Net: #44 (top^ADD~0^CARRY_FUNC~28).  Pins on net: 3.
+
+Node: 127  TN_INTERMEDIATE_NODE Block #10 (top^ADD~0^CARRY_FUNC~28)
+Pin: lut6.out[0] pb (top^ADD~0^CARRY_FUNC~28)
+T_arr: 3.64606e-09  T_req: -5.43912e-09  Tdel: 0
+Internal Net: #44 (top^ADD~0^CARRY_FUNC~28).  Pins on net: 3.
+
+Node: 123  TN_CB_OPIN Block #10 (top^ADD~0^CARRY_FUNC~28)
+Pin: clb.O[0] pb (top^ADD~0^CARRY_FUNC~28)
+T_arr: 3.64606e-09  T_req: -5.43912e-09  Tdel: 2.98331e-10
+External-to-Block Net: #30 (top^ADD~0^CARRY_FUNC~28).  Pins on net: 3.
+
+Node: 110  TN_CB_IPIN Block #9 (top^ADD~0^CARRY_FUNC~30)
+Pin: clb.I[2] pb (top^ADD~0^CARRY_FUNC~30)
+T_arr: 3.94439e-09  T_req: -5.14079e-09  Tdel: 0
+Internal Net: #44 (top^ADD~0^CARRY_FUNC~28).  Pins on net: 3.
+
+Node: 114  TN_INTERMEDIATE_NODE Block #9 (top^ADD~0^CARRY_FUNC~30)
+Pin: lut6.in[2] pb (top^ADD~0^CARRY_FUNC~30)
+T_arr: 3.94439e-09  T_req: -5.14079e-09  Tdel: 0
+Internal Net: #44 (top^ADD~0^CARRY_FUNC~28).  Pins on net: 3.
+
+Node: 118  TN_PRIMITIVE_IPIN Block #9 (top^ADD~0^CARRY_FUNC~30)
+Pin: lut.in[2] pb (top^ADD~0^CARRY_FUNC~30)
+T_arr: 3.94439e-09  T_req: -5.14079e-09  Tdel: 1.679e-10
+Internal Net: #44 (top^ADD~0^CARRY_FUNC~28).  Pins on net: 3.
+
+Node: 119  TN_PRIMITIVE_OPIN Block #9 (top^ADD~0^CARRY_FUNC~30)
+Pin: lut.out[0] pb (top^ADD~0^CARRY_FUNC~30)
+T_arr: 4.11229e-09  T_req: -4.97289e-09  Tdel: 0
+Internal Net: #46 (top^ADD~0^CARRY_FUNC~30).  Pins on net: 3.
+
+Node: 115  TN_INTERMEDIATE_NODE Block #9 (top^ADD~0^CARRY_FUNC~30)
+Pin: lut6.out[0] pb (top^ADD~0^CARRY_FUNC~30)
+T_arr: 4.11229e-09  T_req: -4.97289e-09  Tdel: 0
+Internal Net: #46 (top^ADD~0^CARRY_FUNC~30).  Pins on net: 3.
+
+Node: 111  TN_CB_OPIN Block #9 (top^ADD~0^CARRY_FUNC~30)
+Pin: clb.O[0] pb (top^ADD~0^CARRY_FUNC~30)
+T_arr: 4.11229e-09  T_req: -4.97289e-09  Tdel: 2.23044e-10
+External-to-Block Net: #27 (top^ADD~0^CARRY_FUNC~30).  Pins on net: 3.
+
+Node: 98  TN_CB_IPIN Block #8 (top^ADD~0^CARRY_FUNC~32)
+Pin: clb.I[2] pb (top^ADD~0^CARRY_FUNC~32)
+T_arr: 4.33534e-09  T_req: -4.74984e-09  Tdel: 0
+Internal Net: #46 (top^ADD~0^CARRY_FUNC~30).  Pins on net: 3.
+
+Node: 102  TN_INTERMEDIATE_NODE Block #8 (top^ADD~0^CARRY_FUNC~32)
+Pin: lut6.in[2] pb (top^ADD~0^CARRY_FUNC~32)
+T_arr: 4.33534e-09  T_req: -4.74984e-09  Tdel: 0
+Internal Net: #46 (top^ADD~0^CARRY_FUNC~30).  Pins on net: 3.
+
+Node: 106  TN_PRIMITIVE_IPIN Block #8 (top^ADD~0^CARRY_FUNC~32)
+Pin: lut.in[2] pb (top^ADD~0^CARRY_FUNC~32)
+T_arr: 4.33534e-09  T_req: -4.74984e-09  Tdel: 1.679e-10
+Internal Net: #46 (top^ADD~0^CARRY_FUNC~30).  Pins on net: 3.
+
+Node: 107  TN_PRIMITIVE_OPIN Block #8 (top^ADD~0^CARRY_FUNC~32)
+Pin: lut.out[0] pb (top^ADD~0^CARRY_FUNC~32)
+T_arr: 4.50324e-09  T_req: -4.58194e-09  Tdel: 0
+Internal Net: #48 (top^ADD~0^CARRY_FUNC~32).  Pins on net: 3.
+
+Node: 103  TN_INTERMEDIATE_NODE Block #8 (top^ADD~0^CARRY_FUNC~32)
+Pin: lut6.out[0] pb (top^ADD~0^CARRY_FUNC~32)
+T_arr: 4.50324e-09  T_req: -4.58194e-09  Tdel: 0
+Internal Net: #48 (top^ADD~0^CARRY_FUNC~32).  Pins on net: 3.
+
+Node: 99  TN_CB_OPIN Block #8 (top^ADD~0^CARRY_FUNC~32)
+Pin: clb.O[0] pb (top^ADD~0^CARRY_FUNC~32)
+T_arr: 4.50324e-09  T_req: -4.58194e-09  Tdel: 4.48905e-10
+External-to-Block Net: #24 (top^ADD~0^CARRY_FUNC~32).  Pins on net: 3.
+
+Node: 86  TN_CB_IPIN Block #7 (top^ADD~0^CARRY_FUNC~34)
+Pin: clb.I[2] pb (top^ADD~0^CARRY_FUNC~34)
+T_arr: 4.95214e-09  T_req: -4.13304e-09  Tdel: 0
+Internal Net: #48 (top^ADD~0^CARRY_FUNC~32).  Pins on net: 3.
+
+Node: 90  TN_INTERMEDIATE_NODE Block #7 (top^ADD~0^CARRY_FUNC~34)
+Pin: lut6.in[2] pb (top^ADD~0^CARRY_FUNC~34)
+T_arr: 4.95214e-09  T_req: -4.13304e-09  Tdel: 0
+Internal Net: #48 (top^ADD~0^CARRY_FUNC~32).  Pins on net: 3.
+
+Node: 94  TN_PRIMITIVE_IPIN Block #7 (top^ADD~0^CARRY_FUNC~34)
+Pin: lut.in[2] pb (top^ADD~0^CARRY_FUNC~34)
+T_arr: 4.95214e-09  T_req: -4.13304e-09  Tdel: 1.679e-10
+Internal Net: #48 (top^ADD~0^CARRY_FUNC~32).  Pins on net: 3.
+
+Node: 95  TN_PRIMITIVE_OPIN Block #7 (top^ADD~0^CARRY_FUNC~34)
+Pin: lut.out[0] pb (top^ADD~0^CARRY_FUNC~34)
+T_arr: 5.12004e-09  T_req: -3.96514e-09  Tdel: 0
+Internal Net: #50 (top^ADD~0^CARRY_FUNC~34).  Pins on net: 3.
+
+Node: 91  TN_INTERMEDIATE_NODE Block #7 (top^ADD~0^CARRY_FUNC~34)
+Pin: lut6.out[0] pb (top^ADD~0^CARRY_FUNC~34)
+T_arr: 5.12004e-09  T_req: -3.96514e-09  Tdel: 0
+Internal Net: #50 (top^ADD~0^CARRY_FUNC~34).  Pins on net: 3.
+
+Node: 87  TN_CB_OPIN Block #7 (top^ADD~0^CARRY_FUNC~34)
+Pin: clb.O[0] pb (top^ADD~0^CARRY_FUNC~34)
+T_arr: 5.12004e-09  T_req: -3.96514e-09  Tdel: 2.23044e-10
+External-to-Block Net: #21 (top^ADD~0^CARRY_FUNC~34).  Pins on net: 3.
+
+Node: 74  TN_CB_IPIN Block #6 (top^ADD~0^CARRY_FUNC~36)
+Pin: clb.I[2] pb (top^ADD~0^CARRY_FUNC~36)
+T_arr: 5.34309e-09  T_req: -3.74209e-09  Tdel: 0
+Internal Net: #50 (top^ADD~0^CARRY_FUNC~34).  Pins on net: 3.
+
+Node: 78  TN_INTERMEDIATE_NODE Block #6 (top^ADD~0^CARRY_FUNC~36)
+Pin: lut6.in[2] pb (top^ADD~0^CARRY_FUNC~36)
+T_arr: 5.34309e-09  T_req: -3.74209e-09  Tdel: 0
+Internal Net: #50 (top^ADD~0^CARRY_FUNC~34).  Pins on net: 3.
+
+Node: 82  TN_PRIMITIVE_IPIN Block #6 (top^ADD~0^CARRY_FUNC~36)
+Pin: lut.in[2] pb (top^ADD~0^CARRY_FUNC~36)
+T_arr: 5.34309e-09  T_req: -3.74209e-09  Tdel: 1.679e-10
+Internal Net: #50 (top^ADD~0^CARRY_FUNC~34).  Pins on net: 3.
+
+Node: 83  TN_PRIMITIVE_OPIN Block #6 (top^ADD~0^CARRY_FUNC~36)
+Pin: lut.out[0] pb (top^ADD~0^CARRY_FUNC~36)
+T_arr: 5.51099e-09  T_req: -3.57419e-09  Tdel: 0
+Internal Net: #52 (top^ADD~0^CARRY_FUNC~36).  Pins on net: 3.
+
+Node: 79  TN_INTERMEDIATE_NODE Block #6 (top^ADD~0^CARRY_FUNC~36)
+Pin: lut6.out[0] pb (top^ADD~0^CARRY_FUNC~36)
+T_arr: 5.51099e-09  T_req: -3.57419e-09  Tdel: 0
+Internal Net: #52 (top^ADD~0^CARRY_FUNC~36).  Pins on net: 3.
+
+Node: 75  TN_CB_OPIN Block #6 (top^ADD~0^CARRY_FUNC~36)
+Pin: clb.O[0] pb (top^ADD~0^CARRY_FUNC~36)
+T_arr: 5.51099e-09  T_req: -3.57419e-09  Tdel: 2.98331e-10
+External-to-Block Net: #18 (top^ADD~0^CARRY_FUNC~36).  Pins on net: 3.
+
+Node: 62  TN_CB_IPIN Block #5 (top^ADD~0^CARRY_FUNC~38)
+Pin: clb.I[2] pb (top^ADD~0^CARRY_FUNC~38)
+T_arr: 5.80932e-09  T_req: -3.27586e-09  Tdel: 0
+Internal Net: #52 (top^ADD~0^CARRY_FUNC~36).  Pins on net: 3.
+
+Node: 66  TN_INTERMEDIATE_NODE Block #5 (top^ADD~0^CARRY_FUNC~38)
+Pin: lut6.in[2] pb (top^ADD~0^CARRY_FUNC~38)
+T_arr: 5.80932e-09  T_req: -3.27586e-09  Tdel: 0
+Internal Net: #52 (top^ADD~0^CARRY_FUNC~36).  Pins on net: 3.
+
+Node: 70  TN_PRIMITIVE_IPIN Block #5 (top^ADD~0^CARRY_FUNC~38)
+Pin: lut.in[2] pb (top^ADD~0^CARRY_FUNC~38)
+T_arr: 5.80932e-09  T_req: -3.27586e-09  Tdel: 1.679e-10
+Internal Net: #52 (top^ADD~0^CARRY_FUNC~36).  Pins on net: 3.
+
+Node: 71  TN_PRIMITIVE_OPIN Block #5 (top^ADD~0^CARRY_FUNC~38)
+Pin: lut.out[0] pb (top^ADD~0^CARRY_FUNC~38)
+T_arr: 5.97722e-09  T_req: -3.10796e-09  Tdel: 0
+Internal Net: #54 (top^ADD~0^CARRY_FUNC~38).  Pins on net: 3.
+
+Node: 67  TN_INTERMEDIATE_NODE Block #5 (top^ADD~0^CARRY_FUNC~38)
+Pin: lut6.out[0] pb (top^ADD~0^CARRY_FUNC~38)
+T_arr: 5.97722e-09  T_req: -3.10796e-09  Tdel: 0
+Internal Net: #54 (top^ADD~0^CARRY_FUNC~38).  Pins on net: 3.
+
+Node: 63  TN_CB_OPIN Block #5 (top^ADD~0^CARRY_FUNC~38)
+Pin: clb.O[0] pb (top^ADD~0^CARRY_FUNC~38)
+T_arr: 5.97722e-09  T_req: -3.10796e-09  Tdel: 4.48905e-10
+External-to-Block Net: #15 (top^ADD~0^CARRY_FUNC~38).  Pins on net: 3.
+
+Node: 50  TN_CB_IPIN Block #4 (top^ADD~0^CARRY_FUNC~40)
+Pin: clb.I[2] pb (top^ADD~0^CARRY_FUNC~40)
+T_arr: 6.42612e-09  T_req: -2.65905e-09  Tdel: 0
+Internal Net: #54 (top^ADD~0^CARRY_FUNC~38).  Pins on net: 3.
+
+Node: 54  TN_INTERMEDIATE_NODE Block #4 (top^ADD~0^CARRY_FUNC~40)
+Pin: lut6.in[2] pb (top^ADD~0^CARRY_FUNC~40)
+T_arr: 6.42612e-09  T_req: -2.65905e-09  Tdel: 0
+Internal Net: #54 (top^ADD~0^CARRY_FUNC~38).  Pins on net: 3.
+
+Node: 58  TN_PRIMITIVE_IPIN Block #4 (top^ADD~0^CARRY_FUNC~40)
+Pin: lut.in[2] pb (top^ADD~0^CARRY_FUNC~40)
+T_arr: 6.42612e-09  T_req: -2.65905e-09  Tdel: 1.679e-10
+Internal Net: #54 (top^ADD~0^CARRY_FUNC~38).  Pins on net: 3.
+
+Node: 59  TN_PRIMITIVE_OPIN Block #4 (top^ADD~0^CARRY_FUNC~40)
+Pin: lut.out[0] pb (top^ADD~0^CARRY_FUNC~40)
+T_arr: 6.59402e-09  T_req: -2.49116e-09  Tdel: 0
+Internal Net: #56 (top^ADD~0^CARRY_FUNC~40).  Pins on net: 3.
+
+Node: 55  TN_INTERMEDIATE_NODE Block #4 (top^ADD~0^CARRY_FUNC~40)
+Pin: lut6.out[0] pb (top^ADD~0^CARRY_FUNC~40)
+T_arr: 6.59402e-09  T_req: -2.49116e-09  Tdel: 0
+Internal Net: #56 (top^ADD~0^CARRY_FUNC~40).  Pins on net: 3.
+
+Node: 51  TN_CB_OPIN Block #4 (top^ADD~0^CARRY_FUNC~40)
+Pin: clb.O[0] pb (top^ADD~0^CARRY_FUNC~40)
+T_arr: 6.59402e-09  T_req: -2.49116e-09  Tdel: 3.73618e-10
+External-to-Block Net: #12 (top^ADD~0^CARRY_FUNC~40).  Pins on net: 3.
+
+Node: 38  TN_CB_IPIN Block #3 (top^ADD~0^CARRY_FUNC~42)
+Pin: clb.I[2] pb (top^ADD~0^CARRY_FUNC~42)
+T_arr: 6.96764e-09  T_req: -2.11754e-09  Tdel: 0
+Internal Net: #56 (top^ADD~0^CARRY_FUNC~40).  Pins on net: 3.
+
+Node: 42  TN_INTERMEDIATE_NODE Block #3 (top^ADD~0^CARRY_FUNC~42)
+Pin: lut6.in[2] pb (top^ADD~0^CARRY_FUNC~42)
+T_arr: 6.96764e-09  T_req: -2.11754e-09  Tdel: 0
+Internal Net: #56 (top^ADD~0^CARRY_FUNC~40).  Pins on net: 3.
+
+Node: 46  TN_PRIMITIVE_IPIN Block #3 (top^ADD~0^CARRY_FUNC~42)
+Pin: lut.in[2] pb (top^ADD~0^CARRY_FUNC~42)
+T_arr: 6.96764e-09  T_req: -2.11754e-09  Tdel: 1.679e-10
+Internal Net: #56 (top^ADD~0^CARRY_FUNC~40).  Pins on net: 3.
+
+Node: 47  TN_PRIMITIVE_OPIN Block #3 (top^ADD~0^CARRY_FUNC~42)
+Pin: lut.out[0] pb (top^ADD~0^CARRY_FUNC~42)
+T_arr: 7.13554e-09  T_req: -1.94964e-09  Tdel: 0
+Internal Net: #58 (top^ADD~0^CARRY_FUNC~42).  Pins on net: 3.
+
+Node: 43  TN_INTERMEDIATE_NODE Block #3 (top^ADD~0^CARRY_FUNC~42)
+Pin: lut6.out[0] pb (top^ADD~0^CARRY_FUNC~42)
+T_arr: 7.13554e-09  T_req: -1.94964e-09  Tdel: 0
+Internal Net: #58 (top^ADD~0^CARRY_FUNC~42).  Pins on net: 3.
+
+Node: 39  TN_CB_OPIN Block #3 (top^ADD~0^CARRY_FUNC~42)
+Pin: clb.O[0] pb (top^ADD~0^CARRY_FUNC~42)
+T_arr: 7.13554e-09  T_req: -1.94964e-09  Tdel: 2.23044e-10
+External-to-Block Net: #9 (top^ADD~0^CARRY_FUNC~42).  Pins on net: 3.
+
+Node: 26  TN_CB_IPIN Block #2 (top^ADD~0^CARRY_FUNC~44)
+Pin: clb.I[2] pb (top^ADD~0^CARRY_FUNC~44)
+T_arr: 7.35859e-09  T_req: -1.72659e-09  Tdel: 0
+Internal Net: #58 (top^ADD~0^CARRY_FUNC~42).  Pins on net: 3.
+
+Node: 30  TN_INTERMEDIATE_NODE Block #2 (top^ADD~0^CARRY_FUNC~44)
+Pin: lut6.in[2] pb (top^ADD~0^CARRY_FUNC~44)
+T_arr: 7.35859e-09  T_req: -1.72659e-09  Tdel: 0
+Internal Net: #58 (top^ADD~0^CARRY_FUNC~42).  Pins on net: 3.
+
+Node: 34  TN_PRIMITIVE_IPIN Block #2 (top^ADD~0^CARRY_FUNC~44)
+Pin: lut.in[2] pb (top^ADD~0^CARRY_FUNC~44)
+T_arr: 7.35859e-09  T_req: -1.72659e-09  Tdel: 1.679e-10
+Internal Net: #58 (top^ADD~0^CARRY_FUNC~42).  Pins on net: 3.
+
+Node: 35  TN_PRIMITIVE_OPIN Block #2 (top^ADD~0^CARRY_FUNC~44)
+Pin: lut.out[0] pb (top^ADD~0^CARRY_FUNC~44)
+T_arr: 7.52649e-09  T_req: -1.55869e-09  Tdel: 0
+Internal Net: #60 (top^ADD~0^CARRY_FUNC~44).  Pins on net: 3.
+
+Node: 31  TN_INTERMEDIATE_NODE Block #2 (top^ADD~0^CARRY_FUNC~44)
+Pin: lut6.out[0] pb (top^ADD~0^CARRY_FUNC~44)
+T_arr: 7.52649e-09  T_req: -1.55869e-09  Tdel: 0
+Internal Net: #60 (top^ADD~0^CARRY_FUNC~44).  Pins on net: 3.
+
+Node: 27  TN_CB_OPIN Block #2 (top^ADD~0^CARRY_FUNC~44)
+Pin: clb.O[0] pb (top^ADD~0^CARRY_FUNC~44)
+T_arr: 7.52649e-09  T_req: -1.55869e-09  Tdel: 7.50054e-10
+External-to-Block Net: #6 (top^ADD~0^CARRY_FUNC~44).  Pins on net: 3.
+
+Node: 14  TN_CB_IPIN Block #1 (top^ADD~0^CARRY_FUNC~46)
+Pin: clb.I[2] pb (top^ADD~0^CARRY_FUNC~46)
+T_arr: 8.27654e-09  T_req: -8.08638e-10  Tdel: 0
+Internal Net: #60 (top^ADD~0^CARRY_FUNC~44).  Pins on net: 3.
+
+Node: 18  TN_INTERMEDIATE_NODE Block #1 (top^ADD~0^CARRY_FUNC~46)
+Pin: lut6.in[2] pb (top^ADD~0^CARRY_FUNC~46)
+T_arr: 8.27654e-09  T_req: -8.08638e-10  Tdel: 0
+Internal Net: #60 (top^ADD~0^CARRY_FUNC~44).  Pins on net: 3.
+
+Node: 22  TN_PRIMITIVE_IPIN Block #1 (top^ADD~0^CARRY_FUNC~46)
+Pin: lut.in[2] pb (top^ADD~0^CARRY_FUNC~46)
+T_arr: 8.27654e-09  T_req: -8.08638e-10  Tdel: 1.679e-10
+Internal Net: #60 (top^ADD~0^CARRY_FUNC~44).  Pins on net: 3.
+
+Node: 23  TN_PRIMITIVE_OPIN Block #1 (top^ADD~0^CARRY_FUNC~46)
+Pin: lut.out[0] pb (top^ADD~0^CARRY_FUNC~46)
+T_arr: 8.44444e-09  T_req: -6.40738e-10  Tdel: 0
+Internal Net: #62 (top^ADD~0^CARRY_FUNC~46).  Pins on net: 2.
+
+Node: 19  TN_INTERMEDIATE_NODE Block #1 (top^ADD~0^CARRY_FUNC~46)
+Pin: lut6.out[0] pb (top^ADD~0^CARRY_FUNC~46)
+T_arr: 8.44444e-09  T_req: -6.40738e-10  Tdel: 0
+Internal Net: #62 (top^ADD~0^CARRY_FUNC~46).  Pins on net: 2.
+
+Node: 15  TN_CB_OPIN Block #1 (top^ADD~0^CARRY_FUNC~46)
+Pin: clb.O[0] pb (top^ADD~0^CARRY_FUNC~46)
+T_arr: 8.44444e-09  T_req: -6.40738e-10  Tdel: 2.23044e-10
+External-to-Block Net: #2 (top^ADD~0^CARRY_FUNC~46).  Pins on net: 2.
+
+Node: 2  TN_CB_IPIN Block #0 (top^ADD~0^ADDER_FUNC~47)
+Pin: clb.I[2] pb (top^ADD~0^ADDER_FUNC~47)
+T_arr: 8.66749e-09  T_req: -4.17694e-10  Tdel: 0
+Internal Net: #62 (top^ADD~0^CARRY_FUNC~46).  Pins on net: 2.
+
+Node: 6  TN_INTERMEDIATE_NODE Block #0 (top^ADD~0^ADDER_FUNC~47)
+Pin: lut6.in[2] pb (top^ADD~0^ADDER_FUNC~47)
+T_arr: 8.66749e-09  T_req: -4.17694e-10  Tdel: 0
+Internal Net: #62 (top^ADD~0^CARRY_FUNC~46).  Pins on net: 2.
+
+Node: 10  TN_PRIMITIVE_IPIN Block #0 (top^ADD~0^ADDER_FUNC~47)
+Pin: lut.in[2] pb (top^ADD~0^ADDER_FUNC~47)
+T_arr: 8.66749e-09  T_req: -4.17694e-10  Tdel: 1.679e-10
+Internal Net: #62 (top^ADD~0^CARRY_FUNC~46).  Pins on net: 2.
+
+Node: 11  TN_PRIMITIVE_OPIN Block #0 (top^ADD~0^ADDER_FUNC~47)
+Pin: lut.out[0] pb (top^ADD~0^ADDER_FUNC~47)
+T_arr: 8.83539e-09  T_req: -2.49794e-10  Tdel: 0
+Internal Net: #63 (top^ADD~0^ADDER_FUNC~47).  Pins on net: 2.
+
+Node: 7  TN_INTERMEDIATE_NODE Block #0 (top^ADD~0^ADDER_FUNC~47)
+Pin: lut6.out[0] pb (top^ADD~0^ADDER_FUNC~47)
+T_arr: 8.83539e-09  T_req: -2.49794e-10  Tdel: 0
+Internal Net: #63 (top^ADD~0^ADDER_FUNC~47).  Pins on net: 2.
+
+Node: 3  TN_CB_OPIN Block #0 (top^ADD~0^ADDER_FUNC~47)
+Pin: clb.O[0] pb (top^ADD~0^ADDER_FUNC~47)
+T_arr: 8.83539e-09  T_req: -2.49794e-10  Tdel: 2.23044e-10
+External-to-Block Net: #3 (top^ADD~0^ADDER_FUNC~47).  Pins on net: 2.
+
+Node: 372  TN_CB_IPIN Block #31 (out:top^io_z~15)
+Pin: io.outpad[0] pb (out:top^io_z~15)
+T_arr: 9.05843e-09  T_req: -2.675e-11  Tdel: 2.67502e-11
+Internal Net: #63 (top^ADD~0^ADDER_FUNC~47).  Pins on net: 2.
+
+Node: 373  TN_OUTPAD_IPIN Block #31 (out:top^io_z~15)
+Pin: outpad.outpad[0] pb (out:top^io_z~15)
+T_arr: 9.08518e-09  T_req: 0  Tdel: 0
+Internal Net: #63 (top^ADD~0^ADDER_FUNC~47).  Pins on net: 2.
+
+Node: 374  TN_OUTPAD_SINK Block #31 (out:top^io_z~15)
+Pin: outpad.outpad[0] pb (out:top^io_z~15)T_arr: 9.08518e-09  T_req: 0  
+Internal Net: #63 (top^ADD~0^ADDER_FUNC~47).  Pins on net: 2.
+
+
+Tnodes on critical path: 102  Non-global nets on critical path: 17.
+Global nets on critical path: 0.
+Total logic delay: 2.80807e-09 (s)  Total net delay: 6.27711e-09 (s)

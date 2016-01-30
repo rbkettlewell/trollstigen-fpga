@@ -16,8 +16,8 @@ object Main {
     bitstream.configureFPGA
     bitstream.prettyPrint("Detailed")
     
-    println("My switch block data is \n"+ bitstream.fpga(1)(14).asInstanceOf[ConnectionBlock].toString)
-    println("Block programming bits:\n" ++ bitstream.fpga(1)(14).asInstanceOf[ConnectionBlock].getBits)
+    println("My switch block data is \n"+ bitstream.fpga(11)(6).asInstanceOf[ConnectionBlock].toString)
+    println("Block programming bits:\n" ++ bitstream.fpga(11)(6).asInstanceOf[ConnectionBlock].getBits)
     println("Routing Connections:\n" ++ bitstream.route.routing.mkString("\n"))
   }
 }

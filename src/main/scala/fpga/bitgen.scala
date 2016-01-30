@@ -228,7 +228,7 @@ package fpga{
           val blockConnectivity = switchBlockNorth ++ switchBlockEast ++ switchBlockSouth
           blockConnectivity
         }
-        //("Internal Horizontal Connection Block")  : IECB
+        //("Internal Horizontal Connection Block")  : IHCB 
         case IHCB =>{
           val eastInput  = Array(2,3,8,9).map(t => (("W",t,false),Array(("E",3,false))))
           val westInputOne  = Array(0,1,6,7).map(t => (("E",t,false),Array(("W",1,false))))
@@ -236,10 +236,10 @@ package fpga{
           val blockConnectivity = eastInput ++ westInputOne ++ westInputFive
           blockConnectivity
         }
-        //("Internal Vertical Connection Block") : ISCB
+        //("Internal Vertical Connection Block") : IVCB 
         case IVCB =>{
           val northInput  = Array(2,3,8,9).map(t => (("S",t,false),Array(("N",2,false))))
-          val northOutput = Array((("N",6,false),Array(6,7,8,9).map(t=>("S",t,false))))
+          val northOutput = Array((("N",6,false),Array(0,1,2,3).map(t=>("S",t,false))))
           val southInputZero = Array(0,1,6,7).map(t => (("N",t,false),Array(("S",0,false))))
           val southInputFour = Array(4,5,10,11).map(t => (("N",t,false),Array(("S",4,false))))
           val blockConnectivity = northInput ++ northOutput ++ southInputZero ++ southInputFour

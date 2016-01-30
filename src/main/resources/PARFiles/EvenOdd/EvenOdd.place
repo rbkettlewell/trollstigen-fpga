@@ -1,0 +1,24 @@
+Netlist file: EvenOdd.net   Architecture file: troll_arch8.xml
+Array size: 8 x 16 logic blocks
+
+#block name	x	y	subblk	block number
+#----------	--	--	------	------------
+top^MULTI_PORT_MUX~2^MUX_2~14	5	11	0	#0
+top^MULTI_PORT_MUX~2^MUX_2~13	4	11	0	#1
+top^state_FF_NODE	5	10	0	#2
+top^MULTI_PORT_MUX~2^LOGICAL_NOR~5	6	11	0	#3
+top^LOGICAL_EQUAL~3^LOGICAL_AND~16	7	11	0	#4
+top^LOGICAL_EQUAL~4^LOGICAL_AND~19	5	12	0	#5
+top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20	6	12	0	#6
+top^LOGICAL_EQUAL~3^LOGICAL_XNOR~15^LOGICAL_XNOR~17	6	10	0	#7
+out:top^isEven	0	11	0	#8
+top^in		0	10	0	#9
+top^MULTI_PORT_MUX~6^MUX_2~21	4	10	0	#10
+top^MULTI_PORT_MUX~8^MUX_2~22	3	10	0	#11
+top^MULTI_PORT_MUX~8^LOGICAL_NOT~9	2	10	0	#12
+top^MULTI_PORT_MUX~6^LOGICAL_NOT~7	4	9	0	#13
+top^MULTI_PORT_MUX~0^LOGICAL_NOT~1	5	9	0	#14
+top^RESET	0	9	0	#15
+vcc		4	6	0	#16
+gnd		5	6	0	#17
+top^clock	0	12	0	#18

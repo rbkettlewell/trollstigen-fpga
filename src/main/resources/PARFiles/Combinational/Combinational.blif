@@ -1,0 +1,252 @@
+.model Combinational
+.inputs top^io_x~0 top^io_x~1 top^io_x~2 top^io_x~3 top^io_x~4 top^io_x~5 \
+ top^io_x~6 top^io_x~7 top^io_x~8 top^io_x~9 top^io_x~10 top^io_x~11 \
+ top^io_x~12 top^io_x~13 top^io_x~14 top^io_x~15 top^io_y~0 top^io_y~1 \
+ top^io_y~2 top^io_y~3 top^io_y~4 top^io_y~5 top^io_y~6 top^io_y~7 top^io_y~8 \
+ top^io_y~9 top^io_y~10 top^io_y~11 top^io_y~12 top^io_y~13 top^io_y~14 \
+ top^io_y~15
+.outputs top^io_z~0 top^io_z~1 top^io_z~2 top^io_z~3 top^io_z~4 top^io_z~5\
+ top^io_z~6 top^io_z~7 top^io_z~8 top^io_z~9 top^io_z~10 top^io_z~11 top^io_z~12\
+ top^io_z~13 top^io_z~14 top^io_z~15
+
+.names gnd
+.names unconn
+.names vcc
+1
+
+.names gnd top^io_x~0 top^io_y~0 top^ADD~0^ADDER_FUNC~17
+001 1
+010 1
+100 1
+111 1
+
+.names gnd top^io_x~0 top^io_y~0 top^ADD~0^CARRY_FUNC~18
+011 1
+101 1
+110 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~18 top^io_x~1 top^io_y~1 top^ADD~0^ADDER_FUNC~19
+001 1
+010 1
+100 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~18 top^io_x~1 top^io_y~1 top^ADD~0^CARRY_FUNC~20
+011 1
+101 1
+110 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~20 top^io_x~2 top^io_y~2 top^ADD~0^ADDER_FUNC~21
+001 1
+010 1
+100 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~20 top^io_x~2 top^io_y~2 top^ADD~0^CARRY_FUNC~22
+011 1
+101 1
+110 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~22 top^io_x~3 top^io_y~3 top^ADD~0^ADDER_FUNC~23
+001 1
+010 1
+100 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~22 top^io_x~3 top^io_y~3 top^ADD~0^CARRY_FUNC~24
+011 1
+101 1
+110 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~24 top^io_x~4 top^io_y~4 top^ADD~0^ADDER_FUNC~25
+001 1
+010 1
+100 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~24 top^io_x~4 top^io_y~4 top^ADD~0^CARRY_FUNC~26
+011 1
+101 1
+110 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~26 top^io_x~5 top^io_y~5 top^ADD~0^ADDER_FUNC~27
+001 1
+010 1
+100 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~26 top^io_x~5 top^io_y~5 top^ADD~0^CARRY_FUNC~28
+011 1
+101 1
+110 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~28 top^io_x~6 top^io_y~6 top^ADD~0^ADDER_FUNC~29
+001 1
+010 1
+100 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~28 top^io_x~6 top^io_y~6 top^ADD~0^CARRY_FUNC~30
+011 1
+101 1
+110 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~30 top^io_x~7 top^io_y~7 top^ADD~0^ADDER_FUNC~31
+001 1
+010 1
+100 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~30 top^io_x~7 top^io_y~7 top^ADD~0^CARRY_FUNC~32
+011 1
+101 1
+110 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~32 top^io_x~8 top^io_y~8 top^ADD~0^ADDER_FUNC~33
+001 1
+010 1
+100 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~32 top^io_x~8 top^io_y~8 top^ADD~0^CARRY_FUNC~34
+011 1
+101 1
+110 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~34 top^io_x~9 top^io_y~9 top^ADD~0^ADDER_FUNC~35
+001 1
+010 1
+100 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~34 top^io_x~9 top^io_y~9 top^ADD~0^CARRY_FUNC~36
+011 1
+101 1
+110 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~36 top^io_x~10 top^io_y~10 top^ADD~0^ADDER_FUNC~37
+001 1
+010 1
+100 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~36 top^io_x~10 top^io_y~10 top^ADD~0^CARRY_FUNC~38
+011 1
+101 1
+110 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~38 top^io_x~11 top^io_y~11 top^ADD~0^ADDER_FUNC~39
+001 1
+010 1
+100 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~38 top^io_x~11 top^io_y~11 top^ADD~0^CARRY_FUNC~40
+011 1
+101 1
+110 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~40 top^io_x~12 top^io_y~12 top^ADD~0^ADDER_FUNC~41
+001 1
+010 1
+100 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~40 top^io_x~12 top^io_y~12 top^ADD~0^CARRY_FUNC~42
+011 1
+101 1
+110 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~42 top^io_x~13 top^io_y~13 top^ADD~0^ADDER_FUNC~43
+001 1
+010 1
+100 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~42 top^io_x~13 top^io_y~13 top^ADD~0^CARRY_FUNC~44
+011 1
+101 1
+110 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~44 top^io_x~14 top^io_y~14 top^ADD~0^ADDER_FUNC~45
+001 1
+010 1
+100 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~44 top^io_x~14 top^io_y~14 top^ADD~0^CARRY_FUNC~46
+011 1
+101 1
+110 1
+111 1
+
+.names top^ADD~0^CARRY_FUNC~46 top^io_x~15 top^io_y~15 top^ADD~0^ADDER_FUNC~47
+001 1
+010 1
+100 1
+111 1
+
+.names top^ADD~0^ADDER_FUNC~17 top^io_z~0
+1 1
+
+.names top^ADD~0^ADDER_FUNC~19 top^io_z~1
+1 1
+
+.names top^ADD~0^ADDER_FUNC~21 top^io_z~2
+1 1
+
+.names top^ADD~0^ADDER_FUNC~23 top^io_z~3
+1 1
+
+.names top^ADD~0^ADDER_FUNC~25 top^io_z~4
+1 1
+
+.names top^ADD~0^ADDER_FUNC~27 top^io_z~5
+1 1
+
+.names top^ADD~0^ADDER_FUNC~29 top^io_z~6
+1 1
+
+.names top^ADD~0^ADDER_FUNC~31 top^io_z~7
+1 1
+
+.names top^ADD~0^ADDER_FUNC~33 top^io_z~8
+1 1
+
+.names top^ADD~0^ADDER_FUNC~35 top^io_z~9
+1 1
+
+.names top^ADD~0^ADDER_FUNC~37 top^io_z~10
+1 1
+
+.names top^ADD~0^ADDER_FUNC~39 top^io_z~11
+1 1
+
+.names top^ADD~0^ADDER_FUNC~41 top^io_z~12
+1 1
+
+.names top^ADD~0^ADDER_FUNC~43 top^io_z~13
+1 1
+
+.names top^ADD~0^ADDER_FUNC~45 top^io_z~14
+1 1
+
+.names top^ADD~0^ADDER_FUNC~47 top^io_z~15
+1 1
+
+.end
+
