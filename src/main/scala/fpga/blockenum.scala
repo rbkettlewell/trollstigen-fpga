@@ -27,7 +27,7 @@ package fpga{
      val NEC, SEC, SWC, NWC,
       PNCB, PECB, PSCB, PWCB,
       PNSB, PESB, PSSB, PWSB,
-      IVCB, IHCB, 
+      IVCB, IHCB,
       ISB, CLB, IOB, Empty = Value
   }
 }
