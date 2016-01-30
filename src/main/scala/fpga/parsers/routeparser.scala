@@ -33,7 +33,7 @@ package fpga.parsers{
       else 
         currentGridXY = startGridXY
 
-      (currentGridXY,(compassVector._1,start._3,false),(compassVector._2,end._3,false))
+      (currentGridXY,(compassVector._1,start._3,false, start._4),(compassVector._2,end._3,false,end._4))
     }
 
     def updateCoordinates(location : LocationXY, connection : ConnectionType): LocationXY = {
@@ -96,7 +96,7 @@ package fpga.parsers{
         if(line.contains("Node:")){
           val node = line.split("[^\\w']+")
           // Example node data: Array(Node, 528, OPIN, 2, 10, Pin, 6, clb, O, 0)
-          nodes = nodes ++ Array(((node(3).toInt ,node(4).toInt),node(2),node(6).toInt))
+          nodes = nodes ++ Array(((node(3).toInt ,node(4).toInt),node(2),node(6).toInt, node(5)))
         }
       }
       for(i <- 0 until nodes.length - 1){

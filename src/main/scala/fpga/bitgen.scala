@@ -31,7 +31,7 @@ package fpga{
     // along with a default switch state being off.
     private def mapPaths(path : PathDefinition): Array[Segment] = {
       val channel = Array.range(0, chanWidth/2) 
-      val segments = channel.map(i => (path._1, path._2(i), false))
+      val segments = channel.map(i => (path._1, path._2(i), false, path._3))
       segments
     }
 
@@ -97,172 +97,172 @@ package fpga{
     // Description: getBlockConnectivity takes a block enumeration value and then builds a connectivity list for that
     // specific fpga primitive. This method helps break up the complexity of the assembleFPGA method.
     def getBlockConnectivity(block : BlockEnum): Connectivity = {
-      val oddChannels  = (t : Track) => 1 + 2*t
-      val evenChannels = (t : Track) => 2*t
+      val oddChannels  = (t : PinTrack) => 1 + 2*t
+      val evenChannels = (t : PinTrack) => 2*t
 
       block match{
         //("Northeast Corner"): NEC
         case NEC =>{
-          val toPathSW = ("W",(t : Track ) => (3 + 2*t)%12)
-          val northeastCornerSW = defineConnectivity(("S", evenChannels), Array(toPathSW))
-          val toPathWS = ("S",(t : Track ) => (11 + 2*t)%12)
-          val northeastCornerWS = defineConnectivity(("W", evenChannels), Array(toPathWS))
+          val toPathSW = ("W",(t : PinTrack ) => (3 + 2*t)%12 , "Track")
+          val northeastCornerSW = defineConnectivity(("S", evenChannels,"Track"), Array(toPathSW))
+          val toPathWS = ("S",(t : PinTrack ) => (11 + 2*t)%12, "Track")
+          val northeastCornerWS = defineConnectivity(("W", evenChannels, "Track"), Array(toPathWS))
           val blockConnectivity = northeastCornerSW ++ northeastCornerWS
           blockConnectivity
         }
         //("Southeast Corner"): SEC
         case SEC =>{
-          val toPathNW = ("W",(t : Track ) => (13 - 2*t)%12)
-          val southeastCornerNW = defineConnectivity(("N", oddChannels), Array(toPathNW))
-          val toPathWN = ("N",(t : Track ) => (12 - 2*t)%12)
-          val southeastCornerWN = defineConnectivity(("W", evenChannels), Array(toPathWN))
+          val toPathNW = ("W",(t : PinTrack ) => (13 - 2*t)%12, "Track")
+          val southeastCornerNW = defineConnectivity(("N", oddChannels, "Track"), Array(toPathNW))
+          val toPathWN = ("N",(t : PinTrack ) => (12 - 2*t)%12, "Track")
+          val southeastCornerWN = defineConnectivity(("W", evenChannels, "Track"), Array(toPathWN))
           val blockConnectivity = southeastCornerNW ++ southeastCornerWN
           blockConnectivity
         }
         //("Southwest Corner"): SWC
         case SWC =>{
-          val toPathNE = ("E",(t : Track ) => (2 + 2*t)%12)
-          val southwestCornerNE = defineConnectivity(("N", oddChannels), Array(toPathNE))
-          val toPathEN = ("N",(t : Track ) => (10 + 2*t)%12)
-          val southwestCornerEN = defineConnectivity(("E", oddChannels), Array(toPathEN))
+          val toPathNE = ("E",(t : PinTrack ) => (2 + 2*t)%12, "Track")
+          val southwestCornerNE = defineConnectivity(("N", oddChannels, "Track"), Array(toPathNE))
+          val toPathEN = ("N",(t : PinTrack ) => (10 + 2*t)%12, "Track")
+          val southwestCornerEN = defineConnectivity(("E", oddChannels, "Track"), Array(toPathEN))
           val blockConnectivity = southwestCornerNE ++ southwestCornerEN
           blockConnectivity
         }
         //("Northwest Corner"): NWC
         case NWC =>{
-          val toPathES = ("S",(t : Track ) => (21 - 2*t)%12)
-          val northwestCornerES = defineConnectivity(("E", oddChannels), Array(toPathES))
-          val toPathSE = ("E",(t : Track ) => (20 - 2*t)%12)
-          val northwestCornerSE = defineConnectivity(("S", evenChannels), Array(toPathSE))
+          val toPathES = ("S",(t : PinTrack ) => (21 - 2*t)%12, "Track")
+          val northwestCornerES = defineConnectivity(("E", oddChannels, "Track"), Array(toPathES))
+          val toPathSE = ("E",(t : PinTrack ) => (20 - 2*t)%12, "Track")
+          val northwestCornerSE = defineConnectivity(("S", evenChannels, "Track"), Array(toPathSE))
           val blockConnectivity = northwestCornerES ++ northwestCornerSE 
           blockConnectivity
         }
         //("Perimeter North Connection Block"): PNCB
         case PNCB =>{
-          val northInput  = Array(2,3,6,7,10,11).map(t => (("S",t,false),Array(("N",0,false))))
-          val northOutput = Array((("N",1,false),Array(0,1,2,3,4,5).map(t=>("S",t,false))))
-          val southInputZero = Array(0,1,6,7).map(t => (("N",t,false),Array(("S",0,false))))
-          val southInputFour = Array(4,5,10,11).map(t => (("N",t,false),Array(("S",4,false))))
+          val northInput  = Array(2,3,6,7,10,11).map(t => (("S",t,false, "Track"),Array(("N",0,false,"Pad"))))
+          val northOutput = Array((("N",1,false,"Pad"),Array(0,1,2,3,4,5).map(t=>("S",t,false, "Track"))))
+          val southInputZero = Array(0,1,6,7).map(t => (("N",t,false, "Track"),Array(("S",0,false,"Pin"))))
+          val southInputFour = Array(4,5,10,11).map(t => (("N",t,false, "Track"),Array(("S",4,false,"Pin"))))
           val blockConnectivity = northInput ++ northOutput ++ southInputZero ++ southInputFour
           blockConnectivity
         }
         //("Perimeter East Connection Block") : PECB
         case PECB =>{
-          val eastOutput = Array((("E",1,false),Array(0,1,2,3,4,5).map(t=>("W",t,false))))
-          val eastInput = Array(2,3,6,7,10,11).map(t => (("W",t,false),Array(("E",0,false))))
-          val westInputOne  = Array(0,1,6,7).map(t => (("E",t,false),Array(("W",1,false))))
-          val westInputFive = Array(4,5,10,11).map(t => (("E",t,false),Array(("W",5,false))))
+          val eastOutput = Array((("E",1,false,"Pad"),Array(0,1,2,3,4,5).map(t=>("W",t,false, "Track"))))
+          val eastInput = Array(2,3,6,7,10,11).map(t => (("W",t,false, "Track"),Array(("E",0,false,"Pad"))))
+          val westInputOne  = Array(0,1,6,7).map(t => (("E",t,false, "Track"),Array(("W",1,false,"Pin"))))
+          val westInputFive = Array(4,5,10,11).map(t => (("E",t,false, "Track"),Array(("W",5,false,"Pin"))))
           val blockConnectivity = eastInput ++ eastOutput ++ westInputOne ++ westInputFive
           blockConnectivity
         }
         //("Perimeter South Connection Block"): PSCB
         case PSCB =>{
-          val northInput  = Array(2,3,8,9).map(t => (("S",t,false),Array(("N",2,false))))
-          val northOutput = Array((("N",6,false),Array(6,7,8,9).map(t=>("S",t,false))))
-          val southInput  = Array(0,1,4,5,8,9).map(t => (("N",t,false),Array(("S",0,false))))
-          val southOutput = Array((("S",1,false),Array(0,1,2,3,4,5).map(t=>("N",t,false))))
+          val northInput  = Array(2,3,8,9).map(t => (("S",t,false, "Track"),Array(("N",2,false,"Pin"))))
+          val northOutput = Array((("N",6,false,"Pin"),Array(6,7,8,9).map(t=>("S",t,false, "Track"))))
+          val southInput  = Array(0,1,4,5,8,9).map(t => (("N",t,false, "Track"),Array(("S",0,false,"Pad"))))
+          val southOutput = Array((("S",1,false,"Pad"),Array(0,1,2,3,4,5).map(t=>("N",t,false, "Track"))))
           val blockConnectivity = northInput ++ northOutput ++ southInput ++ southOutput
           blockConnectivity
         }
         //("Perimeter West Connection Block") : PWCB
         case PWCB  =>{
-          val eastInput  = Array(2,3,8,9).map(t => (("W",t,false),Array(("E",3,false))))
-          val westInput  = Array(0,1,4,5,8,9).map(t => (("E",t,false),Array(("W",0,false))))
-          val westOutput = Array((("W",1,false),Array(0,1,2,3,4,5).map(t=>("E",t,false))))
+          val eastInput  = Array(2,3,8,9).map(t => (("W",t,false, "Track"),Array(("E",3,false,"Pin"))))
+          val westInput  = Array(0,1,4,5,8,9).map(t => (("E",t,false, "Track"),Array(("W",0,false,"Pad"))))
+          val westOutput = Array((("W",1,false,"Pad"),Array(0,1,2,3,4,5).map(t=>("E",t,false,"Track"))))
           val blockConnectivity = eastInput ++ westInput ++ westOutput
           blockConnectivity
         }
         //("Perimeter North Switch Block")    : PNSB
         case PNSB =>{
-          val toPathES = ("S",oddChannels)
-          val toPathEW = ("W",oddChannels)
-          val switchBlockEast = defineConnectivity(("E", oddChannels), Array(toPathES, toPathEW))
-          val toPathSW = ("W",oddChannels)
-          val toPathSE = ("E",evenChannels)
-          val switchBlockSouth = defineConnectivity(("S", evenChannels), Array(toPathSW, toPathSE))
-          val toPathWE = ("E",evenChannels)
-          val toPathWS = ("S",oddChannels)
-          val switchBlockWest = defineConnectivity(("W", evenChannels), Array(toPathWE, toPathWS))
+          val toPathES = ("S",oddChannels, "Track")
+          val toPathEW = ("W",oddChannels, "Track")
+          val switchBlockEast = defineConnectivity(("E", oddChannels, "Track"), Array(toPathES, toPathEW))
+          val toPathSW = ("W",oddChannels, "Track")
+          val toPathSE = ("E",evenChannels, "Track")
+          val switchBlockSouth = defineConnectivity(("S", evenChannels, "Track"), Array(toPathSW, toPathSE))
+          val toPathWE = ("E",evenChannels, "Track")
+          val toPathWS = ("S",oddChannels, "Track")
+          val switchBlockWest = defineConnectivity(("W", evenChannels, "Track"), Array(toPathWE, toPathWS))
           val blockConnectivity = switchBlockEast ++ switchBlockSouth ++ switchBlockWest
           blockConnectivity
         }
         //("Perimeter East Switch Block")     : PESB
         case PESB =>{
-          val toPathNS = ("S",oddChannels)
-          val toPathNW = ("W",oddChannels)
-          val switchBlockNorth = defineConnectivity(("N", oddChannels), Array(toPathNS, toPathNW))
-          val toPathSW = ("W",oddChannels)
-          val toPathSN = ("N",evenChannels)
-          val switchBlockSouth = defineConnectivity(("S", evenChannels), Array(toPathSW, toPathSN))
-          val toPathWN = ("N",evenChannels)
-          val toPathWS = ("S",oddChannels)
-          val switchBlockWest = defineConnectivity(("W", evenChannels), Array(toPathWN, toPathWS))
+          val toPathNS = ("S",oddChannels, "Track")
+          val toPathNW = ("W",oddChannels, "Track")
+          val switchBlockNorth = defineConnectivity(("N", oddChannels, "Track"), Array(toPathNS, toPathNW))
+          val toPathSW = ("W",oddChannels, "Track")
+          val toPathSN = ("N",evenChannels, "Track")
+          val switchBlockSouth = defineConnectivity(("S", evenChannels, "Track"), Array(toPathSW, toPathSN))
+          val toPathWN = ("N",evenChannels, "Track")
+          val toPathWS = ("S",oddChannels, "Track")
+          val switchBlockWest = defineConnectivity(("W", evenChannels, "Track"), Array(toPathWN, toPathWS))
           val blockConnectivity = switchBlockNorth ++ switchBlockSouth ++ switchBlockWest
           blockConnectivity
         }
         //("Perimeter South Switch Block")    : PSSB
         case PSSB =>{
-          val toPathNE = ("E",evenChannels)
-          val toPathNW = ("W",oddChannels)
-          val switchBlockNorth = defineConnectivity(("N", oddChannels), Array(toPathNE, toPathNW))
-          val toPathEW = ("W",oddChannels)
-          val toPathEN = ("N",evenChannels)
-          val switchBlockEast = defineConnectivity(("E", oddChannels), Array(toPathEW, toPathEN))
-          val toPathWN = ("N",evenChannels)
-          val toPathWE = ("E",evenChannels)
-          val switchBlockWest = defineConnectivity(("W", evenChannels), Array(toPathWN, toPathWE))
+          val toPathNE = ("E",evenChannels, "Track")
+          val toPathNW = ("W",oddChannels, "Track")
+          val switchBlockNorth = defineConnectivity(("N", oddChannels, "Track"), Array(toPathNE, toPathNW))
+          val toPathEW = ("W",oddChannels, "Track")
+          val toPathEN = ("N",evenChannels, "Track")
+          val switchBlockEast = defineConnectivity(("E", oddChannels, "Track"), Array(toPathEW, toPathEN))
+          val toPathWN = ("N",evenChannels, "Track")
+          val toPathWE = ("E",evenChannels, "Track")
+          val switchBlockWest = defineConnectivity(("W", evenChannels, "Track"), Array(toPathWN, toPathWE))
           val blockConnectivity = switchBlockNorth ++ switchBlockEast ++ switchBlockWest
           blockConnectivity
         }
         //("Perimeter West Switch Block")     : PWSB
         case PWSB =>{
-          val toPathNE = ("E",evenChannels)
-          val toPathNS = ("S",oddChannels)
-          val switchBlockNorth = defineConnectivity(("N", oddChannels), Array(toPathNE, toPathNS))
-          val toPathES = ("S",oddChannels)
-          val toPathEN = ("N",evenChannels)
-          val switchBlockEast = defineConnectivity(("E", oddChannels), Array(toPathES, toPathEN))
-          val toPathSN = ("N", evenChannels)
-          val toPathSE = ("E", evenChannels)
-          val switchBlockSouth = defineConnectivity(("S", evenChannels), Array(toPathSN, toPathSE))
+          val toPathNE = ("E",evenChannels, "Track")
+          val toPathNS = ("S",oddChannels, "Track")
+          val switchBlockNorth = defineConnectivity(("N", oddChannels, "Track"), Array(toPathNE, toPathNS))
+          val toPathES = ("S",oddChannels, "Track")
+          val toPathEN = ("N",evenChannels, "Track")
+          val switchBlockEast = defineConnectivity(("E", oddChannels, "Track"), Array(toPathES, toPathEN))
+          val toPathSN = ("N", evenChannels, "Track")
+          val toPathSE = ("E", evenChannels, "Track")
+          val switchBlockSouth = defineConnectivity(("S", evenChannels, "Track"), Array(toPathSN, toPathSE))
           val blockConnectivity = switchBlockNorth ++ switchBlockEast ++ switchBlockSouth
           blockConnectivity
         }
         //("Internal Horizontal Connection Block")  : IHCB 
         case IHCB =>{
-          val eastInput  = Array(2,3,8,9).map(t => (("W",t,false),Array(("E",3,false))))
-          val westInputOne  = Array(0,1,6,7).map(t => (("E",t,false),Array(("W",1,false))))
-          val westInputFive = Array(4,5,10,11).map(t => (("E",t,false),Array(("W",5,false))))
+          val eastInput  = Array(2,3,8,9).map(t => (("W",t,false, "Track"),Array(("E",3,false, "Pin"))))
+          val westInputOne  = Array(0,1,6,7).map(t => (("E",t,false, "Track"),Array(("W",1,false, "Pin"))))
+          val westInputFive = Array(4,5,10,11).map(t => (("E",t,false, "Track"),Array(("W",5,false, "Pin"))))
           val blockConnectivity = eastInput ++ westInputOne ++ westInputFive
           blockConnectivity
         }
         //("Internal Vertical Connection Block") : IVCB 
         case IVCB =>{
-          val northInput  = Array(2,3,8,9).map(t => (("S",t,false),Array(("N",2,false))))
-          val northOutput = Array((("N",6,false),Array(0,1,2,3).map(t=>("S",t,false))))
-          val southInputZero = Array(0,1,6,7).map(t => (("N",t,false),Array(("S",0,false))))
-          val southInputFour = Array(4,5,10,11).map(t => (("N",t,false),Array(("S",4,false))))
+          val northInput  = Array(2,3,8,9).map(t => (("S",t,false, "Track"),Array(("N",2,false, "Pin"))))
+          val northOutput = Array((("N",6,false, "Pin"),Array(0,1,2,3).map(t=>("S",t,false, "Track"))))
+          val southInputZero = Array(0,1,6,7).map(t => (("N",t,false, "Track"),Array(("S",0,false, "Pin"))))
+          val southInputFour = Array(4,5,10,11).map(t => (("N",t,false, "Track"),Array(("S",4,false, "Pin"))))
           val blockConnectivity = northInput ++ northOutput ++ southInputZero ++ southInputFour
           blockConnectivity
         }
         //("Internal Switch Block")           : ISB
         case ISB =>{
-          val toPathNE = ("E",(t : Track ) => (2 + 2*t)%12)
-          val toPathNS = ("S",oddChannels)
-          val toPathNW = ("W",(t : Track ) => (13 - 2*t)%12)
-          val switchBlockNorth = defineConnectivity(("N", oddChannels), Array(toPathNE, toPathNS, toPathNW))
-          val toPathES = ("S",(t : Track ) => (21 - 2*t)%12)
-          val toPathEW = ("W",oddChannels)
-          val toPathEN = ("N",(t : Track ) => (10 + 2*t)%12)
-          val switchBlockEast = defineConnectivity(("E", oddChannels), Array(toPathES, toPathEW, toPathEN))
-          val toPathSW = ("W",(t : Track ) => (3 + 2*t)%12)
-          val toPathSN = ("N", evenChannels)
-          val toPathSE = ("E",(t : Track ) => (20 - 2*t)%12)
-          val switchBlockSouth = defineConnectivity(("S", evenChannels), Array(toPathSW, toPathSN, toPathSE))
-          val toPathWN = ("N",(t : Track ) => (12 - 2*t)%12)
-          val toPathWE = ("E",evenChannels)
-          val toPathWS = ("S",(t : Track ) => (11 + 2*t)%12)
-          val switchBlockWest = defineConnectivity(("W", evenChannels), Array(toPathWN, toPathWE, toPathWS))
+          val toPathNE = ("E",(t : PinTrack ) => (2 + 2*t)%12, "Track")
+          val toPathNS = ("S",oddChannels, "Track")
+          val toPathNW = ("W",(t : PinTrack ) => (13 - 2*t)%12, "Track")
+          val switchBlockNorth = defineConnectivity(("N", oddChannels, "Track"), Array(toPathNE, toPathNS, toPathNW))
+          val toPathES = ("S",(t : PinTrack ) => (21 - 2*t)%12, "Track")
+          val toPathEW = ("W",oddChannels, "Track")
+          val toPathEN = ("N",(t : PinTrack ) => (10 + 2*t)%12, "Track")
+          val switchBlockEast = defineConnectivity(("E", oddChannels, "Track"), Array(toPathES, toPathEW, toPathEN))
+          val toPathSW = ("W",(t : PinTrack ) => (3 + 2*t)%12, "Track")
+          val toPathSN = ("N", evenChannels, "Track")
+          val toPathSE = ("E",(t : PinTrack ) => (20 - 2*t)%12, "Track")
+          val switchBlockSouth = defineConnectivity(("S", evenChannels, "Track"), Array(toPathSW, toPathSN, toPathSE))
+          val toPathWN = ("N",(t : PinTrack ) => (12 - 2*t)%12, "Track")
+          val toPathWE = ("E",evenChannels, "Track")
+          val toPathWS = ("S",(t : PinTrack ) => (11 + 2*t)%12, "Track")
+          val switchBlockWest = defineConnectivity(("W", evenChannels, "Track"), Array(toPathWN, toPathWE, toPathWS))
           val blockConnectivity = switchBlockNorth ++ switchBlockEast ++ switchBlockSouth ++ switchBlockWest
           blockConnectivity
         }

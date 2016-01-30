@@ -19,7 +19,7 @@ package fpga.blocks{
             for(j <- 0 until startPath._2.length){
               val endSegment = startPath._2(j)
               if(endSegment == toSegment){
-                switches(i)._2(j) = (endSegment._1, endSegment._2, true)
+                switches(i)._2(j) = (endSegment._1, endSegment._2, true, endSegment._4)
                 switchFound = true
               }
             }
@@ -48,7 +48,7 @@ package fpga.blocks{
     def getBits(): String ={
       var programmingBits = ""
       for(i <- 0 until BlockSize/8){
-        programmingBits = programmingBits ++ "\n" ++ blockBits.slice(i*8,i*8+7).mkString("")
+        programmingBits = programmingBits ++ "\n" ++ blockBits.slice(i*8,i*8+8).mkString("")
       }
       programmingBits
     }

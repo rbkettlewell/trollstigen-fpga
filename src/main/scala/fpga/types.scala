@@ -4,11 +4,12 @@ import scala.collection.mutable.MutableList
 package fpga{
   object Types{
     type Direction = String
-    type Track = Int
+    type PinTrack = Int
     type Switch = Boolean
-    type Segment = (Direction, Track, Switch)
+    type ConnectClass = String
+    type Segment = (Direction, PinTrack , Switch, ConnectClass)
     type Path = (Segment,Array[Segment])
-    type PathDefinition = (Direction, Track => Track)
+    type PathDefinition = (Direction, PinTrack => PinTrack, ConnectClass)
     type Connectivity = Array[Path]
     type ConnectionType = String
     type ConnectNumber = Int
@@ -18,7 +19,7 @@ package fpga{
     type Subblock  = Int
     type PlaceInfo = (BlockName, LocationXY, Subblock)
     type Placement = List[PlaceInfo]
-    type RouteInfo = (LocationXY, ConnectionType, ConnectNumber)
+    type RouteInfo = (LocationXY, ConnectionType, ConnectNumber, ConnectClass)
     type Route = (LocationXY, Segment, Segment)
     type Routes = Array[Route]
   }
