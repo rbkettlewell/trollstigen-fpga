@@ -15,6 +15,7 @@ package fpga{
     type ConnectNumber = Int
     type FPGABlocks = Array[Array[AnyBlock]]
     type BlockName = String
+    type BlockType = String
     type LocationXY  = (Int,Int)
     type Subblock  = Int
     type PlaceInfo = (BlockName, LocationXY, Subblock)
@@ -27,6 +28,9 @@ package fpga{
     type ResetVal = String
     type BlifInfo = (BlifModel, BlifInputs , BlifOutput, Covering, ResetVal)
     type Blifs = Array[BlifInfo]
+    type IsSequential = Boolean
+    type NetlistBlock = (BlockName, BlockType, BlifInputs, IsSequential)
+    type RawNetlist = Array[NetlistBlock]
     type Route = (LocationXY, Segment, Segment)
     type Routes = Array[Route]
   }

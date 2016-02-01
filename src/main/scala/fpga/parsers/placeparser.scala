@@ -19,9 +19,5 @@ package fpga.parsers{
       }
       place
     }
-
-    def getPlacement(): Placement = {
-      placement
-    }
   }
 }
