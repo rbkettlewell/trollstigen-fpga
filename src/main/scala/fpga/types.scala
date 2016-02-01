@@ -20,6 +20,13 @@ package fpga{
     type PlaceInfo = (BlockName, LocationXY, Subblock)
     type Placement = List[PlaceInfo]
     type RouteInfo = (LocationXY, ConnectionType, ConnectNumber, ConnectClass)
+    type BlifModel = String
+    type Covering = Array[String]
+    type BlifInputs = Array[BlockName]
+    type BlifOutput = BlockName
+    type ResetVal = String
+    type BlifInfo = (BlifModel, BlifInputs , BlifOutput, Covering, ResetVal)
+    type Blifs = Array[BlifInfo]
     type Route = (LocationXY, Segment, Segment)
     type Routes = Array[Route]
   }

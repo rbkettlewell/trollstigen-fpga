@@ -21,6 +21,8 @@ package fpga{
     
     var route = new RouteParser(routeFile)
 
+    val blif = new BlifParser(blifFile)
+
     def isOdd(num : Int): Boolean = {
       val oddTrue = num%2 == 1
       oddTrue
