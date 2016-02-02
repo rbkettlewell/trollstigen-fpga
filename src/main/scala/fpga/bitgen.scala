@@ -14,6 +14,7 @@ package fpga{
     private val netFile   = synthesisFiles(1)
     private val placeFile = synthesisFiles(2)
     private val routeFile = synthesisFiles(3)
+    private val Debug = true
 
     var fpga = Array.ofDim(rows, cols) : FPGABlocks
 
@@ -308,14 +309,21 @@ package fpga{
 
       clbs.foreach{clb =>
         val clbName = clb._1
-        println("NET:\n" ++ clbName)
+        if (Debug)
+          println("NET:\n" ++ clbName)
         val blifCLB = names.filter(_._3 == clbName)(0)
-        println("BLIF:\n" ++ blifCLB.toString)
+        if (Debug)
+          println("BLIF:\n" ++ blifCLB.toString)
         val updatedCover = reorderCovering(clb, blifCLB)
-        println("Old cover:\n" ++ blifCLB._4.mkString("\n"))
-        println("New cover:\n" ++ updatedCover.mkString("\n"))
+        if (Debug){
+          println("Old cover:\n" ++ blifCLB._4.mkString("\n"))
+          println("New cover:\n" ++ updatedCover.mkString("\n"))
+        }
       }
     }
+
+
+
 
     //TODO verify that onset terms are the only terms ever represented in the blif file
     def reorderCovering(netCLB : NetlistBlock, blifCLB : BlifInfo) : Covering = {

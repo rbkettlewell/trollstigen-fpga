@@ -23,6 +23,7 @@ package fpga{
     type RouteInfo = (LocationXY, ConnectionType, ConnectNumber, ConnectClass)
     type BlifModel = String
     type Covering = Array[String]
+    type Bits = Array[String]
     type BlifInputs = Array[BlockName]
     type BlifOutput = BlockName
     type ResetVal = String
