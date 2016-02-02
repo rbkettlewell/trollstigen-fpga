@@ -7,7 +7,7 @@ package fpga.parsers{
     
     override def toString(): String ={
       var netlistString = ""
-      val allNets = rawNetlist.map (b=> b._1 ++ " " ++  b._2 ++ b._3.mkString(", ") ++ ", " ++ b._4.toString)
+      val allNets = rawNetlist.map (b=> b._1 ++ " " ++  b._2 ++ " " ++ b._3.mkString(", ") ++ ", " ++ b._4.toString)
       netlistString ++ allNets.mkString("\n")
     }
 
@@ -18,9 +18,10 @@ package fpga.parsers{
       loadBlocks.foreach{ b =>
         val blockType = b \ "@mode" text
         val name = b \ "@name" text
-        val inputs = (b \ "inputs" text) split " " 
+        val inputs = (b \ "inputs" \ "port" text) split " " 
         val sequential = (b \ "outputs" text) contains "dff"
-        rawBlocks = rawBlocks ++ Array((name, blockType, inputs,sequential))
+        if(name != "vcc" && name != "gnd" && name != "unconn" && name != "top^clock")
+          rawBlocks = rawBlocks ++ Array((name, blockType, inputs,sequential))
       }
       rawBlocks
     }

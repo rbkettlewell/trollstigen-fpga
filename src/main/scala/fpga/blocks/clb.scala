@@ -3,6 +3,7 @@ import fpga.BlockEnum._
 package fpga.blocks{
   class CLB(locationXY: (Int,Int), pbEnum : BlockEnum) extends AnyBlock{
     val location = locationXY
+    var name = "Unknown CLB"
     val blockEnumeration = pbEnum
     var inputsEnable = Array.fill[Boolean](6)(false)
     var outputEnable = false
@@ -12,7 +13,5 @@ package fpga.blocks{
     var dFFResetValue   = false
     var lutSRAMBits     = Array.fill[Boolean](64)(false)
 
-    def configure(netlistNode: scala.xml.Node){
-    }
   }
 }

@@ -22,8 +22,8 @@ package fpga{
     var route = new RouteParser(routeFile)
 
     val blif = new BlifParser(blifFile)
-     
-    val rawNetlist = new NetlistParser(netFile)
+   
+    val netlist = new NetlistParser(netFile)
 
     def isOdd(num : Int): Boolean = {
       val oddTrue = num%2 == 1
@@ -274,6 +274,57 @@ package fpga{
       }
     }
 
+    def assembleFPGA(){
+
+      for (row <- 0 until rows){
+        for (col <- 0 until cols){
+
+          val locationXY = (row, col)
+          val blockEnumeration = getBlockEnum(locationXY)
+          val blockConnectivity = getBlockConnectivity(blockEnumeration)
+          val switchBlocks = List(NEC,SEC,SWC,NWC,PNSB,PESB,PSSB,PWSB,ISB)
+          val connectionBlocks = List(PNCB,PECB,PSCB,PWCB,IVCB,IHCB)
+
+          blockEnumeration match{
+            case s if switchBlocks.exists(_==s)     => fpga(row)(col) = new SwitchBlock(locationXY, blockEnumeration, blockConnectivity)
+            case c if connectionBlocks.exists(_==c) => fpga(row)(col) = new ConnectionBlock(locationXY, blockEnumeration, blockConnectivity)
+            case CLB   => fpga(row)(col) = new CLB(locationXY, blockEnumeration)
+            case IOB   => fpga(row)(col) = new IOB(locationXY, blockEnumeration)
+            case Empty => fpga(row)(col) = new EmptyBlock(locationXY, blockEnumeration)
+          }
+        }
+      }
+    }
+
+
+    def placeFPGA(){
+
+      val clbs = netlist.rawNetlist.filter(_._2 == "clb")
+      val outpads = netlist.rawNetlist.filter(_._2 == "outpad")
+      val inpads = netlist.rawNetlist.filter(_._2 == "inpad")
+      val latches = blif.blifs.filter(_._1 == ".latch")
+      val names = blif.blifs.filter(_._1 == ".names")
+
+
+      clbs.foreach{clb =>
+        val clbName = clb._1
+        println("NET:\n" ++ clbName)
+        val blifCLB = names.filter(_._3 == clbName)(0)
+        println("BLIF:\n" ++ blifCLB.toString)
+        val updatedCover = reorderCovering(clb, blifCLB)
+        println("Old cover:\n" ++ blifCLB._4.mkString("\n"))
+        println("New cover:\n" ++ updatedCover.mkString("\n"))
+      }
+    }
+
+    //TODO verify that onset terms are the only terms ever represented in the blif file
+    def reorderCovering(netCLB : NetlistBlock, blifCLB : BlifInfo) : Covering = {
+      val coverOrder = blifCLB._2.map(input => netCLB._3.indexWhere(_==input))
+      blifCLB._4.map{c => 
+        coverOrder.map(i => c(i)).mkString
+      }
+    }
+
     // Description: This method sequentially reads all the routing node connections and sets the specific block
     // switches accordingly.
     def configureRouting(){
@@ -335,27 +386,6 @@ package fpga{
       println
     }
 
-    def assembleFPGA(){
-
-      for (row <- 0 until rows){
-        for (col <- 0 until cols){
-
-          val locationXY = (row, col)
-          val blockEnumeration = getBlockEnum(locationXY)
-          val blockConnectivity = getBlockConnectivity(blockEnumeration)
-          val switchBlocks = List(NEC,SEC,SWC,NWC,PNSB,PESB,PSSB,PWSB,ISB)
-          val connectionBlocks = List(PNCB,PECB,PSCB,PWCB,IVCB,IHCB)
-
-          blockEnumeration match{
-            case s if switchBlocks.exists(_==s)     => fpga(row)(col) = new SwitchBlock(locationXY, blockEnumeration, blockConnectivity)
-            case c if connectionBlocks.exists(_==c) => fpga(row)(col) = new ConnectionBlock(locationXY, blockEnumeration, blockConnectivity)
-            case CLB   => fpga(row)(col) = new CLB(locationXY, blockEnumeration)
-            case IOB   => fpga(row)(col) = new IOB(locationXY, blockEnumeration)
-            case Empty => fpga(row)(col) = new EmptyBlock(locationXY, blockEnumeration)
-          }
-        }
-      }
-    }
   }
 }
 
