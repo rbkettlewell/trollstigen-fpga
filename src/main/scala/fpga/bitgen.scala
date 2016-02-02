@@ -14,7 +14,7 @@ package fpga{
     private val netFile   = synthesisFiles(1)
     private val placeFile = synthesisFiles(2)
     private val routeFile = synthesisFiles(3)
-    private val Debug = true
+    private val Debug = false
 
     var fpga = Array.ofDim(rows, cols) : FPGABlocks
 
@@ -312,20 +312,26 @@ package fpga{
         val placeInfo = place.placement.filter(_._1 == clbName)(0)
         val row = placeInfo._2._2.toInt * 2
         val col = placeInfo._2._1.toInt * 2
-        if (Debug)
-          println("NET:\n" ++ clbName)
+        if (Debug){
+          println("NET Name:\n" ++ clbName)
+          println("NET Inputs:\n" ++ clb._3.mkString(","))
+          println("NET Inputs length:\n" ++ clb._3.length.toString)
           println("PLACE:\n" ++ placeInfo.toString)
+        }
         val blifCLB = names.filter(_._3 == clbName)(0)
-        if (Debug)
-          println("BLIF:\n" ++ blifCLB.toString)
+        if (Debug){
+          println("BLIF Name:\n" ++ blifCLB._3)
+          println("BLIF Inputs:\n" ++ blifCLB._2.mkString(", "))
+          println("BLIF Inputs length:\n" ++ blifCLB._2.length.toString)
+          println("Old cover:\n" ++ blifCLB._4.mkString("\n"))
+        }
         val updatedCover = reorderCovering(clb, blifCLB)
         if (Debug){
-          println("Old cover:\n" ++ blifCLB._4.mkString("\n"))
           println("New cover:\n" ++ updatedCover.mkString("\n"))
         }
         // Set reset val if latch
         if(clb._4){
-          val resetVal = latches.filter(_._1 == clbName)(0)._5
+          val resetVal = latches.filter(_._2(0) == clbName)(0)._5
           fpga(row)(col).asInstanceOf[CLB].dFFResetValue = resetVal
           fpga(row)(col).asInstanceOf[CLB].muxSelect = "1"
         }
@@ -358,7 +364,10 @@ package fpga{
     def reorderCovering(netCLB : NetlistBlock, blifCLB : BlifInfo) : Covering = {
       val coverOrder = blifCLB._2.map(input => netCLB._3.indexWhere(_==input))
       blifCLB._4.map{c => 
-        coverOrder.map(i => c(i)).mkString
+        var tempCover = Array.fill(6)('-')
+        for(i<-0 until coverOrder.length)
+          tempCover(coverOrder(i)) = c(i)
+        tempCover.mkString
       }
     }
 
