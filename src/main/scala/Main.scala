@@ -7,6 +7,7 @@ object Main {
   def main(args: Array[String]) {
     
     val DebugBlocks = false
+    val DescribeRouting = false 
     
     val synthesisPath = args(0)
     val synthesisFolder = new File(synthesisPath)
@@ -33,6 +34,12 @@ object Main {
       println(bitstream.place.placement.mkString("\n"))
       println("*************net**************")
       println(bitstream.netlist.toString)
+    }
+
+    if(DescribeRouting){
+      val routingWriter = new PrintWriter(new File(synthesisPath ++ "Connectivity.txt")) 
+      routingWriter.write(bitstream.describeRoutingBlocks)
+      routingWriter.close
     }
 
     val bitstreamWriter = new PrintWriter(new File(synthesisPath ++ "bitstream.bin")) 

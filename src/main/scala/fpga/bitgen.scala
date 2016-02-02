@@ -274,6 +274,23 @@ package fpga{
         case _ => Array() // CLB and IOB return empty connectivity lists
       }
     }
+    
+    def describeRoutingBlocks(): String ={
+
+      var switchInfo = "*************************Switch Blocks*************************\n"
+      val switchBlocks = List(NEC,SEC,SWC,NWC,PNSB,PESB,PSSB,PWSB,ISB)
+      switchBlocks.foreach{s=>
+        val blockConnectivity = getBlockConnectivity(s)
+        switchInfo = switchInfo ++ "\n" ++ new SwitchBlock((-1,-1),s,blockConnectivity).toString
+      }
+      switchInfo = switchInfo ++ "\n**********************Connection Blocks***********************\n"
+      val connectionBlocks = List(PNCB,PECB,PSCB,PWCB,IVCB,IHCB)
+      connectionBlocks.foreach{c=>
+        val blockConnectivity = getBlockConnectivity(c)
+        switchInfo = switchInfo ++ "\n" ++ new SwitchBlock((-1,-1),c,blockConnectivity).toString
+      }
+      switchInfo
+    }
 
     def assembleFPGA(){
 
