@@ -27,5 +27,7 @@ object Main {
     println(bitstream.place.placement.mkString("\n"))
     println("*************net**************")
     println(bitstream.netlist.toString)
+    println("*************bitstream**************")
+    println(bitstream.generateBitstream)
   }
 }

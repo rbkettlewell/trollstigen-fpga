@@ -7,13 +7,12 @@ package fpga.blocks{
     val location = locationXY
     var name = "Unknown CLB"
     val blockEnumeration = pbEnum
-    var inputsEnable = Array.fill[Boolean](6)(false)
-    var outputEnable = false
-    var clockEnable  = false
-    var muxSelect    = false       // true will select DFF, false defaults to LUT6 output
-    var dFFResetEnable  = false
-    var dFFResetValue   = false
-    var lutSRAMBits     = Array.fill[Boolean](64)(false)
+    var inputsEnable = Array.fill[String](6)("0")
+    var muxSelect    = "0" // "1" will select DFF, false defaults to LUT6 output
+    var dFFResetValue   = "0"
+    var lutSRAMBits     = Array.fill[String](64)("0")
+    val BlockSize = 72
+    var blockBits = Array.fill(BlockSize){"0"}
 
     def toBinary(i : Int, leftPad : String, wordSize : Int): String = {
       (List.fill(wordSize)(leftPad).mkString ++ "%s").format(i.toBinaryString).takeRight(wordSize)
@@ -29,7 +28,16 @@ package fpga.blocks{
       sum
     }
 
-    def configureLUT6(cover : Covering): Bits={
+    def setInputs(lutInputs : Array[String]){
+      inputsEnable = lutInputs.map{in =>
+        if (in != "open")
+          "1"
+        else
+          "0"
+      }
+    }
+
+    def configureLUT6(cover : Covering){
       var lut = createLUT6()
       var lutBits = Array.fill(64){"0"}
       var bitPositions : Array[Int] = Array()
@@ -37,7 +45,7 @@ package fpga.blocks{
         bitPositions = bitPositions ++ (recursiveCover(lut,0,c).map(fromBinary))  }
 
       bitPositions.foreach{p => lutBits(p) = "1"}
-      lutBits
+      lutSRAMBits = lutBits
     }
 
     def createLUT6(): Array[String]={
@@ -54,6 +62,18 @@ package fpga.blocks{
             recursiveCover(a.filter(_(i) == c.head), i + 1, c.tail)
         }
       }
+    }
+
+    def setBits(){
+      blockBits = lutSRAMBits ++ inputsEnable ++ Array(muxSelect, dFFResetValue)
+    }
+
+    def getBits(): String ={
+      var programmingBits = ""
+      for(i <- 0 until BlockSize/8){
+        programmingBits = programmingBits ++ "\n" ++ blockBits.slice(i*8,i*8+8).mkString("")
+      }
+      programmingBits
     }
   }
 }

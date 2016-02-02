@@ -309,8 +309,12 @@ package fpga{
 
       clbs.foreach{clb =>
         val clbName = clb._1
+        val placeInfo = place.placement.filter(_._1 == clbName)(0)
+        val row = placeInfo._2._2.toInt * 2
+        val col = placeInfo._2._1.toInt * 2
         if (Debug)
           println("NET:\n" ++ clbName)
+          println("PLACE:\n" ++ placeInfo.toString)
         val blifCLB = names.filter(_._3 == clbName)(0)
         if (Debug)
           println("BLIF:\n" ++ blifCLB.toString)
@@ -319,10 +323,35 @@ package fpga{
           println("Old cover:\n" ++ blifCLB._4.mkString("\n"))
           println("New cover:\n" ++ updatedCover.mkString("\n"))
         }
+        // Set reset val if latch
+        if(clb._4){
+          val resetVal = latches.filter(_._1 == clbName)(0)._5
+          fpga(row)(col).asInstanceOf[CLB].dFFResetValue = resetVal
+          fpga(row)(col).asInstanceOf[CLB].muxSelect = "1"
+        }
+
+        fpga(row)(col).asInstanceOf[CLB].name = clbName
+        fpga(row)(col).asInstanceOf[CLB].configureLUT6(updatedCover)
+        fpga(row)(col).asInstanceOf[CLB].setInputs(clb._3)
+      }
+
+      outpads.foreach{out=>
+        val padName = out._1
+        val placeInfo = place.placement.filter(_._1 == padName)(0)
+        val row = placeInfo._2._2.toInt * 2
+        val col = placeInfo._2._1.toInt * 2
+        fpga(row)(col).asInstanceOf[IOB].name = padName
+        fpga(row)(col).asInstanceOf[IOB].outEnable = "1"
+      }
+      inpads.foreach{in=>
+        val padName = in._1
+        val placeInfo = place.placement.filter(_._1 == padName)(0)
+        val row = placeInfo._2._2.toInt * 2
+        val col = placeInfo._2._1.toInt * 2
+        fpga(row)(col).asInstanceOf[IOB].name = padName
+        fpga(row)(col).asInstanceOf[IOB].inEnable= "1"
       }
     }
-
-
 
 
     //TODO verify that onset terms are the only terms ever represented in the blif file
@@ -359,14 +388,30 @@ package fpga{
           block match{
             case b : SwitchBlock     => fpga(row)(col).asInstanceOf[SwitchBlock].setBits
             case b : ConnectionBlock => fpga(row)(col).asInstanceOf[ConnectionBlock].setBits
-            case b : CLB             =>
-            case b : IOB             =>
+            case b : CLB             => fpga(row)(col).asInstanceOf[CLB].setBits
+            case b : IOB             => fpga(row)(col).asInstanceOf[IOB].setBits
             case b : EmptyBlock      =>
           }
         }
       }
     }
 
+    def generateBitstream(): String = {
+      var bitstream = ""
+      for (row <- 0 until rows){
+        for (col <- 0 until cols){
+          val block = fpga(row)(col)
+          block match{
+            case b : SwitchBlock     => bitstream = bitstream ++ fpga(row)(col).asInstanceOf[SwitchBlock].getBits
+            case b : ConnectionBlock => bitstream = bitstream ++ fpga(row)(col).asInstanceOf[ConnectionBlock].getBits
+            case b : CLB             => bitstream = bitstream ++ fpga(row)(col).asInstanceOf[CLB].getBits
+            case b : IOB             => bitstream = bitstream ++ fpga(row)(col).asInstanceOf[IOB].getBits
+            case b : EmptyBlock      => bitstream = bitstream ++ fpga(row)(col).asInstanceOf[EmptyBlock].getBits
+          }
+        }
+      }
+      bitstream.filter(_!='\n')
+    }
 
     def prettyPrint(printType : String): Unit = {
       println

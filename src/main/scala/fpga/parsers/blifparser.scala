@@ -37,7 +37,12 @@ package fpga.parsers{
           blif = blif ++ Array((".names",inputs,output,cover,""))
         }else if (modelName == ".latch"){
           val clockEdge = blifRawInfo(3)
-          val resetDefault = blifRawInfo(5)
+          val resetDefault = {
+            if (blifRawInfo(5) == "1")
+              "1"
+            else
+              "0"
+          }
           if(clockEdge != "re")
             println("Error, non rising edge latch is being requested")
           blif = blif ++ Array((".latch",Array(blifRawInfo(1)),blifRawInfo(1),Array(""),resetDefault))

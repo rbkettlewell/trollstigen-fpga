@@ -5,9 +5,23 @@ package fpga.blocks{
     val location = locationXY
     var name = "Unknown IOB"
     val blockEnumeration = pbEnum
-    var padEnable   = false
-    var inputToFPGA = false
-    def configure(netlistNode: scala.xml.Node){
+    var outEnable = "0"
+    var inEnable = "0"
+    val BlockSize = 72
+    var blockBits = Array.fill(BlockSize){"0"}
+
+    def setBits(){
+      blockBits(0) = outEnable
+      blockBits(1) = inEnable
     }
+
+    def getBits(): String ={
+      var programmingBits = ""
+      for(i <- 0 until BlockSize/8){
+        programmingBits = programmingBits ++ "\n" ++ blockBits.slice(i*8,i*8+8).mkString("")
+      }
+      programmingBits
+    }
+    
   }
 }
