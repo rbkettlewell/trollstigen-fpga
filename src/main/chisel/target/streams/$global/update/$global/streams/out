@@ -1,0 +1,298 @@
+[0m[[0minfo[0m] [0mUpdating {file:/home/ubuntu/Documents/trollstigen-fpga/src/main/chisel/}chisel...[0m
+[0m[[0mdebug[0m] [0m:: resolving dependencies :: edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT[0m
+[0m[[0mdebug[0m] [0m	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool][0m
+[0m[[0mdebug[0m] [0m	validate = true[0m
+[0m[[0mdebug[0m] [0m	refresh = false[0m
+[0m[[0mdebug[0m] [0mresolving dependencies for configuration 'compile'[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->default(compile)][0m
+[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.7 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5d553d64[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.7[0m
+[0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.11.7 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m	[2.11.7] org.scala-lang#scala-library;2.11.7[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->default(compile)][0m
+[0m[[0minfo[0m] [0mResolving edu.berkeley.cs#chisel_2.11;latest.release ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: edu.berkeley.cs#chisel_2.11;latest.release {compile=[default(compile)]}[0m
+[0m[[0mdebug[0m] [0mdefault-cache: cached resolved revision expired for edu.berkeley.cs#chisel_2.11;latest.release[0m
+[0m[[0minfo[0m] [0mResolving edu.berkeley.cs#chisel_2.11;latest.release ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: edu.berkeley.cs#chisel_2.11;latest.release {compile=[default(compile)]}[0m
+[0m[[0mdebug[0m] [0mdefault-cache: cached resolved revision expired for edu.berkeley.cs#chisel_2.11;latest.release[0m
+[0m[[0mdebug[0m] [0mdefault-cache: cached resolved revision expired for edu.berkeley.cs#chisel_2.11;latest.release[0m
+[0m[[0mdebug[0m] [0m		tried /home/ubuntu/.ivy2/local/edu.berkeley.cs/chisel_2.11/[revision]/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mlocal do not support transaction. ivy pattern does not use revision as a directory[0m
+[0m[[0mdebug[0m] [0m	local: found md file for edu.berkeley.cs#chisel_2.11;latest.release[0m
+[0m[[0mdebug[0m] [0m		=> /home/ubuntu/.ivy2/local/edu.berkeley.cs/chisel_2.11/2.3-SNAPSHOT/ivys/ivy.xml (2.3-SNAPSHOT)[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] edu.berkeley.cs#chisel_2.11;2.3-SNAPSHOT!ivy.xml(ivy.original)[0m
+[0m[[0mdebug[0m] [0medu.berkeley.cs#chisel_2.11;2.3-SNAPSHOT is changing, but has not changed: will trust cached artifacts if any[0m
+[0m[[0mdebug[0m] [0m		tried [2.3-SNAPSHOT (MD)][0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for edu.berkeley.cs#chisel_2.11;latest.release[0m
+[0m[[0mdebug[0m] [0mdefault-cache: cached resolved revision expired for edu.berkeley.cs#chisel_2.11;latest.release[0m
+[0m[[0mdebug[0m] [0m		tried https://jcenter.bintray.com/edu/berkeley/cs/chisel_2.11/[revision]/chisel_2.11-[revision].pom[0m
+[0m[[0mdebug[0m] [0m	listing revisions from maven-metadata: https://jcenter.bintray.com/edu/berkeley/cs/chisel_2.11/maven-metadata.xml[0m
+[0m[[0mdebug[0m] [0m	jcenter: found md file for edu.berkeley.cs#chisel_2.11;latest.release[0m
+[0m[[0mdebug[0m] [0m		=> https://jcenter.bintray.com/edu/berkeley/cs/chisel_2.11/2.2.31/chisel_2.11-2.2.31.pom (2.2.31)[0m
+[0m[[0mdebug[0m] [0m	default-cache: revision in cache: edu.berkeley.cs#chisel_2.11;2.2.31[0m
+[0m[[0mdebug[0m] [0m	found edu.berkeley.cs#chisel_2.11;2.2.31 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m	[2.2.31] edu.berkeley.cs#chisel_2.11;latest.release[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [compile->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [compile->compile(*)][0m
+[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.7 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-lang#scala-reflect;2.11.7 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-reflect;2.11.7[0m
+[0m[[0mdebug[0m] [0m	found org.scala-lang#scala-reflect;2.11.7 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m	[2.11.7] org.scala-lang#scala-reflect;2.11.7[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [compile->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->master][0m
+[0m[[0mdebug[0m] [0mresolving dependencies for configuration 'runtime'[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->master][0m
+[0m[[0mdebug[0m] [0mresolving dependencies for configuration 'test'[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [test][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->master][0m
+[0m[[0mdebug[0m] [0mresolving dependencies for configuration 'provided'[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [provided][0m
+[0m[[0mdebug[0m] [0mresolving dependencies for configuration 'optional'[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [optional][0m
+[0m[[0mdebug[0m] [0mresolving dependencies for configuration 'compile-internal'[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [compile-internal][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [optional][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [provided][0m
+[0m[[0mdebug[0m] [0mresolving dependencies for configuration 'runtime-internal'[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [runtime-internal][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [optional][0m
+[0m[[0mdebug[0m] [0mresolving dependencies for configuration 'test-internal'[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [test-internal][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [test][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-library;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel_2.11;latest.release->org.scala-lang#scala-reflect;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->edu.berkeley.cs#chisel_2.11;latest.release [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [optional][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [provided][0m
+[0m[[0mdebug[0m] [0mresolving dependencies for configuration 'plugin'[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [plugin][0m
+[0m[[0mdebug[0m] [0mresolving dependencies for configuration 'sources'[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [sources][0m
+[0m[[0mdebug[0m] [0mresolving dependencies for configuration 'docs'[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [docs][0m
+[0m[[0mdebug[0m] [0mresolving dependencies for configuration 'pom'[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [pom][0m
+[0m[[0mdebug[0m] [0mresolving dependencies for configuration 'scala-tool'[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT [scala-tool][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-compiler;2.11.7 [scala-tool->default][0m
+[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.11.7 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-lang#scala-compiler;2.11.7 {scala-tool=[default, optional(default)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-compiler;2.11.7[0m
+[0m[[0mdebug[0m] [0m	found org.scala-lang#scala-compiler;2.11.7 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-compiler;2.11.7 [scala-tool->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-compiler;2.11.7 [scala-tool->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->default][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->optional(default)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang#scala-reflect;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang#scala-reflect;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang.modules#scala-xml_2.11;1.0.4 [compile->compile(*)][0m
+[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.4 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-lang.modules#scala-xml_2.11;1.0.4 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang.modules#scala-xml_2.11;1.0.4[0m
+[0m[[0mdebug[0m] [0m	found org.scala-lang.modules#scala-xml_2.11;1.0.4 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.4->org.scala-lang#scala-library;2.11.4 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.4->org.scala-lang#scala-library;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.4->org.scala-lang#scala-library;2.11.4 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.4->org.scala-lang#scala-library;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang.modules#scala-xml_2.11;1.0.4 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang.modules#scala-xml_2.11;1.0.4 [compile->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang.modules#scala-xml_2.11;1.0.4 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.4->org.scala-lang#scala-library;2.11.4 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.4->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.4->org.scala-lang#scala-library;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 [compile->compile(*)][0m
+[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4[0m
+[0m[[0mdebug[0m] [0m	found org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4->org.scala-lang#scala-library;2.11.6 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4->org.scala-lang#scala-library;2.11.7 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4->org.scala-lang#scala-library;2.11.6 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4->org.scala-lang#scala-library;2.11.7 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 [compile->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4->org.scala-lang#scala-library;2.11.6 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4->org.scala-lang#scala-library;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang#scala-library;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang#scala-reflect;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang#scala-reflect;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.11.7->org.scala-lang#scala-library;2.11.7 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang.modules#scala-xml_2.11;1.0.4 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang.modules#scala-xml_2.11;1.0.4 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-compiler;2.11.7 [scala-tool->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-compiler;2.11.7 [scala-tool->optional(default)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->jline#jline;2.12.1 [optional->compile(*)][0m
+[0m[[0minfo[0m] [0mResolving jline#jline;2.12.1 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: jline#jline;2.12.1 {optional=[compile(*), master(compile)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: jline#jline;2.12.1[0m
+[0m[[0mdebug[0m] [0m	found jline#jline;2.12.1 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.11.7->jline#jline;2.12.1 [optional->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [scala-tool->default][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [scala-tool->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [scala-tool->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [scala-tool->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [scala-tool->optional(default)][0m
+[0m[[0mdebug[0m] [0m	resolved ivy file produced in cache[0m
+[0m[[0mdebug[0m] [0m:: downloading artifacts ::[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-library;2.11.7!scala-library.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] edu.berkeley.cs#chisel_2.11;2.2.31!chisel_2.11.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-reflect;2.11.7!scala-reflect.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.11.7!scala-compiler.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.11;1.0.4!scala-xml_2.11.jar(bundle)[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4!scala-parser-combinators_2.11.jar(bundle)[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] jline#jline;2.12.1!jline.jar[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 2105ms :: artifacts dl 18ms[0m
+[0m[[0mdebug[0m] [0m	report for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT compile produced in /home/ubuntu/Documents/trollstigen-fpga/src/main/chisel/target/resolution-cache/reports/edu.berkeley.cs-chisel-tutorial_2.11-compile.xml[0m
+[0m[[0mdebug[0m] [0m	report for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT runtime produced in /home/ubuntu/Documents/trollstigen-fpga/src/main/chisel/target/resolution-cache/reports/edu.berkeley.cs-chisel-tutorial_2.11-runtime.xml[0m
+[0m[[0mdebug[0m] [0m	report for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT test produced in /home/ubuntu/Documents/trollstigen-fpga/src/main/chisel/target/resolution-cache/reports/edu.berkeley.cs-chisel-tutorial_2.11-test.xml[0m
+[0m[[0mdebug[0m] [0m	report for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT provided produced in /home/ubuntu/Documents/trollstigen-fpga/src/main/chisel/target/resolution-cache/reports/edu.berkeley.cs-chisel-tutorial_2.11-provided.xml[0m
+[0m[[0mdebug[0m] [0m	report for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT optional produced in /home/ubuntu/Documents/trollstigen-fpga/src/main/chisel/target/resolution-cache/reports/edu.berkeley.cs-chisel-tutorial_2.11-optional.xml[0m
+[0m[[0mdebug[0m] [0m	report for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT compile-internal produced in /home/ubuntu/Documents/trollstigen-fpga/src/main/chisel/target/resolution-cache/reports/edu.berkeley.cs-chisel-tutorial_2.11-compile-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT runtime-internal produced in /home/ubuntu/Documents/trollstigen-fpga/src/main/chisel/target/resolution-cache/reports/edu.berkeley.cs-chisel-tutorial_2.11-runtime-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT test-internal produced in /home/ubuntu/Documents/trollstigen-fpga/src/main/chisel/target/resolution-cache/reports/edu.berkeley.cs-chisel-tutorial_2.11-test-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT plugin produced in /home/ubuntu/Documents/trollstigen-fpga/src/main/chisel/target/resolution-cache/reports/edu.berkeley.cs-chisel-tutorial_2.11-plugin.xml[0m
+[0m[[0mdebug[0m] [0m	report for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT sources produced in /home/ubuntu/Documents/trollstigen-fpga/src/main/chisel/target/resolution-cache/reports/edu.berkeley.cs-chisel-tutorial_2.11-sources.xml[0m
+[0m[[0mdebug[0m] [0m	report for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT docs produced in /home/ubuntu/Documents/trollstigen-fpga/src/main/chisel/target/resolution-cache/reports/edu.berkeley.cs-chisel-tutorial_2.11-docs.xml[0m
+[0m[[0mdebug[0m] [0m	report for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT pom produced in /home/ubuntu/Documents/trollstigen-fpga/src/main/chisel/target/resolution-cache/reports/edu.berkeley.cs-chisel-tutorial_2.11-pom.xml[0m
+[0m[[0mdebug[0m] [0m	report for edu.berkeley.cs#chisel-tutorial_2.11;2.3-SNAPSHOT scala-tool produced in /home/ubuntu/Documents/trollstigen-fpga/src/main/chisel/target/resolution-cache/reports/edu.berkeley.cs-chisel-tutorial_2.11-scala-tool.xml[0m
+[0m[[0mdebug[0m] [0m	resolve done (2105ms resolve - 18ms download)[0m
+[0m[[0minfo[0m] [0mDone updating.[0m

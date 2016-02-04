@@ -1,0 +1,2 @@
+run --backend c --compile --test --genHarness
+exit
