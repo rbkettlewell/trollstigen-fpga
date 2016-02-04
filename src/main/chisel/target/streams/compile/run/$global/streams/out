@@ -1,0 +1,16 @@
+[0m[[0minfo[0m] [0mRunning IHCB IHCB --backend c --compile --test --genHarness[0m
+[0m[[0mdebug[0m] [0mWaiting for threads to exit or System.exit to be called.[0m
+[0m[[0mdebug[0m] [0m  Classpath:[0m
+[0m[[0mdebug[0m] [0m	/home/ubuntu/Documents/trollstigen-fpga/src/main/chisel/target/scala-2.11/classes[0m
+[0m[[0mdebug[0m] [0m	/home/ubuntu/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar[0m
+[0m[[0mdebug[0m] [0m	/home/ubuntu/.ivy2/cache/edu.berkeley.cs/chisel_2.11/jars/chisel_2.11-2.2.31.jar[0m
+[0m[[0mdebug[0m] [0m	/home/ubuntu/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.11.7.jar[0m
+[0m[[0mdebug[0m] [0mWaiting for thread run-main-0 to terminate.[0m
+[0m[[0mdebug[0m] [0m	Thread run-main-0 exited.[0m
+[0m[[0mdebug[0m] [0mInterrupting remaining threads (should be all daemons).[0m
+[0m[[0mdebug[0m] [0mInterrupting thread ForkJoinPool-1-worker-3[0m
+[0m[[0mdebug[0m] [0m	Interrupted ForkJoinPool-1-worker-3[0m
+[0m[[0mdebug[0m] [0mInterrupting thread ForkJoinPool-1-worker-1[0m
+[0m[[0mdebug[0m] [0m	Interrupted ForkJoinPool-1-worker-1[0m
+[0m[[0mdebug[0m] [0mSandboxed run complete..[0m
+[0m[[0mdebug[0m] [0mExited with code 0[0m
