@@ -2,21 +2,21 @@ import Chisel._
 
 class IHCB extends Module {
 	val io = new Bundle {
-		val W1 = UInt(OUTPUT, 1)
 		val W2 = UInt(INPUT, 1)
 		val W3 = UInt(INPUT, 1)
-		val W5 = UInt(OUTPUT, 1)
 		val W8 = UInt(INPUT, 1)
 		val W9 = UInt(INPUT, 1)
 		val E0 = UInt(INPUT, 1)
 		val E1 = UInt(INPUT, 1)
-		val E3 = UInt(OUTPUT, 1)
-		val E4 = UInt(INPUT, 1)
-		val E5 = UInt(INPUT, 1)
 		val E6 = UInt(INPUT, 1)
 		val E7 = UInt(INPUT, 1)
+		val E4 = UInt(INPUT, 1)
+		val E5 = UInt(INPUT, 1)
 		val E10 = UInt(INPUT, 1)
 		val E11 = UInt(INPUT, 1)
+		val E3 = UInt(OUTPUT, 1)
+		val W1 = UInt(OUTPUT, 1)
+		val W5 = UInt(OUTPUT, 1)
 		val blkBits = UInt(INPUT, 72)
 	}
 
@@ -61,6 +61,7 @@ class IHCBTest(c: IHCB) extends Tester(c) {
 	peek(c.io.blkBits)
 	expect(c.io.E3, 1)
 	expect(c.io.W1, 0)
+
 }
 
 object IHCB {
