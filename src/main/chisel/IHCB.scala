@@ -10,6 +10,22 @@ class IHCB extends Module {
 		val W = new CLBEast().flip
 		val blkBits = UInt(INPUT, 72)
 	}
+
+	/*
+	From: (W,2,false,Track), To: (E,3,false,Pin)
+	From: (W,3,false,Track), To: (E,3,false,Pin)
+	From: (W,8,false,Track), To: (E,3,false,Pin)
+	From: (W,9,false,Track), To: (E,3,false,Pin)
+	From: (E,0,false,Track), To: (W,1,false,Pin)
+	From: (E,1,false,Track), To: (W,1,false,Pin)
+	From: (E,6,false,Track), To: (W,1,false,Pin)
+	From: (E,7,false,Track), To: (W,1,false,Pin)
+	From: (E,4,false,Track), To: (W,5,false,Pin)
+	From: (E,5,false,Track), To: (W,5,false,Pin)
+	From: (E,10,false,Track), To: (W,5,false,Pin)
+	From: (E,11,false,Track), To: (W,5,false,Pin)
+	*/
+	
 	io.N <> io.S
 	io.E.p3 := (io.S.p2 & io.blkBits(0)) | (io.N.p3 & io.blkBits(1)) |
 						 (io.S.p8 & io.blkBits(2)) | (io.N.p9 & io.blkBits(3))

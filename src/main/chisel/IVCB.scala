@@ -1,74 +1,60 @@
+package FPGASimulation
+
 import Chisel._
 
 class IVCB extends Module {
 	val io = new Bundle {
-    val S2 = UInt(INPUT, 1)
-		val S3 = UInt(INPUT, 1)
-		val S8 = UInt(INPUT, 1)
-		val S9 = UInt(INPUT, 1)
-		val N6 = UInt(INPUT, 1)
-		val N0 = UInt(INPUT, 1)
-		val N1 = UInt(INPUT, 1)
-		val N6 = UInt(INPUT, 1)
-		val N7 = UInt(INPUT, 1)
-		val N4 = UInt(INPUT, 1)
-		val N5 = UInt(INPUT, 1)
-		val N10 = UInt(INPUT, 1)
-    val N11 = UInt(INPUT, 1)
-		val N2 = UInt(OUTPUT, 1)
-		val S0 = UInt(OUTPUT, 1)
-    val S1 = UInt(OUTPUT, 1)
-    val S2 = UInt(OUTPUT, 1)
-    val S3 = UInt(OUTPUT, 1)
-    val S4 = UInt(OUTPUT, 1)
+		val N = new CLBSouth().flip
+		val S = new CLBNorth().flip
+		val E = new FullEdge().flip
+		val W = new FullEdge()
 		val blkBits = UInt(INPUT, 72)
 	}
 
-	val inPins = Vec.fill(13) {UInt(width = 1)}
-	inPins(0) := io.S2
-	inPins(1) := io.S3
-	inPins(2) := io.S8
-	inPins(3) := io.S9
-  inPins(4) := io.N6
-	inPins(5) := io.N0
-	inPins(6) := io.N1
-	inPins(7) := io.N6
-	inPins(8) := io.N7
-	inPins(9) := io.N4
-	inPins(10) := io.N5
-	inPins(11) := io.N10
-	inPins(12) := io.N11
+  /*
+  From: (S,2,false,Track), To: (N,2,false,Pin)
+  From: (S,3,false,Track), To: (N,2,false,Pin)
+  From: (S,8,false,Track), To: (N,2,false,Pin)
+  From: (S,9,false,Track), To: (N,2,false,Pin)
+  From: (N,6,false,Pin), To: (S,0,false,Track),(S,1,false,Track),
+                             (S,2,false,Track),(S,3,false,Track)
+  From: (N,0,false,Track), To: (S,0,false,Pin)
+  From: (N,1,false,Track), To: (S,0,false,Pin)
+  From: (N,6,false,Track), To: (S,0,false,Pin)
+  From: (N,7,false,Track), To: (S,0,false,Pin)
+  From: (N,4,false,Track), To: (S,4,false,Pin)
+  From: (N,5,false,Track), To: (S,4,false,Pin)
+  From: (N,10,false,Track), To: (S,4,false,Pin)
+  From: (N,11,false,Track), To: (S,4,false,Pin)
+  */
 
-	val outPins = Vec.fill(5) {UInt(width = 1)}
-	io.S0 := outPins(0)
-	io.S1 := outPins(1)
-	io.S2 := outPins(2)
-  io.S3 := outPins(3)
-  io.S4 := outPins(4)
-
-	for (i <- 0 until 3) {
-		when (io.blkBits(4*i) === UInt(1)) {
-			outPins(i) := inPins(4*i)
-		} .elsewhen (io.blkBits(4*i+1) === UInt(1)) {
-			outPins(i) := inPins(4*i+1)
-		}	.elsewhen (io.blkBits(4*i+2) === UInt(1)) {
-			outPins(i) := inPins(4*i+2)
-		}	.elsewhen (io.blkBits(4*i+3) === UInt(1)) {
-			outPins(i) := inPins(4*i+3)
-		}	.otherwise {
-			outPins(i) := UInt(0)
-		}
-	}
+	io.E <> io.W
+	io.N.p2 := (io.W.p2 & io.blkBits(0)) | (io.E.p3 & io.blkBits(1)) |
+						 (io.W.p8 & io.blkBits(2)) | (io.E.p9 & io.blkBits(3))
+  io.E.p0 := (io.N.p6 & io.blkBits(4))
+  io.W.p1 := (io.N.p6 & io.blkBits(5))
+  io.E.p2 := (io.N.p6 & io.blkBits(6))
+  io.W.p3 := (io.N.p6 & io.blkBits(7))
+	io.S.p0 := (io.E.p0 & io.blkBits(8)) | (io.E.p1 & io.blkBits(9)) |
+						 (io.E.p6 & io.blkBits(10)) | (io.E.p7 & io.blkBits(11))
+	io.S.p4 := (io.W.p4 & io.blkBits(12)) | (io.E.p5 & io.blkBits(13)) |
+					 	 (io.W.p10 & io.blkBits(14)) | (io.E.p11 & io.blkBits(15))
 }
 
 class IVCBTest(c: IVCB) extends Tester(c) {
-	poke(c.io.blkBits, 1)
-	poke(c.io.W2, 1)
-	poke(c.io.W3, 1)
-	peek(c.io.blkBits)
-	expect(c.io.E3, 1)
-	expect(c.io.W1, 0)
-
+	poke(c.io.N.p6, 1)
+  poke(c.io.W.p2, 1)
+  poke(c.io.E.p3, 0)
+  poke(c.io.W.p8, 0)
+  poke(c.io.E.p9, 0)
+	poke(c.io.blkBits, int(UInt("h0000_0000_0000_0000_00FF")))
+	expect(c.io.N.p2, 1)
+  expect(c.io.E.p0, 1)
+  expect(c.io.W.p1, 1)
+  expect(c.io.E.p2, 1)
+  expect(c.io.W.p3, 1)
+  expect(c.io.S.p0, 0)
+  expect(c.io.S.p4, 0)
 }
 
 object IVCB {
