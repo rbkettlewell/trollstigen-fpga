@@ -6,8 +6,8 @@ import fpga.Bitgen
 object Main {
   def main(args: Array[String]) {
     
-    val DebugBlocks = false
-    val DescribeRouting = false 
+    val DebugBlocks = true
+    val DescribeRouting = true 
     
     val synthesisPath = args(0)
     val synthesisFolder = new File(synthesisPath)
@@ -37,7 +37,7 @@ object Main {
     }
 
     if(DescribeRouting){
-      val routingWriter = new PrintWriter(new File(synthesisPath ++ "Connectivity.txt")) 
+      val routingWriter = new PrintWriter(new File(synthesisPath ++ "Connectivity_v2.txt")) 
       routingWriter.write(bitstream.describeRoutingBlocks)
       routingWriter.close
     }
