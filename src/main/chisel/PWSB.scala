@@ -43,12 +43,12 @@ class PWSB extends Module {
 	io.N.p8 := (io.S.p8 & io.blkBits(9)) | (io.E.p9 & io.blkBits(21))
 	io.E.p10 := (io.S.p10 & io.blkBits(10)) | (io.N.p11 & io.blkBits(34))
 	io.N.p10 := (io.S.p10 & io.blkBits(11)) | (io.E.p11 & io.blkBits(23))
-	io.S.p1 := (io.S.p8 & io.blkBits(12)) | (io.N.p1 & io.blkBits(25))
-	io.S.p3 := (io.S.p8 & io.blkBits(14)) | (io.N.p3 & io.blkBits(27))
-	io.S.p5 := (io.S.p8 & io.blkBits(16)) | (io.N.p5 & io.blkBits(29))
-	io.S.p7 := (io.S.p10 & io.blkBits(18)) | (io.N.p7 & io.blkBits(31))
-	io.S.p9 := (io.S.p10 & io.blkBits(20)) | (io.N.p9 & io.blkBits(33))
-	io.S.p11 := (io.S.p10 & io.blkBits(22)) | (io.N.p11 & io.blkBits(35))
+	io.S.p1 := (io.E.p1 & io.blkBits(12)) | (io.N.p1 & io.blkBits(25))
+	io.S.p3 := (io.E.p3 & io.blkBits(14)) | (io.N.p3 & io.blkBits(27))
+	io.S.p5 := (io.E.p5 & io.blkBits(16)) | (io.N.p5 & io.blkBits(29))
+	io.S.p7 := (io.E.p7 & io.blkBits(18)) | (io.N.p7 & io.blkBits(31))
+	io.S.p9 := (io.E.p9 & io.blkBits(20)) | (io.N.p9 & io.blkBits(33))
+	io.S.p11 := (io.E.p11 & io.blkBits(22)) | (io.N.p11 & io.blkBits(35))
 }
 
 class PWSBTest(c: PWSB) extends Tester(c) {
@@ -58,6 +58,7 @@ class PWSBTest(c: PWSB) extends Tester(c) {
   poke(c.io.S.p6, 1)
   poke(c.io.S.p8, 1)
   poke(c.io.S.p10, 1)
+	poke(c.io.E.p1, 1)
 	poke(c.io.blkBits, int(UInt("h0000_0000_0000_0000_1FFF")))
 	expect(c.io.E.p0, 1)
   expect(c.io.N.p0, 1)

@@ -2,7 +2,7 @@ package FPGASimulation
 
 import Chisel._
 
-class PWSB extends Module {
+class PSSB extends Module {
 	val io = new Bundle {
 		val N = new FullEdge().flip
 		val W = new FullEdge()
@@ -50,9 +50,9 @@ class PWSB extends Module {
 	io.W.p9 := (io.E.p9 & io.blkBits(20)) | (io.N.p9 & io.blkBits(33))
 	io.W.p11 := (io.E.p11 & io.blkBits(22)) | (io.N.p11 & io.blkBits(35))
 }
-// TEST CASE NOT CORRECT 
-class PWSBTest(c: PWSB) extends Tester(c) {
-  poke(c.io.S.p0, 1)
+// TEST CASE NOT CORRECT
+class PSSBTest(c: PSSB) extends Tester(c) {
+/*  poke(c.io.S.p0, 1)
   poke(c.io.S.p2, 1)
   poke(c.io.S.p4, 1)
   poke(c.io.S.p6, 1)
@@ -76,13 +76,13 @@ class PWSBTest(c: PWSB) extends Tester(c) {
 	expect(c.io.S.p5, 0)
 	expect(c.io.S.p7, 0)
 	expect(c.io.S.p9, 0)
-	expect(c.io.S.p11, 0)
+	expect(c.io.S.p11, 0) */
 }
 
-object PWSB {
+object PSSB {
   def main(args: Array[String]): Unit = {
     val tutArgs = args.slice(1, args.length)
-    chiselMainTest(tutArgs, () => Module(new PWSB())) {
-      c => new PWSBTest(c) }
+    chiselMainTest(tutArgs, () => Module(new PSSB())) {
+      c => new PSSBTest(c) }
   }
 }
