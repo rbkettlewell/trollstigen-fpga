@@ -11,6 +11,7 @@ class TopLevel extends Module{
   }
 
   //make all the blocks traversing from bottom left, going right then up
+  //note: IOpads also numbered the same way (e.g. pad @ (0.2) is index 8 in IOpads Vector)
   val IOpads = Vec.fill(48) {Module(new IOpad()).io}
   val SWswitch = Module(new SWC())
   val PSCBs = Vec.fill(8)   {Module(new PSCB()).io}
@@ -37,26 +38,44 @@ class TopLevel extends Module{
   for (j <- 0 until 16) {
     for (i <-0 until 7) {
       CLBs(i+8*j).E <> IHCBs(i+7*j).W
+      IHCBs(i+7*j).E <> CLBs(i+8*j+1).W
     }
+    //connect PWCBs, PECBs, and left/right IOpads to above
+    IOpads(2*j+8).inside <> PWCBs(j).W
+    PWCBs(j).E <> CLBs(8*j).W
+    CLBs(8*j+7).E <> PECBs(j).W
+    PECBs(j).E <> IOpads(2*j+9).inside
   }
-  //connect PWCBs, last col of CLBs, and PECBs to above
-  for (i <- 0 until 16) {
-    PWCBs(i).E <> CLBs(8*i).W
-    IHCBs(7*i+6).E <> CLBs(8*i+7).W
-    CLBs(8*i+7).E <> PECBs(i).W
-  }
+
   //loop through to connect ISBs to IVCBs
   for (j <- 0 until 15) {
     for (i <- 0 until 7) {
       IVCBs(i+8*j).E <> ISBs(i+7*j).W
+      ISBs(i+7*j).E <> IVCBs(i+8*j+1).W
     }
+    //connect PWSBs, PESBs
+    PWSBs(j).E <> IVCBs(8*j).W
+    IVCBs(8*j+7).E <> PESBs(j).W
   }
-  //connect PWSBs, last col of IVCBs, and PESBs to above
-  for (i <- 0 until 15) {
-    PWSBs(i).E <> IVCBs(8*i).W
-    ISBs(7*i+6).E <> IVCBs(8*i+7).W
-    IVCBs(8*i+7).E <> PESBs(i).W
+
+  //connect bottom row of PSCBs <> PSSBs <> IOpads and top row of PNCBs <> PNSBs <> IOpads
+  for (i <- 0 until 8) {
+    IOpads(i) <> PSCBs(i).S
+    IOpads(i+40) <> PNCBs(i).N
   }
+  for (i <- 0 until 7) {
+    PSCBs(i).E <> PSSBs(i).W
+    PSSBs(i).E <> PSCBs(i+1).W
+  }
+  //finally connect corner switch blocks
+  SWswitch.io.E <> PSCBs(0).W
+  SWswitch.io.N <> PWCBs(0).S
+  SEswitch.io.W <> PSCBs(7).E
+  SEswitch.io.N <> PECBs(0).S
+  NWswitch.io.S <> PWCBs(15).N
+  NWswitch.io.E <> PNCBs(0).W
+  NEswitch.io.S <> PECBs(15).N
+  NEswitch.io.W <> PNCBs(7).E
 
   //below code works with tester
   val IHCB1 = Module(new IHCB())
