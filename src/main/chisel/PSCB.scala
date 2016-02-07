@@ -30,7 +30,9 @@ class PSCB extends Module {
 
 	io.E <> io.W
 	io.N.p2 := (io.W.p2 & io.blkBits(0)) | (io.E.p3 & io.blkBits(1)) |
-						 (io.W.p8 & io.blkBits(2)) | (io.E.p9 & io.blkBits(3))
+						 (io.W.p8 & io.blkBits(2)) | (io.E.p9 & io.blkBits(3)) |
+						 (io.S.p1 & io.blkBits(0) & io.blkBits(6)) |
+						 (io.S.p1 & io.blkBits(1) & io.blkBits(7))
   io.E.p0 := (io.S.p1 & io.blkBits(4))
   io.W.p1 := (io.S.p1 & io.blkBits(5))
   io.E.p2 := (io.S.p1 & io.blkBits(6))
@@ -43,7 +45,9 @@ class PSCB extends Module {
   io.W.p9 := (io.N.p6 & io.blkBits(13))
 	io.S.p0 := (io.W.p0 & io.blkBits(14)) | (io.E.p1 & io.blkBits(15)) |
 						 (io.W.p4 & io.blkBits(16)) | (io.E.p5 & io.blkBits(17)) |
-             (io.W.p8 & io.blkBits(18)) | (io.E.p9 & io.blkBits(19))
+             (io.W.p8 & io.blkBits(18)) | (io.E.p9 & io.blkBits(19)) |
+						 (io.N.p6 & io.blkBits(12) & io.blkBits(18)) |
+						 (io.N.p6 & io.blkBits(13) & io.blkBits(19))
 }
 
 class PSCBTest(c: PSCB) extends Tester(c) {

@@ -41,9 +41,13 @@ class PECB extends Module {
   io.N.p4 := (io.E.p1 & io.blkBits(10))
   io.S.p5 := (io.E.p1 & io.blkBits(11))
 	io.W.p1 := (io.S.p0 & io.blkBits(12)) | (io.N.p1 & io.blkBits(13)) |
-						 (io.S.p6 & io.blkBits(14)) | (io.N.p7 & io.blkBits(15))
+						 (io.S.p6 & io.blkBits(14)) | (io.N.p7 & io.blkBits(15)) |
+						 (io.E.p1 & io.blkBits(6) & io.blkBits(12)) |
+						 (io.E.p1 & io.blkBits(7) & io.blkBits(13))
   io.W.p5 := (io.S.p4 & io.blkBits(16)) | (io.N.p5 & io.blkBits(17)) |
-             (io.S.p10 & io.blkBits(18)) | (io.N.p11 & io.blkBits(19))
+             (io.S.p10 & io.blkBits(18)) | (io.N.p11 & io.blkBits(19)) |
+						 (io.E.p1 & io.blkBits(10) & io.blkBits(16)) |
+						 (io.E.p1 & io.blkBits(11) & io.blkBits(17))
 }
 
 class PECBTest(c: PECB) extends Tester(c) {

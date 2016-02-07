@@ -30,13 +30,17 @@ class IVCB extends Module {
 
 	io.E <> io.W
 	io.N.p2 := (io.W.p2 & io.blkBits(0)) | (io.E.p3 & io.blkBits(1)) |
-						 (io.W.p8 & io.blkBits(2)) | (io.E.p9 & io.blkBits(3))
+						 (io.W.p8 & io.blkBits(2)) | (io.E.p9 & io.blkBits(3)) |
+						 (io.N.p6 & io.blkBits(0) & io.blkBits(6)) |
+						 (io.N.p6 & io.blkBits(1) & io.blkBits(7))
   io.E.p0 := (io.N.p6 & io.blkBits(4))
   io.W.p1 := (io.N.p6 & io.blkBits(5))
   io.E.p2 := (io.N.p6 & io.blkBits(6))
   io.W.p3 := (io.N.p6 & io.blkBits(7))
 	io.S.p0 := (io.E.p0 & io.blkBits(8)) | (io.E.p1 & io.blkBits(9)) |
-						 (io.E.p6 & io.blkBits(10)) | (io.E.p7 & io.blkBits(11))
+						 (io.E.p6 & io.blkBits(10)) | (io.E.p7 & io.blkBits(11)) |
+						 (io.N.p6 & io.blkBits(4) & io.blkBits(8)) |
+						 (io.N.p6 & io.blkBits(5) & io.blkBits(9))
 	io.S.p4 := (io.W.p4 & io.blkBits(12)) | (io.E.p5 & io.blkBits(13)) |
 					 	 (io.W.p10 & io.blkBits(14)) | (io.E.p11 & io.blkBits(15))
 }

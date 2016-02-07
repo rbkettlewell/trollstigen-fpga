@@ -6,6 +6,7 @@ class TopLevel extends Module{
   val io = new Bundle{
     val reset_n = UInt(INPUT, 1)
     val gclk = UInt(INPUT,1)
+    val tp0 = UInt(INPUT,1)
     val gpi   = UInt(INPUT, 16)
     val gpo   = UInt(OUTPUT, 16)
     val hipi  = UInt(INPUT, 8)
@@ -40,23 +41,34 @@ class TopLevel extends Module{
       iopadNorth.outside.p1 := io.gpi(8+i)
   }
 
-  //below code works with tester
-  val IHCB1 = fpga(2)(13).asInstanceOf[IHCB].io
-  //val CLB1 = Module(new CLB())
-  val CLB1 = fpga(2)(12).asInstanceOf[CLB].io
-  //CLB1.E <> IHCB1.W
-  IHCB1.S.p0 := io.gpi(0)
-  fpga(0)(14).asInstanceOf[IOpad].io.inside.p0 := CLB1.S.p6
+  //fpga(2)(18).asInstanceOf[IOpad].io.outside.p1 := io.tp0
+
+  ////below code works with tester
+  // fpga(2)(15).asInstanceOf[IHCB].io.S.p6 := io.tp0
+  // io.hipo(1) := fpga(2)(14).asInstanceOf[CLB].io.S.p6
+  
+  
+  fpga(2)(18).asInstanceOf[IOpad].io.outside.p1 := io.tp0
+  fpga(2)(15).asInstanceOf[IHCB].io.S.p6 := fpga(2)(18).asInstanceOf[IOpad].io.inside.p1
+  fpga(0)(14).asInstanceOf[IOpad].io.inside.p0 := fpga(2)(14).asInstanceOf[CLB].io.S.p6
+  //io.hipo(1) := fpga(2)(14).asInstanceOf[CLB].io.S.p6
+  ////val CLB1 = Module(new CLB())
+  //val CLB1 = fpga(2)(12).asInstanceOf[CLB].io
+  ////CLB1.E <> IHCB1.W
+  //fpga(0)(14).asInstanceOf[IOpad].io.inside.p0 := fpga(2)(14).asInstanceOf[CLB].io.S.p6
+  //fpga(0)(14).asInstanceOf[IOpad].io.inside.p0 := CLB1.S.p6
 }
 
 class TopLevelTest(c: TopLevel) extends Tester(c) {
   //poke(c.io.globalBlkBits(10)(11), int(UInt("h00_0000_0000_0000_0010")))
   //poke(c.io.globalBlkBits(10)(10), int(UInt("h03_0000_0000_0000_0006")))
-  poke(c.io.gpi, 0)
+  poke(c.io.tp0, 0)
   step(1)
   expect(c.io.hipo, 0)
   step(1)
-  poke(c.io.gpi, 1)
+  poke(c.io.tp0, 1)
+  step(1)
+  step(1)
   step(1)
   expect(c.io.hipo, 2)
   peek(c.io.hipo)

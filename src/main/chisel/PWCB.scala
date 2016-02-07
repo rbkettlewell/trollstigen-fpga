@@ -28,7 +28,9 @@ class PWCB extends Module {
 
 	io.N <> io.S
 	io.E.p3 := (io.S.p2 & io.blkBits(0)) | (io.N.p3 & io.blkBits(1)) |
-						 (io.S.p8 & io.blkBits(2)) | (io.N.p9 & io.blkBits(3))
+						 (io.S.p8 & io.blkBits(2)) | (io.N.p9 & io.blkBits(3)) |
+						 (io.W.p1 & io.blkBits(0) & io.blkBits(6)) |
+						 (io.W.p1 & io.blkBits(1) & io.blkBits(7))
   io.N.p0 := (io.W.p1 & io.blkBits(4))
   io.S.p1 := (io.W.p1 & io.blkBits(5))
   io.N.p2 := (io.W.p1 & io.blkBits(6))

@@ -41,9 +41,13 @@ class PNCB extends Module {
   io.E.p4 := (io.N.p1 & io.blkBits(10))
   io.W.p5 := (io.N.p1 & io.blkBits(11))
 	io.S.p0 := (io.W.p0 & io.blkBits(12)) | (io.E.p1 & io.blkBits(13)) |
-						 (io.W.p6 & io.blkBits(14)) | (io.E.p7 & io.blkBits(15))
+						 (io.W.p6 & io.blkBits(14)) | (io.E.p7 & io.blkBits(15)) |
+						 (io.N.p1 & io.blkBits(6) & io.blkBits(12)) |
+						 (io.N.p1 & io.blkBits(7) & io.blkBits(13))
   io.S.p4 := (io.W.p4 & io.blkBits(16)) | (io.E.p5 & io.blkBits(17)) |
-             (io.W.p10 & io.blkBits(18)) | (io.E.p11 & io.blkBits(19))
+             (io.W.p10 & io.blkBits(18)) | (io.E.p11 & io.blkBits(19)) |
+						 (io.N.p1 & io.blkBits(10) & io.blkBits(16)) |
+						 (io.N.p1 & io.blkBits(11) & io.blkBits(17))
 }
 
 class PNCBTest(c: PNCB) extends Tester(c) {
