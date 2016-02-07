@@ -6,10 +6,6 @@ class IOpad extends Module {
   val io = new Bundle {
     val outside = new IOEdge()
     val inside = new IOEdge()
-    //val in_outside = UInt(INPUT, 1)
-    //val in_inside = UInt(INPUT, 1)
-    //val out_outside = UInt(OUTPUT, 1)
-    //val out_inside = UInt(OUTPUT, 1)
     val blkBits = UInt(INPUT,72)
   }
 
