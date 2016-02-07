@@ -1,0 +1,13 @@
+src/main/chisel/project/
+src/main/chisel/target/
+project/
+target/
+*.cmd
+*.in
+*.out
+*.bin
+*.h
+*.cpp
+*.o
+*.exe
+*$*
