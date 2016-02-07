@@ -31,12 +31,12 @@ class PWCB extends Module {
 						 (io.S.p8 & io.blkBits(2)) | (io.N.p9 & io.blkBits(3)) |
 						 (io.W.p1 & io.blkBits(0) & io.blkBits(6)) |
 						 (io.W.p1 & io.blkBits(1) & io.blkBits(7))
-  io.N.p0 := (io.W.p1 & io.blkBits(4))
-  io.S.p1 := (io.W.p1 & io.blkBits(5))
-  io.N.p2 := (io.W.p1 & io.blkBits(6))
-  io.S.p3 := (io.W.p1 & io.blkBits(7))
-  io.N.p4 := (io.W.p1 & io.blkBits(8))
-  io.S.p5 := (io.W.p1 & io.blkBits(9))
+  io.N.p0 := (io.W.p1 & io.blkBits(4)) | io.S.p0
+  io.S.p1 := (io.W.p1 & io.blkBits(5)) | io.N.p1
+  io.N.p2 := (io.W.p1 & io.blkBits(6)) | io.S.p2
+  io.S.p3 := (io.W.p1 & io.blkBits(7)) | io.N.p3
+  io.N.p4 := (io.W.p1 & io.blkBits(8)) | io.S.p4
+  io.S.p5 := (io.W.p1 & io.blkBits(9)) | io.N.p5
 	io.W.p0 := (io.S.p0 & io.blkBits(10)) | (io.N.p1 & io.blkBits(11)) |
 						 (io.S.p4 & io.blkBits(12)) | (io.N.p5 & io.blkBits(13)) |
              (io.S.p8 & io.blkBits(14)) | (io.N.p9 & io.blkBits(15))

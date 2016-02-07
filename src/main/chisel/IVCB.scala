@@ -33,10 +33,10 @@ class IVCB extends Module {
 						 (io.W.p8 & io.blkBits(2)) | (io.E.p9 & io.blkBits(3)) |
 						 (io.N.p6 & io.blkBits(0) & io.blkBits(6)) |
 						 (io.N.p6 & io.blkBits(1) & io.blkBits(7))
-  io.E.p0 := (io.N.p6 & io.blkBits(4))
-  io.W.p1 := (io.N.p6 & io.blkBits(5))
-  io.E.p2 := (io.N.p6 & io.blkBits(6))
-  io.W.p3 := (io.N.p6 & io.blkBits(7))
+  io.E.p0 := (io.N.p6 & io.blkBits(4)) | io.W.p0
+  io.W.p1 := (io.N.p6 & io.blkBits(5)) | io.E.p1
+  io.E.p2 := (io.N.p6 & io.blkBits(6)) | io.W.p2
+  io.W.p3 := (io.N.p6 & io.blkBits(7)) | io.E.p3
 	io.S.p0 := (io.E.p0 & io.blkBits(8)) | (io.E.p1 & io.blkBits(9)) |
 						 (io.E.p6 & io.blkBits(10)) | (io.E.p7 & io.blkBits(11)) |
 						 (io.N.p6 & io.blkBits(4) & io.blkBits(8)) |
@@ -46,12 +46,14 @@ class IVCB extends Module {
 }
 
 class IVCBTest(c: IVCB) extends Tester(c) {
+	poke(c.io.E.p1, 1)
 	poke(c.io.N.p6, 1)
   poke(c.io.W.p2, 1)
   poke(c.io.E.p3, 0)
   poke(c.io.W.p8, 0)
   poke(c.io.E.p9, 0)
-	poke(c.io.blkBits, int(UInt("h0000_0000_0000_0000_00FF")))
+	poke(c.io.blkBits, int(UInt("h0000_0000_0000_0000_0200")))
+	expect(c.io.W.p1, 1)
 	expect(c.io.N.p2, 1)
   expect(c.io.E.p0, 1)
   expect(c.io.W.p1, 1)
