@@ -13,17 +13,31 @@ class TopLevel extends Module{
   }
 
   val fpgaUtils = new FPGAUtils() 
-  var fpga = fpgaUtils.assembleFPGA()
+  val fpga = fpgaUtils.assembleFPGA()
+  //fpgaUtils.connectBlocksMutate(fpga)
 
   //Default Assignments
   io.hipo:= UInt(0)
   io.gpo := UInt(0)
+
+  // Connect global reset_n and clock
+  fpga(2)(0).asInstanceOf[IOpad].io.outside.p1 := io.reset_n
+  fpga(4)(0).asInstanceOf[IOpad].io.outside.p1 := io.gclk
 
   // Connect HIP to external world
   (1 to 8).foreach{i=> 
     val iopad = fpga(0)(i*2).asInstanceOf[IOpad].io  
       io.hipo(8-i) := iopad.outside.p0
       iopad.outside.p1 := io.hipi(8-i)
+  }
+  // Connect GPIO to external world
+  (0 until 8).foreach{i=> 
+    val iopadWest = fpga((9+i)*2)(0).asInstanceOf[IOpad].io
+    val iopadNorth= fpga(17*2)((i+1)*2).asInstanceOf[IOpad].io
+      io.gpo(i) := iopadWest.outside.p0
+      iopadWest.outside.p1 := io.gpi(i)
+      io.gpo(8+i) := iopadNorth.outside.p0
+      iopadNorth.outside.p1 := io.gpi(8+i)
   }
 
   //below code works with tester
@@ -39,6 +53,7 @@ class TopLevelTest(c: TopLevel) extends Tester(c) {
   //poke(c.io.globalBlkBits(10)(11), int(UInt("h00_0000_0000_0000_0010")))
   //poke(c.io.globalBlkBits(10)(10), int(UInt("h03_0000_0000_0000_0006")))
   poke(c.io.gpi, 0)
+  step(1)
   expect(c.io.hipo, 0)
   step(1)
   poke(c.io.gpi, 1)
