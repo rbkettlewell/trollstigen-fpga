@@ -1,0 +1,57 @@
+.model xor3
+.inputs top^gclk top^resetn top^hip7 top^hip6 top^hip5 top^hip4 top^hip3 \
+ top^gpio15 top^gpio14 top^gpio13 top^gpio12 top^gpio11 top^gpio10 top^gpio9 \
+ top^gpio8
+.outputs top^hip2 top^hip1 top^hip0 top^gpio7 top^gpio6 top^gpio5 top^gpio4\
+ top^gpio3 top^gpio2 top^gpio1 top^gpio0
+
+.names gnd
+.names unconn
+.names vcc
+1
+
+.latch top^BITWISE_XOR~1^LOGICAL_XOR~15 top^temp_FF_NODE re top^gclk 3
+
+.names top^gpio15 top^gpio14 top^BITWISE_XOR~0^LOGICAL_XOR~16
+01 1
+10 1
+
+.names top^BITWISE_XOR~0^LOGICAL_XOR~16 top^gpio13 top^BITWISE_XOR~1^LOGICAL_XOR~15
+01 1
+10 1
+
+.names top^hip5 top^hip2
+1 1
+
+.names top^hip4 top^hip1
+1 1
+
+.names top^hip3 top^hip0
+1 1
+
+.names top^gpio12 top^gpio7
+1 1
+
+.names top^gpio11 top^gpio6
+1 1
+
+.names top^gpio10 top^gpio5
+1 1
+
+.names top^gpio9 top^gpio4
+1 1
+
+.names top^gpio8 top^gpio3
+1 1
+
+.names top^hip7 top^gpio2
+1 1
+
+.names top^hip6 top^gpio1
+1 1
+
+.names top^temp_FF_NODE top^gpio0
+1 1
+
+.end
+
