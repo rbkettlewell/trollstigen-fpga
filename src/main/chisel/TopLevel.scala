@@ -14,7 +14,7 @@ class TopLevel extends Module{
 
   val fpgaUtils = new FPGAUtils() 
   val fpga = fpgaUtils.assembleFPGA()
-  //fpgaUtils.connectBlocksMutate(fpga)
+  fpgaUtils.connectBlocksMutate(fpga)
 
   //Default Assignments
   io.hipo:= UInt(0)
@@ -44,7 +44,7 @@ class TopLevel extends Module{
   val IHCB1 = fpga(2)(13).asInstanceOf[IHCB].io
   //val CLB1 = Module(new CLB())
   val CLB1 = fpga(2)(12).asInstanceOf[CLB].io
-  CLB1.E <> IHCB1.W
+  //CLB1.E <> IHCB1.W
   IHCB1.S.p0 := io.gpi(0)
   fpga(0)(14).asInstanceOf[IOpad].io.inside.p0 := CLB1.S.p6
 }

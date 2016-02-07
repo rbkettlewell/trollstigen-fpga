@@ -6,7 +6,7 @@ class FPGAUtils{
  
   type LocationXY  = (Int,Int)
 
-  private val xTiles = 8
+  private val xTiles = 8 
   private val yTiles = 16
   private val cols = xTiles*2 + 3
   private val rows = yTiles*2 + 3
@@ -109,4 +109,65 @@ class FPGAUtils{
     }
   }
 
+  def connectBlocksMutate(fpga:Array[Array[Module]]){
+    for (r <- 0 until rows) {
+      for (c <- 0 until cols) {
+        if(r == rows - 2 && c == cols - 2){ //NEC
+          fpga(r)(c).asInstanceOf[NEC].io.W <> fpga(r)(c-1).asInstanceOf[PNCB].io.E
+          fpga(r)(c).asInstanceOf[NEC].io.S <> fpga(r-1)(c).asInstanceOf[PECB].io.N
+        /*}else if (r == 1 && c == cols - 2){ //SEC
+          fpga(r)(c).asInstanceOf[SEC].io.N <> fpga(r+1)(c).asInstanceOf[PECB].io.S
+          fpga(r)(c).asInstanceOf[SEC].io.W <> fpga(r)(c-1).asInstanceOf[PSCB].io.E
+        }else if (r == 1 && c == 1){ //SWC
+          fpga(r)(c).asInstanceOf[SWC].io.E <> fpga(r)(c+1).asInstanceOf[PSCB].io.W
+          fpga(r)(c).asInstanceOf[SWC].io.N <> fpga(r+1)(c).asInstanceOf[PWCB].io.S
+        }else if (r == rows - 2 && c == 1){ //NWC
+          fpga(r)(c).asInstanceOf[NWC].io.S <> fpga(r-1)(c).asInstanceOf[PWCB].io.N
+          fpga(r)(c).asInstanceOf[NWC].io.E <> fpga(r)(c+1).asInstanceOf[PNCB].io.W
+        }else if (r == rows - 2 && (c > 0 && c < cols - 2) && !isOdd(c)){ //PNCB
+          fpga(r)(c).asInstanceOf[PNCB].io.N <> fpga(r+1)(c).asInstanceOf[IOpad].io.inside
+          fpga(r)(c).asInstanceOf[PNCB].io.S <> fpga(r-1)(c).asInstanceOf[CLB].io.N
+        }else if ((0 < r && r < rows - 2) && c == cols - 2 && !isOdd(r)){ //PECB
+          fpga(r)(c).asInstanceOf[PECB].io.W <> fpga(r)(c-1).asInstanceOf[CLB].io.E
+          fpga(r)(c).asInstanceOf[PECB].io.E <> fpga(r)(c+1).asInstanceOf[IOpad].io.inside
+        }else if (r == 1 && (c > 0 && c < cols - 1) && !isOdd(c)){ //PSCB
+          fpga(r)(c).asInstanceOf[PSCB].io.N <> fpga(r+1)(c).asInstanceOf[CLB].io.S
+          fpga(r)(c).asInstanceOf[PSCB].io.S <> fpga(r-1)(c).asInstanceOf[IOpad].io.inside
+        }else if ((0 < r && r < rows - 1) && c == 1 && !isOdd(r)){ //PWCB
+          fpga(r)(c).asInstanceOf[PWCB].io.W <> fpga(r)(c-1).asInstanceOf[IOpad].io.inside
+          fpga(r)(c).asInstanceOf[PWCB].io.E <> fpga(r)(c+1).asInstanceOf[CLB].io.W
+        }else if((r == rows - 2) && (c > 0 && c < cols - 2) && isOdd(c)){ //PNSB
+          fpga(r)(c).asInstanceOf[PNSB].io.W <> fpga(r)(c-1).asInstanceOf[PNCB].io.E
+          fpga(r)(c).asInstanceOf[PNSB].io.S <> fpga(r-1)(c).asInstanceOf[IHCB].io.N
+          fpga(r)(c).asInstanceOf[PNSB].io.E <> fpga(r)(c+1).asInstanceOf[PNCB].io.W
+        }else if ((0 < r && r < rows - 2) && c == cols - 2 && isOdd(r)){ //PESB
+          fpga(r)(c).asInstanceOf[PESB].io.N <> fpga(r+1)(c).asInstanceOf[PECB].io.S
+          fpga(r)(c).asInstanceOf[PESB].io.W <> fpga(r)(c-1).asInstanceOf[IVCB].io.E
+          fpga(r)(c).asInstanceOf[PESB].io.S <> fpga(r-1)(c).asInstanceOf[PECB].io.N
+        }else if (r == 1 && (c > 0 && c < cols - 2) && isOdd(c)){ //PSSB
+          fpga(r)(c).asInstanceOf[PSSB].io.W <> fpga(r)(c-1).asInstanceOf[PSCB].io.E
+          fpga(r)(c).asInstanceOf[PSSB].io.N <> fpga(r+1)(c).asInstanceOf[IHCB].io.S
+          fpga(r)(c).asInstanceOf[PSSB].io.E <> fpga(r)(c+1).asInstanceOf[PSCB].io.W
+        }else if ((0 < r && r < rows - 2) && c == 1 && isOdd(r)){ //PWSB
+          fpga(r)(c).asInstanceOf[PWSB].io.N <> fpga(r+1)(c).asInstanceOf[PWCB].io.S
+          fpga(r)(c).asInstanceOf[PWSB].io.E <> fpga(r)(c+1).asInstanceOf[IVCB].io.W
+          fpga(r)(c).asInstanceOf[PWSB].io.S <> fpga(r-1)(c).asInstanceOf[PWCB].io.N
+        }else if (isOdd(r) && !isOdd(c) && (1 < r && r < rows - 2) && (1 < c && c < cols - 2)){ //IVCB
+          fpga(r)(c).asInstanceOf[IVCB].io.N <> fpga(r+1)(c).asInstanceOf[CLB].io.S
+          fpga(r)(c).asInstanceOf[IVCB].io.S <> fpga(r-1)(c).asInstanceOf[CLB].io.N*/
+        }else if (!isOdd(r) && isOdd(c) && (1 < r && r < rows - 2) && (1 < c && c < cols - 2)){ //IHCB
+          fpga(r)(c).asInstanceOf[IHCB].io.W <> fpga(r)(c-1).asInstanceOf[CLB].io.E
+          fpga(r)(c).asInstanceOf[IHCB].io.E <> fpga(r)(c+1).asInstanceOf[CLB].io.W
+        // }else if (isOdd(r) && isOdd(c) && (1 < c && c < cols - 2) && (1 < r && r < rows - 2)){ //ISB
+        //   fpga(r)(c).asInstanceOf[ISB].io.N <> fpga(r+1)(c).asInstanceOf[IHCB].io.S
+        //   fpga(r)(c).asInstanceOf[ISB].io.S <> fpga(r-1)(c).asInstanceOf[IHCB].io.N
+        //   fpga(r)(c).asInstanceOf[ISB].io.E <> fpga(r)(c+1).asInstanceOf[IVCB].io.W
+        //   fpga(r)(c).asInstanceOf[ISB].io.W <> fpga(r)(c-1).asInstanceOf[IVCB].io.E
+        }else if (!isOdd(r) && !isOdd(c) && (1 < c && c < cols - 2) && (1 < r && r < rows - 2)){ //CLB
+        }else if ((r == 0 || r == rows - 1) && (0 < c && c < cols - 1) && !isOdd(c)){ //T/B IOpads
+        }else if ((c == 0 || c == cols - 1) && (0 < r && r < rows - 1) && !isOdd(r)){ //L/R IOpads
+        }else {}
+      }
+    }
+  }
 }
