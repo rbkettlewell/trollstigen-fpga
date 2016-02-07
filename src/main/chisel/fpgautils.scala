@@ -2,23 +2,15 @@ package FPGASimulation
 
 import Chisel._
 
-class TopLevel extends Module{
-  val io = new Bundle{
-    val ipad0 = UInt(INPUT, 1)
-    val opad1 = UInt(OUTPUT, 1)
-    val sram0 = UInt(INPUT, 72)
-    val sram1 = UInt(INPUT, 72)
-  }
-
+class FPGAUtils{
+ 
   type LocationXY  = (Int,Int)
 
-  private val chanWidth = 12
   private val xTiles = 8
   private val yTiles = 16
   private val cols = xTiles*2 + 3
   private val rows = yTiles*2 + 3
-  
-  var fpga = assembleFPGA()
+  private val bitsteamBlocks = new BitstreamLoad("bitstream.bin")
 
   def assembleFPGA(): Array[Array[Module]]={
     val fpga = Range(0, rows).toArray.map{row=>
@@ -26,7 +18,7 @@ class TopLevel extends Module{
     }
     fpga
   }
-  
+
   def isOdd(num : Int): Boolean = {
       val oddTrue = num%2 == 1
       oddTrue
@@ -36,72 +28,85 @@ class TopLevel extends Module{
     val row = locationXY._1
     val col = locationXY._2
 
+    val sramBlkBits = bitsteamBlocks.getBlkBits(locationXY)
+
     if(row == rows - 2 && col == cols - 2){
-      Module(new NEC())
+      val nec = Module(new NEC())
+      nec.io.blkBits := sramBlkBits
+      nec
     }else if (row == 1 && col == cols - 2){
-      Module(new SEC())
+      val sec = Module(new SEC())
+      sec.io.blkBits := sramBlkBits
+      sec
     }else if (row == 1 && col == 1){
-      Module(new SWC()) 
+      val swc = Module(new SWC())
+      swc.io.blkBits := sramBlkBits
+      swc
     }else if (row == rows - 2 && col == 1){
-      Module(new NWC())
+      val nwc = Module(new NWC())
+      nwc.io.blkBits := sramBlkBits
+      nwc
     }else if (row == rows - 2 && (col > 0 && col < cols - 2) && !isOdd(col)){
-      Module(new PNCB())
+      val pncb = Module(new PNCB())
+      pncb.io.blkBits := sramBlkBits
+      pncb
     }else if ((0 < row && row < rows - 2) && col == cols - 2 && !isOdd(row)){
-      Module(new PECB())
+      val pecb = Module(new PECB())
+      pecb.io.blkBits := sramBlkBits
+      pecb
     }else if (row == 1 && (col > 0 && col < cols - 1) && !isOdd(col)){
-      Module(new PSCB())
+      val pscb = Module(new PSCB())
+      pscb.io.blkBits := sramBlkBits
+      pscb 
     }else if ((0 < row && row < rows - 1) && col == 1 && !isOdd(row)){
-      Module(new PWCB())
+      val pwcb = Module(new PWCB())
+      pwcb.io.blkBits := sramBlkBits
+      pwcb
     }else if((row == rows - 2) && (col > 0 && col < cols - 2) && isOdd(col)){
-      Module(new PNSB())
+      val pnsb = Module(new PNSB())
+      pnsb.io.blkBits := sramBlkBits
+      pnsb
     }else if ((0 < row && row < rows - 2) && col == cols - 2 && isOdd(row)){
-      Module(new PESB())
+      val pesb = Module(new PESB())
+      pesb.io.blkBits := sramBlkBits
+      pesb
     }else if (row == 1 && (col > 0 && col < cols - 2) && isOdd(col)){
-      Module(new PSSB())
+      val pssb = Module(new PSSB())
+      pssb.io.blkBits := sramBlkBits
+      pssb
     }else if ((0 < row && row < rows - 2) && col == 1 && isOdd(row)){
-      Module(new PWSB())
+      val pwsb = Module(new PWSB())
+      pwsb.io.blkBits := sramBlkBits
+      pwsb
     }else if (isOdd(row) && !isOdd(col) && (1 < row && row < rows - 2) && (1 < col && col < cols - 2)){
-      Module(new IVCB())
+      val ivcb = Module(new IVCB())
+      ivcb.io.blkBits := sramBlkBits
+      ivcb 
     }else if (!isOdd(row) && isOdd(col) && (1 < row && row < rows - 2) && (1 < col && col < cols - 2)){
-      Module(new IHCB())
+      val ihcb = Module(new IHCB())
+      ihcb.io.blkBits := sramBlkBits
+      ihcb
     }else if (isOdd(row) && isOdd(col) && (1 < col && col < cols - 2) && (1 < row && row < rows - 2)){
-      Module(new ISB())
+      val isb = Module(new ISB())
+      isb.io.blkBits := sramBlkBits
+      isb
     }else if (!isOdd(row) && !isOdd(col) && (1 < col && col < cols - 2) && (1 < row && row < rows - 2)){
-      Module(new CLB())
+      val clb = Module(new CLB())
+      clb.io.blkBits := sramBlkBits
+      clb
     }else if((row == 0 || row == rows - 1) && (0 < col && col < cols - 1) && !isOdd(col)){
-      Module(new IOpad()) 
+      val iob = Module(new IOpad()) 
+      iob.io.blkBits := sramBlkBits
+      iob
     }else if((col == 0 || col == cols - 1) && (0 < row && row < rows - 1) && !isOdd(row)){
-      Module(new IOpad())
+      val iob = Module(new IOpad())
+      iob.io.blkBits := sramBlkBits
+      iob
     }else{
-      Module(new Empty())
+      val empty = Module(new Empty())
+      empty.io.blkBits := sramBlkBits
+      empty
     }
   }
 
-  //below code works with tester
-  val IHCB1 = Module(new IHCB())
-  //val CLB1 = Module(new CLB())
-  val CLB1 = fpga(2)(2).asInstanceOf[CLB].io
-  CLB1.E <> IHCB1.io.W
-  io.sram0 <> IHCB1.io.blkBits
-  io.sram1 <> CLB1.blkBits
-  IHCB1.io.S.p0 := io.ipad0
-  io.opad1 := CLB1.S.p6
-}
-
-class TopLevelTest(c: TopLevel) extends Tester(c) {
-  poke(c.io.sram0, int(UInt("h0000_0000_0000_0000_0010")))
-  poke(c.io.sram1, int(UInt("h0003_0000_0000_0000_0006")))
-  poke(c.io.ipad0, 0)
-  expect(c.io.opad1, 0)
-  step(1)
-  poke(c.io.ipad0, 1)
-  expect(c.io.opad1, 1)
-}
-
-object TopLevel {
-  def main(args: Array[String]): Unit = {
-    val tutArgs = args.slice(1, args.length)
-    chiselMainTest(tutArgs, () => Module(new TopLevel())) {
-      c => new TopLevelTest(c) }
-  }
 }

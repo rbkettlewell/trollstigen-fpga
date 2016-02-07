@@ -10,21 +10,21 @@ class IOpad extends Module {
     //val in_inside = UInt(INPUT, 1)
     //val out_outside = UInt(OUTPUT, 1)
     //val out_inside = UInt(OUTPUT, 1)
-    val blockBits = UInt(INPUT,72)
+    val blkBits = UInt(INPUT,72)
   }
 
   val dff1 = Reg(next = io.outside.p0)
 
   val dff2 = Reg(next = io.inside.p0)
 
-  io.inside.p1 := dff1 & io.blockBits(0)
+  io.inside.p1 := dff1 & io.blkBits(0)
 
-  io.outside.p1 := dff2 & io.blockBits(1)
+  io.outside.p1 := dff2 & io.blkBits(1)
 
 
 }
 class IOpadTests(c: IOpad) extends Tester(c) {
-  poke(c.io.blockBits, int(UInt("h0000_0000_0000_0000_0001"))) // select in_outside
+  poke(c.io.blkBits, int(UInt("h0000_0000_0000_0000_0001"))) // select in_outside
   poke(c.io.outside.p0, 1)
   step(1)
   expect(c.io.inside.p1, 1)
@@ -35,7 +35,7 @@ class IOpadTests(c: IOpad) extends Tester(c) {
   step(1)
   expect(c.io.inside.p1, 0)
 
-  poke(c.io.blockBits, int(UInt("h0000_0000_0000_0000_0002"))) // select in_inside
+  poke(c.io.blkBits, int(UInt("h0000_0000_0000_0000_0002"))) // select in_inside
   poke(c.io.outside.p0, 1)
   step(1)
   expect(c.io.inside.p1, 0)
