@@ -17,7 +17,7 @@ class TopLevel extends Module{
   val fpga = fpgaUtils.assembleFPGA()
   fpgaUtils.connectBlocksMutate(fpga)
 
-  //Default Assignments
+  // Default Assignments
   io.hipo:= UInt(0)
   io.gpo := UInt(0)
 
@@ -40,40 +40,65 @@ class TopLevel extends Module{
       io.gpo(8+i) := iopadNorth.outside.p0
       iopadNorth.outside.p1 := io.gpi(8+i)
   }
-
-  //fpga(2)(18).asInstanceOf[IOpad].io.outside.p1 := io.tp0
-
-  ////below code works with tester
-  // fpga(2)(15).asInstanceOf[IHCB].io.S.p6 := io.tp0
-  // io.hipo(1) := fpga(2)(14).asInstanceOf[CLB].io.S.p6
-  
-  
-  fpga(2)(18).asInstanceOf[IOpad].io.outside.p1 := io.tp0
-  fpga(2)(15).asInstanceOf[IHCB].io.S.p6 := fpga(2)(18).asInstanceOf[IOpad].io.inside.p1
-  fpga(0)(14).asInstanceOf[IOpad].io.inside.p0 := fpga(2)(14).asInstanceOf[CLB].io.S.p6
-  //io.hipo(1) := fpga(2)(14).asInstanceOf[CLB].io.S.p6
-  ////val CLB1 = Module(new CLB())
-  //val CLB1 = fpga(2)(12).asInstanceOf[CLB].io
-  ////CLB1.E <> IHCB1.W
-  //fpga(0)(14).asInstanceOf[IOpad].io.inside.p0 := fpga(2)(14).asInstanceOf[CLB].io.S.p6
-  //fpga(0)(14).asInstanceOf[IOpad].io.inside.p0 := CLB1.S.p6
 }
 
 class TopLevelTest(c: TopLevel) extends Tester(c) {
-  //poke(c.io.globalBlkBits(10)(11), int(UInt("h00_0000_0000_0000_0010")))
-  //poke(c.io.globalBlkBits(10)(10), int(UInt("h03_0000_0000_0000_0006")))
-  poke(c.io.tp0, 0)
-  step(1)
-  expect(c.io.hipo, 0)
-  step(1)
-  poke(c.io.tp0, 1)
+  poke(c.io.gpi, int(UInt("b000")))
   step(1)
   step(1)
   step(1)
-  expect(c.io.hipo, 2)
-  peek(c.io.hipo)
   step(1)
-  peek(c.io.hipo)
+  step(1)
+  expect(c.io.gpo, 0)
+  poke(c.io.gpi, int(UInt("b001")))
+  step(1)
+  step(1)
+  step(1)
+  step(1)
+  step(1)
+  expect(c.io.gpo, 8)
+  poke(c.io.gpi, int(UInt("b010")))
+  step(1)
+  step(1)
+  step(1)
+  step(1)
+  step(1)
+  expect(c.io.gpo, 8)
+  poke(c.io.gpi, int(UInt("b011")))
+  step(1)
+  step(1)
+  step(1)
+  step(1)
+  step(1)
+  expect(c.io.gpo, 0)
+  poke(c.io.gpi, int(UInt("b100")))
+  step(1)
+  step(1)
+  step(1)
+  step(1)
+  step(1)
+  expect(c.io.gpo, 8)
+  poke(c.io.gpi, int(UInt("b101")))
+  step(1)
+  step(1)
+  step(1)
+  step(1)
+  step(1)
+  expect(c.io.gpo, 0)
+  poke(c.io.gpi, int(UInt("b110")))
+  step(1)
+  step(1)
+  step(1)
+  step(1)
+  step(1)
+  expect(c.io.gpo, 0)
+  poke(c.io.gpi, int(UInt("b111")))
+  step(1)
+  step(1)
+  step(1)
+  step(1)
+  step(1)
+  expect(c.io.gpo, 8)
 }
 
 object TopLevel {
