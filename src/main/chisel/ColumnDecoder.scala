@@ -8,8 +8,8 @@ class ColumnDecoder extends Module {
     val RE = UInt (INPUT, 1)
     val bRead  = UInt(OUTPUT,19)
     val bWrite = UInt(OUTPUT,19)
-    val byteRead  = Vec.fill(19){UInt(INPUT,19)}
-    val byteWrite = Vec.fill(19){UInt(OUTPUT,19)}
+    val byteRead  = Vec.fill(19){UInt(INPUT,8)}
+    val byteWrite = Vec.fill(19){UInt(OUTPUT,8)}
     val cAddr    = UInt(INPUT,5)
     val cDataIn  = UInt(INPUT,8)
     val cDataOut = UInt(OUTPUT,8)
@@ -55,17 +55,26 @@ class ColumnDecoder extends Module {
     colSelect := UInt("b010_0000_0000_0000_0000")
   }.elsewhen (io.cAddr === UInt(18)){
     colSelect := UInt("b100_0000_0000_0000_0000")
-  }.otherwise{ 
+  }.otherwise{
     colSelect := UInt("b000_0000_0000_0000_0000")
   }
 
   // TODO verify that this fold operation builds a proper fanin structure
   io.cDataOut := byteRead.foldLeft(UInt(0))(_|_)
-  
+  val byteReadFanIn = Vec.fill(19){UInt(width = 8)}
+
   (0 until 19).foreach{i=>
     io.bRead(i) := colSelect(i) & RE
     io.bWrite(i) := colSelect(i) & WE
+    byteReadFanIn(i) := io.byteRead(i)
   }
+
+  byteWrite := Vec.fill(19){UInt(0)}
+  when (WE) {
+    byteWrite(io.cAddr) := io.cDataIn
+  }
+
+  io.cDataOut := byteReadFanIn.foldLeft(UInt(0))(_|_)
 }
 class ColumnDecoderTests(c: ColumnDecoder) extends Tester(c) {
     poke(c.io.rAddr, 0)
