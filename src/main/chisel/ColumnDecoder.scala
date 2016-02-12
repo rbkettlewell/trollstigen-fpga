@@ -15,7 +15,7 @@ class ColumnDecoder extends Module {
     val cDataOut = UInt(OUTPUT,8)
   }
 
-  val colSelect = UInt(0,19)
+  val colSelect = UInt()
   io.bRead := UInt(0)
   io.bWrite := UInt(0)
 
@@ -61,43 +61,48 @@ class ColumnDecoder extends Module {
     colSelect := UInt("b000_0000_0000_0000_0000")
   }
 
-  // TODO verify that this fold operation builds a proper fanin structure
-  val byteReadFanIn = Vec.fill(19){UInt(width = 8)}
-
-  (0 until 19).foreach{i=>
-    when (io.RE === UInt(1)) {
-      io.bRead := colSelect
-    }
-    when (io.WE === UInt(1)) {
-      io.bWrite := colSelect
-    }
-    byteReadFanIn(i) := io.byteRead(i)
+  //select column to read, but fold all the time
+  when (io.RE === UInt(1)) {
+    io.bRead := colSelect
   }
+  io.cDataOut := io.byteRead.foldLeft(UInt(0))(_|_)
 
+  //select column to write, and write the data from cDataIn
   io.byteWrite := Vec.fill(19){UInt(0)}
   when (io.WE === UInt(1)) {
+    io.bWrite := colSelect
     io.byteWrite(io.cAddr) := io.cDataIn
   }
-
-  io.cDataOut := io.byteRead.foldLeft(UInt(0))(_|_)
-//  io.cDataOut := byteReadFanIn.foldLeft(UInt(0))(_|_)
 }
 class ColumnDecoderTests(c: ColumnDecoder) extends Tester(c) {
-/*    poke(c.io.rAddr, 0)
-  (0 until 35).foreach{r=>
-    poke(c.io.rAddr, r)
-    (0 until 9).foreach{i=>
-      poke(c.io.cAddr, i)
-      if (r == 0)
-        expect(c.io.gRows(r), Math.pow(2,i).toInt)
-      else{
-        expect(c.io.gRows(r-1), 0)
-        expect(c.io.gRows(r), Math.pow(2,i).toInt)
-      }
-      step(1)
+  poke(c.io.cAddr, 0)
+  poke(c.io.WE, 1)
+  poke(c.io.RE, 0)
+  poke(c.io.cDataIn, 1)
+  expect(c.io.bWrite, 1)
+  expect(c.io.bRead, 0)
+  (0 until 19).foreach{i=>
+    if (i == 0)
+      expect(c.io.byteWrite(i), 1)
+    else{
+      expect(c.io.byteWrite(i), 0)
     }
-  }*/
+  }
+  poke(c.io.WE, 0)
+  poke(c.io.RE, 1)
+  expect(c.io.bWrite, 0)
+  expect(c.io.bRead, 1)
+  expect(c.io.byteWrite(0), 0)
+  (0 until 19).foreach{i=>
+    if (i == 0)
+      poke(c.io.byteRead(i), 1)
+    else {
+      poke(c.io.byteRead(i), 0)
+    }
+  }
+  expect(c.io.cDataOut, 1)
 }
+
 object ColumnDecoder{
   def main(args: Array[String]): Unit = {
     val tutArgs = args.slice(1, args.length)
