@@ -16,6 +16,8 @@ class ColumnDecoder extends Module {
   }
 
   val colSelect = UInt(0,19)
+  io.bRead := UInt(0)
+  io.bWrite := UInt(0)
 
   when (io.cAddr === UInt(0)){
     colSelect := UInt("b000_0000_0000_0000_0001")
@@ -60,24 +62,28 @@ class ColumnDecoder extends Module {
   }
 
   // TODO verify that this fold operation builds a proper fanin structure
-  io.cDataOut := byteRead.foldLeft(UInt(0))(_|_)
   val byteReadFanIn = Vec.fill(19){UInt(width = 8)}
 
   (0 until 19).foreach{i=>
-    io.bRead(i) := colSelect(i) & RE
-    io.bWrite(i) := colSelect(i) & WE
+    when (io.RE === UInt(1)) {
+      io.bRead := colSelect
+    }
+    when (io.WE === UInt(1)) {
+      io.bWrite := colSelect
+    }
     byteReadFanIn(i) := io.byteRead(i)
   }
 
-  byteWrite := Vec.fill(19){UInt(0)}
-  when (WE) {
-    byteWrite(io.cAddr) := io.cDataIn
+  io.byteWrite := Vec.fill(19){UInt(0)}
+  when (io.WE === UInt(1)) {
+    io.byteWrite(io.cAddr) := io.cDataIn
   }
 
-  io.cDataOut := byteReadFanIn.foldLeft(UInt(0))(_|_)
+  io.cDataOut := io.byteRead.foldLeft(UInt(0))(_|_)
+//  io.cDataOut := byteReadFanIn.foldLeft(UInt(0))(_|_)
 }
 class ColumnDecoderTests(c: ColumnDecoder) extends Tester(c) {
-    poke(c.io.rAddr, 0)
+/*    poke(c.io.rAddr, 0)
   (0 until 35).foreach{r=>
     poke(c.io.rAddr, r)
     (0 until 9).foreach{i=>
@@ -90,7 +96,7 @@ class ColumnDecoderTests(c: ColumnDecoder) extends Tester(c) {
       }
       step(1)
     }
-  }
+  }*/
 }
 object ColumnDecoder{
   def main(args: Array[String]): Unit = {
