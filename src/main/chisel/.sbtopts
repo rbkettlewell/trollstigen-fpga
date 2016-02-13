@@ -1,0 +1,5 @@
+-J-Xmx8G
+-J-d64
+-J-Xss4M
+-J-XX:MaxPermSize=8G
+-J-XX:ReservedCodeCacheSize=128M
