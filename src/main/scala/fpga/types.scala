@@ -30,7 +30,9 @@ package fpga{
     type BlifInfo = (BlifModel, BlifInputs , BlifOutput, Covering, ResetVal)
     type Blifs = Array[BlifInfo]
     type IsSequential = Boolean
-    type NetlistBlock = (BlockName, BlockType, BlifInputs, IsSequential)
+    type lutName = BlockName
+    type dffName = BlockName
+    type NetlistBlock = (BlockName, BlockType, BlifInputs, IsSequential, lutName, dffName)
     type RawNetlist = Array[NetlistBlock]
     type Route = (LocationXY, Segment, Segment)
     type Routes = Array[Route]

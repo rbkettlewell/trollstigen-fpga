@@ -14,7 +14,7 @@ package fpga{
     private val netFile   = synthesisFiles(1)
     private val placeFile = synthesisFiles(2)
     private val routeFile = synthesisFiles(3)
-    private val Debug = false
+    private val Debug = true 
 
     var fpga = Array.ofDim(rows, cols) : FPGABlocks
 
@@ -326,6 +326,8 @@ package fpga{
 
       clbs.foreach{clb =>
         val clbName = clb._1
+        val lutName = clb._5
+        val dffName = clb._6
         val placeInfo = place.placement.filter(_._1 == clbName)(0)
         val row = placeInfo._2._2.toInt * 2
         val col = placeInfo._2._1.toInt * 2
@@ -335,7 +337,7 @@ package fpga{
           println("NET Inputs length:\n" ++ clb._3.length.toString)
           println("PLACE:\n" ++ placeInfo.toString)
         }
-        val blifCLB = names.filter(_._3 == clbName)(0)
+        val blifCLB = names.filter(_._3 == lutName)(0)
         if (Debug){
           println("BLIF Name:\n" ++ blifCLB._3)
           println("BLIF Inputs:\n" ++ blifCLB._2.mkString(", "))
@@ -348,7 +350,7 @@ package fpga{
         }
         // Set reset val if latch
         if(clb._4){
-          val resetVal = latches.filter(_._2(0) == clbName)(0)._5
+          val resetVal = latches.filter(_._3 == dffName)(0)._5
           fpga(row)(col).asInstanceOf[CLB].dFFResetValue = resetVal
           fpga(row)(col).asInstanceOf[CLB].muxSelect = "1"
         }

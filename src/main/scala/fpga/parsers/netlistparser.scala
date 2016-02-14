@@ -20,8 +20,19 @@ package fpga.parsers{
         val name = b \ "@name" text
         val inputs = (b \ "inputs" \ "port" text) split " " 
         val sequential = (b \ "outputs" text) contains "dff"
+        var lutName = ""
+        var dffName = ""
+        if(blockType == "clb"){
+          val subBlocks = b \ "block"
+          lutName = subBlocks(0) \ "@name" text
+
+          if(subBlocks.length == 2){
+            dffName = subBlocks(1) \ "@name" text
+          }
+        }
+
         if(name != "vcc" && name != "gnd" && name != "unconn" && name != "top^clock")
-          rawBlocks = rawBlocks ++ Array((name, blockType, inputs,sequential))
+          rawBlocks = rawBlocks ++ Array((name, blockType, inputs,sequential,lutName,dffName))
       }
       rawBlocks
     }
