@@ -7,7 +7,7 @@ class FPGAUtils{
   type LocationXY  = (Int,Int)
 
   private val xTiles = 8
-  private val yTiles = 16
+  private val yTiles = 8 
   private val cols = xTiles*2 + 3
   private val rows = yTiles*2 + 3
   private val bitsteamBlocks = new BitstreamLoad("bitstream.bin")

@@ -14,12 +14,10 @@ class SRAMTopLevel extends Module {
     val cDataExtOut = UInt(OUTPUT,8)
   }
 
-  private val xTiles = 1
-  private val yTiles = 1
-  //private val cols = xTiles*2 + 3
-  // private val rows = yTiles*2 + 3
-   private val cols = xTiles*2
-   private val rows = yTiles*2
+  private val xTiles = 8
+  private val yTiles = 8 
+  private val cols = xTiles*2 + 3
+  private val rows = yTiles*2 + 3
 
   val rowDecoder = Module(new RowDecoder())
   val columnDecoder = Module(new ColumnDecoder())

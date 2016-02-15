@@ -31,73 +31,52 @@ class TopLevel extends Module{
       io.hipo(8-i) := iopad.outside.p0
       iopad.outside.p1 := io.hipi(8-i)
   }
-  // Connect GPIO to external world
-  (0 until 8).foreach{i=> 
-    val iopadWest = fpga((9+i)*2)(0).asInstanceOf[IOpad].io
-    val iopadNorth= fpga(17*2)((i+1)*2).asInstanceOf[IOpad].io
+  // Connect West GPIO to external world
+  (0 until 6).foreach{i=> 
+    val iopadWest = fpga((3+i)*2)(0).asInstanceOf[IOpad].io
       io.gpo(i) := iopadWest.outside.p0
       iopadWest.outside.p1 := io.gpi(i)
-      io.gpo(8+i) := iopadNorth.outside.p0
-      iopadNorth.outside.p1 := io.gpi(8+i)
+  }
+  // Connect North GPIO to external world
+  (0 until 8).foreach{i=> 
+    val iopadNorth= fpga(9*2)((i+1)*2).asInstanceOf[IOpad].io
+      io.gpo(6+i) := iopadNorth.outside.p0
+      iopadNorth.outside.p1 := io.gpi(6+i)
+  }
+  // Connect East GPIO to external world
+  (0 until 2).foreach{i=> 
+    val iopadEast= fpga((7+i)*2)(9*2).asInstanceOf[IOpad].io
+      io.gpo(14+i) := iopadEast.outside.p0
+      iopadEast.outside.p1 := io.gpi(14+i)
   }
 }
 
 class TopLevelTest(c: TopLevel) extends Tester(c) {
+
+  val stepInternal = 6
   poke(c.io.gpi, int(UInt("b000")))
-  step(1)
-  step(1)
-  step(1)
-  step(1)
-  step(1)
+  step(stepInternal)
   expect(c.io.gpo, 0)
   poke(c.io.gpi, int(UInt("b001")))
-  step(1)
-  step(1)
-  step(1)
-  step(1)
-  step(1)
+  step(stepInternal)
   expect(c.io.gpo, 8)
   poke(c.io.gpi, int(UInt("b010")))
-  step(1)
-  step(1)
-  step(1)
-  step(1)
-  step(1)
+  step(stepInternal)
   expect(c.io.gpo, 8)
   poke(c.io.gpi, int(UInt("b011")))
-  step(1)
-  step(1)
-  step(1)
-  step(1)
-  step(1)
+  step(stepInternal)
   expect(c.io.gpo, 0)
   poke(c.io.gpi, int(UInt("b100")))
-  step(1)
-  step(1)
-  step(1)
-  step(1)
-  step(1)
+  step(stepInternal)
   expect(c.io.gpo, 8)
   poke(c.io.gpi, int(UInt("b101")))
-  step(1)
-  step(1)
-  step(1)
-  step(1)
-  step(1)
+  step(stepInternal)
   expect(c.io.gpo, 0)
   poke(c.io.gpi, int(UInt("b110")))
-  step(1)
-  step(1)
-  step(1)
-  step(1)
-  step(1)
+  step(stepInternal)
   expect(c.io.gpo, 0)
   poke(c.io.gpi, int(UInt("b111")))
-  step(1)
-  step(1)
-  step(1)
-  step(1)
-  step(1)
+  step(stepInternal)
   expect(c.io.gpo, 8)
 }
 
