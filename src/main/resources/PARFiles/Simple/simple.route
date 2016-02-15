@@ -1,0 +1,90 @@
+Array size: 8 x 16 logic blocks.
+
+Routing:
+
+Net 0 (top^MULTI_PORT_MUX~0^LOGICAL_NOT~2)
+
+Node:	600	SOURCE (2,15)  Class: 6  
+Node:	608	  OPIN (2,15)  Pin: 6   clb.O[0] 
+Node:	3693	 CHANX (2,14)  Track: 1  
+Node:	4338	 CHANY (1,15)  Track: 10  
+Node:	3777	 CHANX (1,15)  Track: 1  
+Node:	334	  IPIN (1,15)  Pin: 0   clb.I[0] 
+Node:	326	  SINK (1,15)  Class: 0  
+
+
+Net 1 (gnd): global net connecting:
+
+Block gnd (#7) at (1, 11), Pin class 6.
+Block top^MULTI_PORT_MUX~0^MUX_2~4 (#0) at (1, 15), Pin class 1.
+
+
+Net 2 (top^temp_FF_NODE)
+
+Node:	332	SOURCE (1,15)  Class: 6  
+Node:	340	  OPIN (1,15)  Pin: 6   clb.O[0] 
+Node:	3683	 CHANX (1,14)  Track: 3  
+Node:	4138	 CHANY (0,15)  Track: 2  
+Node:	337	  IPIN (1,15)  Pin: 3   clb.I[3] 
+Node:	329	  SINK (1,15)  Class: 3  
+Node:	340	  OPIN (1,15)  Pin: 6   clb.O[0] 
+Node:	3681	 CHANX (1,14)  Track: 1  
+Node:	4136	 CHANY (0,15)  Track: 0  
+Node:	87	  IPIN (0,15)  Pad: 0  
+Node:	84	  SINK (0,15)  Pad: 0  
+
+
+Net 3 (top^LOGICAL_EQUAL~1^LOGICAL_AND~6)
+
+Node:	584	SOURCE (2,14)  Class: 6  
+Node:	592	  OPIN (2,14)  Pin: 6   clb.O[0] 
+Node:	3598	 CHANX (2,13)  Track: 2  
+Node:	4518	 CHANY (2,14)  Track: 10  
+Node:	4530	 CHANY (2,15)  Track: 10  
+Node:	3789	 CHANX (2,15)  Track: 1  
+Node:	602	  IPIN (2,15)  Pin: 0   clb.I[0] 
+Node:	594	  SINK (2,15)  Class: 0  
+Node:	592	  OPIN (2,14)  Pin: 6   clb.O[0] 
+Node:	3597	 CHANX (2,13)  Track: 1  
+Node:	4326	 CHANY (1,14)  Track: 10  
+Node:	3702	 CHANX (2,14)  Track: 10  
+Node:	4522	 CHANY (2,15)  Track: 2  
+Node:	3793	 CHANX (2,15)  Track: 5  
+Node:	4333	 CHANY (1,15)  Track: 5  
+Node:	339	  IPIN (1,15)  Pin: 5   clb.I[5] 
+Node:	331	  SINK (1,15)  Class: 5  
+
+
+Net 4 (top^clock): global net connecting:
+
+Block top^clock (#8) at (0, 1), Pin class 1.
+Block top^MULTI_PORT_MUX~0^MUX_2~4 (#0) at (1, 15), Pin class 7.
+
+
+Net 5 (top^LOGICAL_EQUAL~1^LOGICAL_XNOR~5^LOGICAL_XNOR~7)
+
+Node:	316	SOURCE (1,14)  Class: 6  
+Node:	324	  OPIN (1,14)  Pin: 6   clb.O[0] 
+Node:	3585	 CHANX (1,13)  Track: 1  
+Node:	4124	 CHANY (0,14)  Track: 0  
+Node:	3680	 CHANX (1,14)  Track: 0  
+Node:	3692	 CHANX (2,14)  Track: 0  
+Node:	586	  IPIN (2,14)  Pin: 0   clb.I[0] 
+Node:	578	  SINK (2,14)  Class: 0  
+
+
+Net 6 (vcc): global net connecting:
+
+Block vcc (#6) at (5, 6), Pin class 6.
+Block top^LOGICAL_EQUAL~1^LOGICAL_XNOR~5^LOGICAL_XNOR~7 (#3) at (1, 14), Pin class 0.
+
+
+Net 7 (top^enable)
+
+Node:	79	SOURCE (0,14)  Pad: 1  
+Node:	82	  OPIN (0,14)  Pad: 1  
+Node:	4126	 CHANY (0,14)  Track: 2  
+Node:	3682	 CHANX (1,14)  Track: 2  
+Node:	4317	 CHANY (1,14)  Track: 1  
+Node:	319	  IPIN (1,14)  Pin: 1   clb.I[1] 
+Node:	311	  SINK (1,14)  Class: 1  

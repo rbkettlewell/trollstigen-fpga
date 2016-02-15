@@ -1,0 +1,277 @@
+<block name="simple.net" instance="FPGA_packed_netlist[0]">
+	<inputs>
+		top^clock top^enable 
+	</inputs>
+
+	<outputs>
+		out:top^value_out 
+	</outputs>
+
+	<clocks>
+		top^clock 
+	</clocks>
+
+	<block name="top^MULTI_PORT_MUX~0^MUX_2~4" instance="clb[0]" mode="clb">
+		<inputs>
+			<port name="I">top^MULTI_PORT_MUX~0^LOGICAL_NOT~2 gnd open top^temp_FF_NODE open top^LOGICAL_EQUAL~1^LOGICAL_AND~6 </port>
+		</inputs>
+		<outputs>
+			<port name="O">dff[0].Q[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">top^clock </port>
+		</clocks>
+		<block name="top^MULTI_PORT_MUX~0^MUX_2~4" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  open clb.I[3]->clbin  open clb.I[5]->clbin  </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="top^MULTI_PORT_MUX~0^MUX_2~4" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  open lut6.in[3]->direct:lut6  open lut6.in[5]->direct:lut6  </port>
+				</inputs>
+				<outputs>
+					<port name="out">top^MULTI_PORT_MUX~0^MUX_2~4 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="top^temp_FF_NODE" instance="dff[0]">
+			<inputs>
+				<port name="D">lut6[0].out[0]->dffin  </port>
+			</inputs>
+			<outputs>
+				<port name="Q">top^temp_FF_NODE </port>
+			</outputs>
+			<clocks>
+				<port name="clk">clb.clk[0]->clkin  </port>
+			</clocks>
+		</block>
+	</block>
+	<block name="top^MULTI_PORT_MUX~0^LOGICAL_NOT~2" instance="clb[1]" mode="clb">
+		<inputs>
+			<port name="I">top^LOGICAL_EQUAL~1^LOGICAL_AND~6 open open open open open </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="top^MULTI_PORT_MUX~0^LOGICAL_NOT~2" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  open open open open open </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="top^MULTI_PORT_MUX~0^LOGICAL_NOT~2" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  open open open open open </port>
+				</inputs>
+				<outputs>
+					<port name="out">top^MULTI_PORT_MUX~0^LOGICAL_NOT~2 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="top^LOGICAL_EQUAL~1^LOGICAL_AND~6" instance="clb[2]" mode="clb">
+		<inputs>
+			<port name="I">top^LOGICAL_EQUAL~1^LOGICAL_XNOR~5^LOGICAL_XNOR~7 open open open open open </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="top^LOGICAL_EQUAL~1^LOGICAL_AND~6" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  open open open open open </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="top^LOGICAL_EQUAL~1^LOGICAL_AND~6" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  open open open open open </port>
+				</inputs>
+				<outputs>
+					<port name="out">top^LOGICAL_EQUAL~1^LOGICAL_AND~6 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="top^LOGICAL_EQUAL~1^LOGICAL_XNOR~5^LOGICAL_XNOR~7" instance="clb[3]" mode="clb">
+		<inputs>
+			<port name="I">vcc top^enable open open open open </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="top^LOGICAL_EQUAL~1^LOGICAL_XNOR~5^LOGICAL_XNOR~7" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  open open open open </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="top^LOGICAL_EQUAL~1^LOGICAL_XNOR~5^LOGICAL_XNOR~7" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  open open open open </port>
+				</inputs>
+				<outputs>
+					<port name="out">top^LOGICAL_EQUAL~1^LOGICAL_XNOR~5^LOGICAL_XNOR~7 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="top^enable" instance="io[4]" mode="inpad">
+		<inputs>
+			<port name="outpad">open </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">inpad[0].inpad[0]->inpad  </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="top^enable" instance="inpad[0]">
+			<inputs>
+			</inputs>
+			<outputs>
+				<port name="inpad">top^enable </port>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="out:top^value_out" instance="io[5]" mode="outpad">
+		<inputs>
+			<port name="outpad">top^temp_FF_NODE </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">open </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="out:top^value_out" instance="outpad[0]">
+			<inputs>
+				<port name="outpad">io.outpad[0]->outpad  </port>
+			</inputs>
+			<outputs>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="vcc" instance="clb[6]" mode="clb">
+		<inputs>
+			<port name="I">open open open open open open </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="vcc" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">open open open open open open </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="vcc" instance="lut[0]">
+				<inputs>
+					<port name="in">open open open open open open </port>
+				</inputs>
+				<outputs>
+					<port name="out">vcc </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="gnd" instance="clb[7]" mode="clb">
+		<inputs>
+			<port name="I">open open open open open open </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="gnd" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">open open open open open open </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="gnd" instance="lut[0]">
+				<inputs>
+					<port name="in">open open open open open open </port>
+				</inputs>
+				<outputs>
+					<port name="out">gnd </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="top^clock" instance="io[8]" mode="inpad">
+		<inputs>
+			<port name="outpad">open </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">inpad[0].inpad[0]->inpad  </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="top^clock" instance="inpad[0]">
+			<inputs>
+			</inputs>
+			<outputs>
+				<port name="inpad">top^clock </port>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+</block>
+

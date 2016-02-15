@@ -7,7 +7,7 @@
 .names vcc
 1
 
-.latch top^BITWISE_XOR~1^LOGICAL_XOR~3 top^temp_FF_NODE re top^gclk 3
+.latch top^BITWISE_XOR~1^LOGICAL_XOR~3 top^temp_FF_NODE re top^gclk 0
 
 .names top^BITWISE_XOR~0^LOGICAL_XOR~4 top^gpio2 top^BITWISE_XOR~1^LOGICAL_XOR~3
 01 1

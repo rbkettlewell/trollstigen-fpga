@@ -1,0 +1,69 @@
+Array size: 8 x 8 logic blocks.
+
+Routing:
+
+Net 0 (top^gpio2)
+
+Node:	25	SOURCE (0,5)  Pad: 1  
+Node:	28	  OPIN (0,5)  Pad: 1  
+Node:	2131	 CHANY (0,5)  Track: 3  
+Node:	1602	 CHANX (1,4)  Track: 2  
+Node:	2234	 CHANY (1,5)  Track: 10  
+Node:	1697	 CHANX (1,5)  Track: 1  
+Node:	126	  IPIN (1,5)  Pin: 0   clb.I[0] 
+Node:	118	  SINK (1,5)  Class: 0  
+
+
+Net 1 (top^BITWISE_XOR~0^LOGICAL_XOR~4)
+
+Node:	108	SOURCE (1,4)  Class: 6  
+Node:	116	  OPIN (1,4)  Pin: 6   clb.O[0] 
+Node:	1505	 CHANX (1,3)  Track: 1  
+Node:	2116	 CHANY (0,4)  Track: 0  
+Node:	1600	 CHANX (1,4)  Track: 0  
+Node:	2224	 CHANY (1,5)  Track: 0  
+Node:	127	  IPIN (1,5)  Pin: 1   clb.I[1] 
+Node:	119	  SINK (1,5)  Class: 1  
+
+
+Net 2 (top^temp_FF_NODE)
+
+Node:	124	SOURCE (1,5)  Class: 6  
+Node:	132	  OPIN (1,5)  Pin: 6   clb.O[0] 
+Node:	1603	 CHANX (1,4)  Track: 3  
+Node:	2130	 CHANY (0,5)  Track: 2  
+Node:	1698	 CHANX (1,5)  Track: 2  
+Node:	2246	 CHANY (1,6)  Track: 10  
+Node:	1793	 CHANX (1,6)  Track: 1  
+Node:	2141	 CHANY (0,6)  Track: 1  
+Node:	33	  IPIN (0,6)  Pad: 0  
+Node:	30	  SINK (0,6)  Pad: 0  
+
+
+Net 3 (top^gclk): global net connecting:
+
+Block top^gclk (#8) at (0, 2), Pin class 1.
+Block top^BITWISE_XOR~1^LOGICAL_XOR~3 (#0) at (1, 5), Pin class 7.
+
+
+Net 4 (top^gpio1)
+
+Node:	19	SOURCE (0,4)  Pad: 1  
+Node:	22	  OPIN (0,4)  Pad: 1  
+Node:	2119	 CHANY (0,4)  Track: 3  
+Node:	1506	 CHANX (1,3)  Track: 2  
+Node:	2222	 CHANY (1,4)  Track: 10  
+Node:	1601	 CHANX (1,4)  Track: 1  
+Node:	110	  IPIN (1,4)  Pin: 0   clb.I[0] 
+Node:	102	  SINK (1,4)  Class: 0  
+
+
+Net 5 (top^gpio0)
+
+Node:	13	SOURCE (0,3)  Pad: 1  
+Node:	16	  OPIN (0,3)  Pad: 1  
+Node:	2104	 CHANY (0,3)  Track: 0  
+Node:	1504	 CHANX (1,3)  Track: 0  
+Node:	2212	 CHANY (1,4)  Track: 0  
+Node:	111	  IPIN (1,4)  Pin: 1   clb.I[1] 
+Node:	103	  SINK (1,4)  Class: 1  
