@@ -178,7 +178,7 @@ Computing delta_io_to_io lookup matrix, may take a few seconds, please wait...
 Computing delta_io_to_clb lookup matrix, may take a few seconds, please wait...
 Computing delta_clb_to_io lookup matrix, may take a few seconds, please wait...
 Computing delta_clb_to_clb lookup matrix, may take a few seconds, please wait...
-Placement delay look-up took 0.031533 seconds
+Placement delay look-up took 0.009402 seconds
 
 Reading locations of IO pads from 'fpga.pads'.
 Warning 14: [Line 55] Block top^resetn invalid, no such IO pad.
@@ -335,10 +335,10 @@ Placement total # of swap attempts: 1935
 	Swap reject rate: 0
 	Swap accept rate: 0
 	Swap abort rate: 0
-Placement took 0.143644 seconds.
+Placement took 0.152738 seconds.
 Iteratively removing timing edges to break combinational cycles in timing graph.
 Removed 0 combinational cycles from timing graph after 0 iteration(s)
-Build rr_graph took 0.013646 seconds.
+Build rr_graph took 0.00448 seconds.
 Confirming router algorithm: TIMING_DRIVEN.
 Wire length after first iteration 13, total available wire length 1728, ratio 0.00752315
 --------- ---------- ----------- ---------------------
@@ -426,6 +426,6 @@ Critical path in print timing: 1.12294 ns
 Final critical path: 1.12294 ns
 Least slack in design: -1.12294 ns
 
-Routing took 0.649115 seconds.
-Timing analysis took 0.002917 seconds.
-The entire flow of VPR took 0.935056 seconds.
+Routing took 0.235363 seconds.
+Timing analysis took 0.000932 seconds.
+The entire flow of VPR took 0.423861 seconds.

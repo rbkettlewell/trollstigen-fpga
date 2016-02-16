@@ -1,14 +1,14 @@
-Netlist file: simple.net   Architecture file: troll_arch8.xml
-Array size: 8 x 16 logic blocks
+Netlist file: simple.net   Architecture file: ../Majority/troll_arch64.xml
+Array size: 8 x 8 logic blocks
 
 #block name	x	y	subblk	block number
 #----------	--	--	------	------------
-top^MULTI_PORT_MUX~0^MUX_2~4	1	15	0	#0
-top^MULTI_PORT_MUX~0^LOGICAL_NOT~2	2	15	0	#1
-top^LOGICAL_EQUAL~1^LOGICAL_AND~6	2	14	0	#2
-top^LOGICAL_EQUAL~1^LOGICAL_XNOR~5^LOGICAL_XNOR~7	1	14	0	#3
-top^enable	0	14	0	#4
-out:top^value_out	0	15	0	#5
-vcc		5	6	0	#6
-gnd		1	11	0	#7
-top^clock	0	1	0	#8
+top^MULTI_PORT_MUX~0^MUX_2~4	5	8	0	#0
+top^MULTI_PORT_MUX~0^LOGICAL_NOT~2	4	8	0	#1
+top^LOGICAL_EQUAL~1^LOGICAL_AND~6	3	8	0	#2
+top^LOGICAL_EQUAL~1^LOGICAL_XNOR~5^LOGICAL_XNOR~7	2	8	0	#3
+top^enable	2	9	0	#4
+out:top^value_out	5	9	0	#5
+vcc		3	4	0	#6
+gnd		3	1	0	#7
+top^clock	8	9	0	#8

@@ -1,0 +1,641 @@
+<block name="MajorityByte.net" instance="FPGA_packed_netlist[0]">
+	<inputs>
+		top^gclk top^gpio7 top^gpio6 top^gpio5 top^gpio4 top^gpio3 top^gpio2 top^gpio1 top^gpio0 
+	</inputs>
+
+	<outputs>
+		out:top^gpio8 
+	</outputs>
+
+	<clocks>
+		top^gclk 
+	</clocks>
+
+	<block name="n21" instance="clb[0]" mode="clb">
+		<inputs>
+			<port name="I">top^gpio0 n16 n25 n15 n17 top^gpio1 </port>
+		</inputs>
+		<outputs>
+			<port name="O">dff[0].Q[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">top^gclk </port>
+		</clocks>
+		<block name="n21" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  clb.I[2]->clbin  clb.I[3]->clbin  clb.I[4]->clbin  clb.I[5]->clbin  </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n21" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  lut6.in[2]->direct:lut6  lut6.in[3]->direct:lut6  lut6.in[4]->direct:lut6  lut6.in[5]->direct:lut6  </port>
+				</inputs>
+				<outputs>
+					<port name="out">n21 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="top^majorityOnes_FF_NODE" instance="dff[0]">
+			<inputs>
+				<port name="D">lut6[0].out[0]->dffin  </port>
+			</inputs>
+			<outputs>
+				<port name="Q">top^majorityOnes_FF_NODE </port>
+			</outputs>
+			<clocks>
+				<port name="clk">clb.clk[0]->clkin  </port>
+			</clocks>
+		</block>
+	</block>
+	<block name="n17" instance="clb[1]" mode="clb">
+		<inputs>
+			<port name="I">n20 n22 n24 n18 n21_1 n23 </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="n17" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  clb.I[2]->clbin  clb.I[3]->clbin  clb.I[4]->clbin  clb.I[5]->clbin  </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n17" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  lut6.in[2]->direct:lut6  lut6.in[3]->direct:lut6  lut6.in[4]->direct:lut6  lut6.in[5]->direct:lut6  </port>
+				</inputs>
+				<outputs>
+					<port name="out">n17 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="n21_1" instance="clb[2]" mode="clb">
+		<inputs>
+			<port name="I">top^gpio0 n16 n20 top^gpio1 n15 n19 </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="n21_1" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  clb.I[2]->clbin  clb.I[3]->clbin  clb.I[4]->clbin  clb.I[5]->clbin  </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n21_1" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  lut6.in[2]->direct:lut6  lut6.in[3]->direct:lut6  lut6.in[4]->direct:lut6  lut6.in[5]->direct:lut6  </port>
+				</inputs>
+				<outputs>
+					<port name="out">n21_1 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="n24" instance="clb[3]" mode="clb">
+		<inputs>
+			<port name="I">top^gpio0 n16 n20 top^gpio1 n15 n19 </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="n24" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  clb.I[2]->clbin  clb.I[3]->clbin  clb.I[4]->clbin  clb.I[5]->clbin  </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n24" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  lut6.in[2]->direct:lut6  lut6.in[3]->direct:lut6  lut6.in[4]->direct:lut6  lut6.in[5]->direct:lut6  </port>
+				</inputs>
+				<outputs>
+					<port name="out">n24 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="n19" instance="clb[4]" mode="clb">
+		<inputs>
+			<port name="I">top^gpio6 top^gpio4 top^gpio2 top^gpio7 top^gpio5 top^gpio3 </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="n19" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  clb.I[2]->clbin  clb.I[3]->clbin  clb.I[4]->clbin  clb.I[5]->clbin  </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n19" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  lut6.in[2]->direct:lut6  lut6.in[3]->direct:lut6  lut6.in[4]->direct:lut6  lut6.in[5]->direct:lut6  </port>
+				</inputs>
+				<outputs>
+					<port name="out">n19 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="n16" instance="clb[5]" mode="clb">
+		<inputs>
+			<port name="I">top^gpio6 top^gpio4 top^gpio2 top^gpio7 top^gpio5 top^gpio3 </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="n16" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  clb.I[2]->clbin  clb.I[3]->clbin  clb.I[4]->clbin  clb.I[5]->clbin  </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n16" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  lut6.in[2]->direct:lut6  lut6.in[3]->direct:lut6  lut6.in[4]->direct:lut6  lut6.in[5]->direct:lut6  </port>
+				</inputs>
+				<outputs>
+					<port name="out">n16 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="n15" instance="clb[6]" mode="clb">
+		<inputs>
+			<port name="I">top^gpio6 top^gpio4 top^gpio2 top^gpio7 top^gpio5 top^gpio3 </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="n15" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  clb.I[2]->clbin  clb.I[3]->clbin  clb.I[4]->clbin  clb.I[5]->clbin  </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n15" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  lut6.in[2]->direct:lut6  lut6.in[3]->direct:lut6  lut6.in[4]->direct:lut6  lut6.in[5]->direct:lut6  </port>
+				</inputs>
+				<outputs>
+					<port name="out">n15 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="n20" instance="clb[7]" mode="clb">
+		<inputs>
+			<port name="I">top^gpio6 top^gpio4 top^gpio2 top^gpio7 top^gpio5 top^gpio3 </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="n20" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  clb.I[2]->clbin  clb.I[3]->clbin  clb.I[4]->clbin  clb.I[5]->clbin  </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n20" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  lut6.in[2]->direct:lut6  lut6.in[3]->direct:lut6  lut6.in[4]->direct:lut6  lut6.in[5]->direct:lut6  </port>
+				</inputs>
+				<outputs>
+					<port name="out">n20 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="n22" instance="clb[8]" mode="clb">
+		<inputs>
+			<port name="I">top^gpio6 top^gpio4 top^gpio2 top^gpio7 top^gpio5 top^gpio3 </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="n22" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  clb.I[2]->clbin  clb.I[3]->clbin  clb.I[4]->clbin  clb.I[5]->clbin  </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n22" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  lut6.in[2]->direct:lut6  lut6.in[3]->direct:lut6  lut6.in[4]->direct:lut6  lut6.in[5]->direct:lut6  </port>
+				</inputs>
+				<outputs>
+					<port name="out">n22 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="n25" instance="clb[9]" mode="clb">
+		<inputs>
+			<port name="I">n18 n22 n23 n26 n20 open </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="n25" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  clb.I[2]->clbin  clb.I[3]->clbin  clb.I[4]->clbin  open </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n25" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  lut6.in[2]->direct:lut6  lut6.in[3]->direct:lut6  lut6.in[4]->direct:lut6  open </port>
+				</inputs>
+				<outputs>
+					<port name="out">n25 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="n18" instance="clb[10]" mode="clb">
+		<inputs>
+			<port name="I">n15 n19 top^gpio1 n16 open open </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="n18" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  clb.I[2]->clbin  clb.I[3]->clbin  open open </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n18" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  lut6.in[2]->direct:lut6  lut6.in[3]->direct:lut6  open open </port>
+				</inputs>
+				<outputs>
+					<port name="out">n18 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="n26" instance="clb[11]" mode="clb">
+		<inputs>
+			<port name="I">top^gpio0 n16 n19 top^gpio1 n15 open </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="n26" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  clb.I[2]->clbin  clb.I[3]->clbin  clb.I[4]->clbin  open </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n26" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  lut6.in[2]->direct:lut6  lut6.in[3]->direct:lut6  lut6.in[4]->direct:lut6  open </port>
+				</inputs>
+				<outputs>
+					<port name="out">n26 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="top^gpio2" instance="io[12]" mode="inpad">
+		<inputs>
+			<port name="outpad">open </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">inpad[0].inpad[0]->inpad  </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="top^gpio2" instance="inpad[0]">
+			<inputs>
+			</inputs>
+			<outputs>
+				<port name="inpad">top^gpio2 </port>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="top^gpio3" instance="io[13]" mode="inpad">
+		<inputs>
+			<port name="outpad">open </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">inpad[0].inpad[0]->inpad  </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="top^gpio3" instance="inpad[0]">
+			<inputs>
+			</inputs>
+			<outputs>
+				<port name="inpad">top^gpio3 </port>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="top^gpio6" instance="io[14]" mode="inpad">
+		<inputs>
+			<port name="outpad">open </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">inpad[0].inpad[0]->inpad  </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="top^gpio6" instance="inpad[0]">
+			<inputs>
+			</inputs>
+			<outputs>
+				<port name="inpad">top^gpio6 </port>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="top^gpio4" instance="io[15]" mode="inpad">
+		<inputs>
+			<port name="outpad">open </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">inpad[0].inpad[0]->inpad  </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="top^gpio4" instance="inpad[0]">
+			<inputs>
+			</inputs>
+			<outputs>
+				<port name="inpad">top^gpio4 </port>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="top^gpio7" instance="io[16]" mode="inpad">
+		<inputs>
+			<port name="outpad">open </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">inpad[0].inpad[0]->inpad  </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="top^gpio7" instance="inpad[0]">
+			<inputs>
+			</inputs>
+			<outputs>
+				<port name="inpad">top^gpio7 </port>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="top^gpio5" instance="io[17]" mode="inpad">
+		<inputs>
+			<port name="outpad">open </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">inpad[0].inpad[0]->inpad  </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="top^gpio5" instance="inpad[0]">
+			<inputs>
+			</inputs>
+			<outputs>
+				<port name="inpad">top^gpio5 </port>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="n23" instance="clb[18]" mode="clb">
+		<inputs>
+			<port name="I">top^gpio6 top^gpio4 top^gpio3 top^gpio7 top^gpio5 open </port>
+		</inputs>
+		<outputs>
+			<port name="O">lut6[0].out[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">open </port>
+		</clocks>
+		<block name="n23" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  clb.I[2]->clbin  clb.I[3]->clbin  clb.I[4]->clbin  open </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n23" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  lut6.in[2]->direct:lut6  lut6.in[3]->direct:lut6  lut6.in[4]->direct:lut6  open </port>
+				</inputs>
+				<outputs>
+					<port name="out">n23 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="open" instance="dff[0]"/>
+	</block>
+	<block name="top^gpio1" instance="io[19]" mode="inpad">
+		<inputs>
+			<port name="outpad">open </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">inpad[0].inpad[0]->inpad  </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="top^gpio1" instance="inpad[0]">
+			<inputs>
+			</inputs>
+			<outputs>
+				<port name="inpad">top^gpio1 </port>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="top^gpio0" instance="io[20]" mode="inpad">
+		<inputs>
+			<port name="outpad">open </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">inpad[0].inpad[0]->inpad  </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="top^gpio0" instance="inpad[0]">
+			<inputs>
+			</inputs>
+			<outputs>
+				<port name="inpad">top^gpio0 </port>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="out:top^gpio8" instance="io[21]" mode="outpad">
+		<inputs>
+			<port name="outpad">top^majorityOnes_FF_NODE </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">open </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="out:top^gpio8" instance="outpad[0]">
+			<inputs>
+				<port name="outpad">io.outpad[0]->outpad  </port>
+			</inputs>
+			<outputs>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="top^gclk" instance="io[22]" mode="inpad">
+		<inputs>
+			<port name="outpad">open </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">inpad[0].inpad[0]->inpad  </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="top^gclk" instance="inpad[0]">
+			<inputs>
+			</inputs>
+			<outputs>
+				<port name="inpad">top^gclk </port>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+</block>
+

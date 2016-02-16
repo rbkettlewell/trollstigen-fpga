@@ -1,0 +1,18 @@
+# Benchmark "xor3" written by ABC on Tue Feb 16 10:46:10 2016
+.model xor3
+.inputs top^gclk top^gpio1 top^gpio0
+.outputs top^gpio4 top^gpio3
+
+.latch        n11 top^temp~0_FF_NODE re   top^gclk  0
+.latch        n16 top^temp~1_FF_NODE re   top^gclk  0
+
+.names top^gpio1 top^gpio0 n16
+11 1
+.names top^temp~1_FF_NODE top^gpio4
+1 1
+.names top^temp~0_FF_NODE top^gpio3
+1 1
+.names top^gpio1 top^gpio0 n11
+01 1
+10 1
+.end

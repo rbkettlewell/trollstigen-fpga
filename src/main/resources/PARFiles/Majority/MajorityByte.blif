@@ -1,0 +1,116 @@
+# Benchmark "Majority" written by ABC on Tue Feb 16 10:29:25 2016
+.model Majority
+.inputs top^gclk top^gpio7 top^gpio6 top^gpio5 top^gpio4 top^gpio3 \
+ top^gpio2 top^gpio1 top^gpio0
+.outputs top^gpio8
+
+.latch        n21 top^majorityOnes_FF_NODE re   top^gclk  0
+
+.names top^gpio7 top^gpio6 top^gpio5 top^gpio4 top^gpio3 top^gpio2 n15
+000000 1
+000011 1
+000101 1
+000110 1
+001001 1
+001010 1
+001100 1
+001111 1
+010001 1
+010010 1
+010100 1
+010111 1
+011000 1
+011011 1
+011101 1
+011110 1
+100001 1
+100010 1
+100100 1
+100111 1
+101000 1
+101011 1
+101101 1
+101110 1
+110000 1
+110011 1
+110101 1
+110110 1
+111001 1
+111010 1
+111100 1
+111111 1
+.names top^gpio7 top^gpio6 top^gpio5 top^gpio4 top^gpio3 top^gpio2 n16
+00000- 1
+0000-0 1
+000-00 1
+00-000 1
+0-0000 1
+0-1111 1
+1111-0 1
+111-01 1
+111-10 1
+11-011 1
+11-101 1
+11-110 1
+1-0111 1
+1-1011 1
+1-1101 1
+1-1110 1
+-00000 1
+-01111 1
+-10111 1
+-11011 1
+-11101 1
+-11110 1
+.names n18 n20 n21_1 n22 n23 n24 n17
+0-0001 1
+-10001 1
+.names top^gpio1 n15 n16 n19 n18
+1000 1
+.names top^gpio7 top^gpio6 top^gpio5 top^gpio4 top^gpio3 top^gpio2 n19
+1111-- 0
+111-1- 0
+111--1 0
+11-11- 0
+11-1-1 0
+11--11 0
+1-111- 0
+1-11-1 0
+1-1-11 0
+1--111 0
+-1111- 0
+-111-1 0
+-11-11 0
+-1-111 0
+--1111 0
+.names top^gpio7 top^gpio6 top^gpio5 top^gpio4 top^gpio3 top^gpio2 n20
+------ 1
+.names top^gpio1 top^gpio0 n15 n16 n19 n20 n21_1
+010000 1
+111000 1
+.names top^gpio7 top^gpio6 top^gpio5 top^gpio4 top^gpio3 top^gpio2 n22
+------ 0
+.names top^gpio7 top^gpio6 top^gpio5 top^gpio4 top^gpio3 n23
+----- 0
+.names top^gpio1 top^gpio0 n15 n16 n19 n20 n24
+00--01 1
+0-1-01 1
+11-011 1
+1-0011 1
+-01-01 1
+-10011 1
+---101 1
+.names n26 n18 n20 n22 n23 n25
+00100 1
+.names top^gpio1 top^gpio0 n15 n16 n19 n26
+01000 1
+11100 1
+.names top^majorityOnes_FF_NODE top^gpio8
+1 1
+.names top^gpio1 top^gpio0 n15 n16 n17 n25 n21
+0011-1 0
+0100-1 0
+1000-1 0
+1110-1 0
+----01 0
+.end

@@ -40,14 +40,14 @@ class PNSB extends Module {
 	io.E.p6 := (io.S.p6 & io.blkBits(7)) | (io.W.p6 & io.blkBits(19))
 	io.W.p9 := (io.S.p8 & io.blkBits(8)) | (io.E.p9 & io.blkBits(32))
 	io.E.p8 := (io.S.p8 & io.blkBits(9)) | (io.W.p8 & io.blkBits(21))
-	io.W.p11 := (io.S.p10 & io.blkBits(10)) | (io.E.p11 & io.blkBits(34))
+	io.W.p11 := (io.S.p10 & io.blkBits(10)) | (io.E.p11 & io.blkBits(35))
 	io.E.p10 := (io.S.p10 & io.blkBits(11)) | (io.W.p10 & io.blkBits(23))
 	io.S.p1 := (io.W.p0 & io.blkBits(12)) | (io.E.p1 & io.blkBits(25))
 	io.S.p3 := (io.W.p2 & io.blkBits(14)) | (io.E.p3 & io.blkBits(27))
 	io.S.p5 := (io.W.p4 & io.blkBits(16)) | (io.E.p5 & io.blkBits(29))
 	io.S.p7 := (io.W.p6 & io.blkBits(18)) | (io.E.p7 & io.blkBits(31))
 	io.S.p9 := (io.W.p8 & io.blkBits(20)) | (io.E.p9 & io.blkBits(33))
-	io.S.p11 := (io.W.p10 & io.blkBits(22)) | (io.E.p11 & io.blkBits(35))
+	io.S.p11 := (io.W.p10 & io.blkBits(22)) | (io.E.p11 & io.blkBits(34))
 
 
 

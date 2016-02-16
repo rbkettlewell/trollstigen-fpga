@@ -1,0 +1,367 @@
+filename
+
+VPR FPGA Placement and Routing.
+Version: Version 7.0.7
+Revision: 802dada-dirty
+Compiled: Fri, 15 Jan 2016 11:01:17 -0500.
+University of Toronto
+vpr@eecg.utoronto.ca
+This is free open source code under MIT license.
+
+VPR was run with the following command-line:
+vpr troll_arch64.xml TwoBitAdder.blif --route_chan_width 12 --fix_pins fpga.pads
+
+Architecture file: troll_arch64.xml
+Circuit name: TwoBitAdder.blif
+
+Building complex block graph.
+Warning 1: io[0].clock[0] unconnected pin in architecture.
+Swept away 0 nets with no fanout.
+Removed 2 LUT buffers.
+Sweeped away 2 nodes.
+BLIF circuit stats:
+	0 LUTs of size 0
+	0 LUTs of size 1
+	2 LUTs of size 2
+	0 LUTs of size 3
+	0 LUTs of size 4
+	0 LUTs of size 5
+	0 LUTs of size 6
+	3 of type input
+	2 of type output
+	2 of type latch
+	2 of type names
+Timing analysis: ON
+Slack definition: R
+Circuit netlist file: TwoBitAdder.net
+Circuit placement file: TwoBitAdder.place
+Circuit routing file: TwoBitAdder.route
+Circuit SDC file: TwoBitAdder.sdc
+Operation: RUN_FLOW
+
+Packer: ENABLED
+Placer: ENABLED
+Router: ENABLED
+PackerOpts.allow_early_exit: false
+PackerOpts.allow_unrelated_clustering: true
+PackerOpts.alpha_clustering: 0.750000
+PackerOpts.aspect: 1.000000
+PackerOpts.beta_clustering: 0.900000
+PackerOpts.block_delay: 0.000000
+PackerOpts.cluster_seed_type: BLEND
+PackerOpts.connection_driven: true
+PackerOpts.global_clocks: true
+PackerOpts.hill_climbing_flag: false
+PackerOpts.inter_cluster_net_delay: 1.000000
+PackerOpts.intra_cluster_net_delay: 0.000000
+PackerOpts.recompute_timing_after: 32767
+PackerOpts.sweep_hanging_nets_and_inputs: true
+PackerOpts.timing_driven: true
+
+PlacerOpts.place_freq: PLACE_ONCE
+PlacerOpts.place_algorithm: PATH_TIMING_DRIVEN_PLACE
+PlacerOpts.pad_loc_type: USER 'fpga.pads'
+PlacerOpts.place_cost_exp: 1.000000
+PlacerOpts.inner_loop_recompute_divider: 0
+PlacerOpts.recompute_crit_iter: 1
+PlacerOpts.timing_tradeoff: 0.500000
+PlacerOpts.td_place_exp_first: 1.000000
+PlacerOpts.td_place_exp_last: 8.000000
+PlaceOpts.seed: 1
+AnnealSched.type: AUTO_SCHED
+AnnealSched.inner_num: 1.000000
+
+RouterOpts.route_type: DETAILED
+RouterOpts.router_algorithm: TIMING_DRIVEN
+RouterOpts.base_cost_type: DELAY_NORMALIZED
+RouterOpts.fixed_channel_width: 12
+RouterOpts.trim_empty_chan: false
+RouterOpts.trim_obs_chan: false
+RouterOpts.acc_fac: 1.000000
+RouterOpts.bb_factor: 3
+RouterOpts.bend_cost: 0.000000
+RouterOpts.first_iter_pres_fac: 0.500000
+RouterOpts.initial_pres_fac: 0.500000
+RouterOpts.pres_fac_mult: 1.300000
+RouterOpts.max_router_iterations: 50
+RouterOpts.min_incremental_reroute_fanout: 64
+RouterOpts.astar_fac: 1.200000
+RouterOpts.criticality_exp: 1.000000
+RouterOpts.max_criticality: 0.990000
+RouterOpts.routing_failure_predictor = SAFE
+
+RoutingArch.directionality: UNI_DIRECTIONAL
+RoutingArch.switch_block_type: WILTON
+RoutingArch.Fs: 3
+
+Initialize packing.
+Begin packing 'TwoBitAdder.blif'.
+
+After removing unused inputs...
+	total blocks: 9, total nets: 7, total inputs: 3, total outputs: 2
+Begin prepacking.
+Finish prepacking.
+Using inter-cluster delay: 1.33777e-09
+Iteratively removing timing edges to break combinational cycles in timing graph.
+Removed 0 combinational cycles from timing graph after 0 iteration(s)
+
+SDC file 'TwoBitAdder.sdc' blank or not found.
+
+Defaulting to: constrain all 3 inputs and 2 outputs on the netlist clock.
+Optimize this clock to run as fast as possible.
+Complex block 0: cb.n11, type: clb
+	Passed route at end.
+Complex block 1: cb.n16, type: clb
+	Passed route at end.
+Complex block 2: cb.top^gpio0, type: io
+	Passed route at end.
+Complex block 3: cb.top^gpio1, type: io
+	Passed route at end.
+Complex block 4: cb.out:top^gpio3, type: io
+	Passed route at end.
+Complex block 5: cb.out:top^gpio4, type: io
+	Passed route at end.
+Complex block 6: cb.top^gclk, type: io
+	Passed route at end.
+	<EMPTY>: # blocks: 0, average # input + clock pins used: 0, average # output pins used: 0
+	io: # blocks: 5, average # input + clock pins used: 0.4, average # output pins used: 0.6
+	clb: # blocks: 2, average # input + clock pins used: 3, average # output pins used: 1
+Absorbed logical nets 2 out of 7 nets, 5 nets not absorbed.
+
+Netlist conversion complete.
+
+Begin parsing packed FPGA netlist file.
+Finished parsing packed FPGA netlist file.
+Netlist generated from file 'TwoBitAdder.net'.
+
+Netlist num_nets: 5
+Netlist num_blocks: 7
+Netlist <EMPTY> blocks: 0.
+Netlist clb blocks: 2.
+Netlist inputs pins: 3
+Netlist output pins: 2
+
+The circuit will be mapped into a 8 x 8 array of clbs.
+
+Resource usage...
+	Netlist      0	blocks of type: <EMPTY>
+	Architecture 4	blocks of type: <EMPTY>
+	Netlist      5	blocks of type: io
+	Architecture 32	blocks of type: io
+	Netlist      2	blocks of type: clb
+	Architecture 64	blocks of type: clb
+
+Iteratively removing timing edges to break combinational cycles in timing graph.
+Removed 0 combinational cycles from timing graph after 0 iteration(s)
+
+Starting placement delay look-up...
+Computing delta_io_to_io lookup matrix, may take a few seconds, please wait...
+Computing delta_io_to_clb lookup matrix, may take a few seconds, please wait...
+Computing delta_clb_to_io lookup matrix, may take a few seconds, please wait...
+Computing delta_clb_to_clb lookup matrix, may take a few seconds, please wait...
+Placement delay look-up took 0.007692 seconds
+
+Reading locations of IO pads from 'fpga.pads'.
+Warning 2: [Line 43] Block top^resetn invalid, no such IO pad.
+Warning 3: [Line 45] Block top^hip7 invalid, no such IO pad.
+Warning 4: [Line 46] Block top^hip6 invalid, no such IO pad.
+Warning 5: [Line 47] Block top^hip5 invalid, no such IO pad.
+Warning 6: [Line 48] Block top^hip4 invalid, no such IO pad.
+Warning 7: [Line 49] Block top^hip3 invalid, no such IO pad.
+Warning 8: [Line 51] Block top^hip2 invalid, no such IO pad.
+Warning 9: [Line 52] Block top^hip1 invalid, no such IO pad.
+Warning 10: [Line 53] Block top^hip0 invalid, no such IO pad.
+Warning 11: [Line 55] Block top^gpio15 invalid, no such IO pad.
+Warning 12: [Line 56] Block top^gpio14 invalid, no such IO pad.
+Warning 13: [Line 57] Block top^gpio13 invalid, no such IO pad.
+Warning 14: [Line 58] Block top^gpio12 invalid, no such IO pad.
+Warning 15: [Line 59] Block top^gpio11 invalid, no such IO pad.
+Warning 16: [Line 60] Block top^gpio10 invalid, no such IO pad.
+Warning 17: [Line 61] Block top^gpio9 invalid, no such IO pad.
+Warning 18: [Line 62] Block top^gpio8 invalid, no such IO pad.
+Warning 19: [Line 64] Block top^gpio7 invalid, no such IO pad.
+Warning 20: [Line 65] Block top^gpio6 invalid, no such IO pad.
+Warning 21: [Line 66] Block top^gpio5 invalid, no such IO pad.
+Warning 22: [Line 69] Block top^gpio2 invalid, no such IO pad.
+Successfully read fpga.pads.
+
+
+There are 6 point to point connections in this circuit.
+
+Initial placement cost: 1.03703 bb_cost: 0.34 td_cost: 3.52909e-09 delay_cost: 3.74657e-09
+
+------- ------- ---------- ---------- ---------- ---------- ------- ------- ------- ------- ------ --------- ------
+      T    Cost Av BB Cost Av TD Cost Av Tot Del P to P Del   d_max Ac Rate Std Dev R limit    Exp Tot Moves  Alpha
+------- ------- ---------- ---------- ---------- ---------- ------- ------- ------- ------- ------ --------- ------
+3.03751 0.94316     0.3308 2.9208e-09 3.658e-09  6.2443e-10  1.0722  0.9231  0.0967  9.0000  1.000        13  0.900
+2.73376 1.02068     0.3954 3.5802e-09 4.3009e-09 6.7462e-10  1.1484  1.0000  0.1558  9.0000  1.000        26  0.500
+1.36688 1.03273     0.3969 3.8346e-09 4.3193e-09 6.7447e-10  1.0722  1.0000  0.1347  9.0000  1.000        39  0.500
+0.68344 0.90985     0.3375 2.9301e-09 3.4582e-09 6.2443e-10  1.0722  0.9231  0.2050  9.0000  1.000        52  0.900
+0.61510 0.97181     0.2910 2.4122e-09 2.874e-09  4.74e-10    0.8472  0.7692  0.2121  9.0000  1.000        65  0.950
+0.58434 1.03817     0.3311 2.4572e-09 3.4109e-09 4.9895e-10  1.0722  0.6923  0.2520  9.0000  1.000        78  0.950
+0.55512 0.86994     0.3646 2.8932e-09 3.8663e-09 6.7462e-10  1.2590  1.0000  0.1644  9.0000  1.000        91  0.500
+0.27756 0.83367     0.3186 2.7574e-09 3.2735e-09 6.2443e-10  1.0722  0.5385  0.2041  9.0000  1.000       104  0.950
+0.26368 0.79596     0.2844 2.5169e-09 2.9607e-09 6.2443e-10  1.0722  0.6923  0.3015  9.0000  1.000       117  0.950
+0.25050 1.20413     0.2367 2.2597e-09 2.4676e-09 3.4852e-10  0.6967  0.2308  0.0669  9.0000  1.000       130  0.950
+0.23798 1.46885     0.3750 2.4627e-09 3.8221e-09 4.2381e-10  0.7320  0.3077  0.1932  7.1169  2.648       143  0.950
+0.22608 0.75124     0.2700 1.2687e-09 2.8716e-09 5.4914e-10  1.0722  0.6154  0.2082  6.1753  3.472       156  0.950
+0.21477 1.85446     0.3244 2.5192e-09 3.6412e-09 3.1088e-10  0.6967  0.6923  0.2673  7.2584  2.524       169  0.950
+0.20403 0.88311     0.2956 2.6041e-09 3.3357e-09 6.358e-10   1.1084  0.6923  0.2155  9.0000  1.000       182  0.950
+0.19383 1.19340     0.2750 2.3779e-09 2.7404e-09 4.2381e-10  0.7320  0.6154  0.1476  9.0000  1.000       195  0.950
+0.18414 1.01825     0.3100 2.7603e-09 3.3695e-09 5.2405e-10  0.9969  0.4615  0.1585  9.0000  1.000       208  0.950
+0.17493 0.96278     0.2929 3.0099e-09 3.3257e-09 5.3674e-10  0.8472  0.5385  0.1839  9.0000  1.000       221  0.950
+0.16619 0.81408     0.3409 2.959e-09  3.6912e-09 7.3633e-10  1.1837  0.8462  0.0839  9.0000  1.000       234  0.900
+0.14957 0.89884     0.3073 2.3473e-09 3.2545e-09 5.4929e-10  1.0331  0.8462  0.1574  9.0000  1.000       247  0.900
+0.13461 0.77962     0.2050 2.1028e-09 2.3161e-09 4.6131e-10  0.8472  0.1538  0.1760  9.0000  1.000       260  0.950
+0.12788 0.93618     0.1550 1.1062e-09 2.0898e-09 3.4838e-10  0.7320  0.1538  0.0840  6.4246  3.253       273  0.950
+0.12149 1.43202     0.2600 1.2222e-09 2.8878e-09 3.2328e-10  0.6567  0.3846  0.0948  4.5862  4.862       286  0.950
+0.11541 0.93680     0.2625 1.4202e-09 2.5899e-09 4.4891e-10  0.8472  0.6154  0.1991  4.3322  5.084       299  0.950
+0.10964 0.80035     0.1500 1.1171e-09 1.79e-09   3.3597e-10  0.6967  0.1538  0.0037  5.0920  4.420       312  0.950
+0.10416 1.11472     0.1650 1.0374e-09 2.1275e-09 2.9833e-10  0.5814  0.1538  0.0984  3.6349  5.694       325  0.950
+0.09895 0.97022     0.1675 7.5915e-10 1.8839e-09 3.3583e-10  0.6567  0.3077  0.0776  2.5948  6.605       338  0.950
+0.09400 0.98746     0.1850 9.3339e-10 2.0154e-09 3.3583e-10  0.6967  0.1538  0.0177  2.2514  6.905       351  0.950
+0.08930 1.01599     0.1950 9.0034e-10 2.0535e-09 3.3583e-10  0.6967  0.1538  0.0576  1.6072  7.469       364  0.950
+0.08484 1.04488     0.1988 1.1561e-09 2.1476e-09 3.3597e-10  0.6967  0.6154  0.0860  1.1473  7.871       377  0.950
+0.08060 0.94531     0.1814 7.0848e-10 1.9836e-09 3.4852e-10  0.6567  0.5385  0.0498  1.3485  7.695       390  0.950
+0.07657 0.92653     0.1860 6.5878e-10 2.0158e-09 3.3597e-10  0.7720  0.3846  0.0775  1.4813  7.579       403  0.950
+0.07274 0.86135     0.1700 1.1203e-09 1.9104e-09 3.4852e-10  0.6967  0.3846  0.1258  1.3992  7.651       416  0.950
+0.06910 1.10736     0.1688 9.4311e-10 2.0341e-09 2.9833e-10  0.6214  0.6154  0.0973  1.3217  7.718       429  0.950
+0.06565 0.85142     0.1845 5.6579e-10 2.0158e-09 3.6078e-10  0.7320  0.8462  0.0633  1.5536  7.516       442  0.900
+0.05908 0.85856     0.1750 1.1516e-09 1.9594e-09 3.4852e-10  0.6967  0.3077  0.0961  2.1845  6.964       455  0.950
+0.05613 0.94145     0.1575 7.0539e-10 1.8932e-09 3.2343e-10  0.6567  0.6154  0.0362  1.8955  7.216       468  0.950
+0.05332 0.90162     0.1600 9.4105e-10 1.79e-09   3.2343e-10  0.6214  0.0769  0.0000  2.2279  6.926       481  0.950
+0.05066 1.04345     0.1700 1.3672e-09 1.9217e-09 2.9833e-10  0.6214  0.3077  0.0328  1.4190  7.633       494  0.950
+0.04812 0.97168     0.1600 1.2535e-09 1.79e-09   2.9833e-10  0.6214  0.0769  0.0000  1.2313  7.798       507  0.950
+0.04572 1.07998     0.1820 7.4397e-10 2.1514e-09 2.9833e-10  0.6967  0.3846  0.0610  1.0000  8.000       520  0.950
+0.04343 1.15434     0.2100 9.3971e-10 2.4244e-09 3.4852e-10  0.6567  0.5385  0.1132  1.0000  8.000       533  0.950
+0.04126 0.84521     0.2286 9.8753e-10 2.6181e-09 4.8655e-10  0.8073  0.5385  0.0555  1.0985  7.914       546  0.950
+0.03920 0.90184     0.1957 1.1542e-09 2.0911e-09 3.9871e-10  0.6967  0.5385  0.0565  1.2066  7.819       559  0.950
+0.03724 0.82840     0.1600 9.102e-10  1.79e-09   3.3597e-10  0.6967  0.1538  0.0302  1.3254  7.715       572  0.950
+0.03537 0.93012     0.1560 6.0675e-10 1.805e-09  2.9833e-10  0.6967  0.3846  0.0281  1.0000  8.000       585  0.950
+0.03361 1.02446     0.1567 7.4775e-10 1.8904e-09 2.9833e-10  0.5814  0.2308  0.0725  1.0000  8.000       598  0.950
+0.03193 0.90796     0.1650 7.1164e-10 1.9406e-09 3.4852e-10  0.6567  0.3077  0.0617  1.0000  8.000       611  0.950
+0.03033 0.97825     0.1500 6.9978e-10 1.79e-09   2.9833e-10  0.5814  0.2308  0.0188  1.0000  8.000       624  0.950
+0.02881 1.00000     0.1500 8.3746e-10 1.79e-09   2.9833e-10  0.6214  0.0000  0.0000  1.0000  8.000       637  0.800
+0.02305 1.01858     0.1625 7.9129e-10 1.8465e-09 2.9833e-10  0.6214  0.3077  0.0577  1.0000  8.000       650  0.950
+0.02190 0.98369     0.1500 7.1065e-10 1.79e-09   2.9833e-10  0.5814  0.1538  0.0231  1.0000  8.000       663  0.950
+0.02080 1.00000     0.1500 7.4328e-10 1.79e-09   2.9833e-10  0.5814  0.0000  0.0000  1.0000  8.000       676  0.800
+0.01664 0.96738     0.1500 6.7803e-10 1.79e-09   2.9833e-10  0.5814  0.0769  0.0000  1.0000  8.000       689  0.800
+0.01331 0.95034     0.1500 7.3814e-10 1.79e-09   2.9833e-10  0.6214  0.0769  0.0000  1.0000  8.000       702  0.800
+0.01065 0.96738     0.1500 6.7803e-10 1.79e-09   2.9833e-10  0.5814  0.0769  0.0000  1.0000  8.000       715  0.800
+0.00852 0.95034     0.1500 7.3814e-10 1.79e-09   2.9833e-10  0.6214  0.0769  0.0000  1.0000  8.000       728  0.800
+0.00682 0.96738     0.1500 6.7803e-10 1.79e-09   2.9833e-10  0.5814  0.0769  0.0000  1.0000  8.000       741  0.800
+0.00545 0.95034     0.1500 7.3814e-10 1.79e-09   2.9833e-10  0.6214  0.0769  0.0000  1.0000  8.000       754  0.800
+0.00436 0.96738     0.1500 6.7803e-10 1.79e-09   2.9833e-10  0.5814  0.0769  0.0000  1.0000  8.000       767  0.800
+0.00349 0.95034     0.1500 7.3814e-10 1.79e-09   2.9833e-10  0.6214  0.0769  0.0000  1.0000  8.000       780  0.800
+0.00279 0.96738     0.1500 6.7803e-10 1.79e-09   2.9833e-10  0.5814  0.0769  0.0000  1.0000  8.000       793  0.800
+0.00223 0.95034     0.1500 7.3814e-10 1.79e-09   2.9833e-10  0.6214  0.0769  0.0000  1.0000  8.000       806  0.800
+0.00179 0.96738     0.1500 6.7803e-10 1.79e-09   2.9833e-10  0.5814  0.0769  0.0000  1.0000  8.000       819  0.800
+0.00143 0.95034     0.1500 7.3814e-10 1.79e-09   2.9833e-10  0.6214  0.0769  0.0000  1.0000  8.000       832  0.800
+0.00114 0.96738     0.1500 6.7803e-10 1.79e-09   2.9833e-10  0.5814  0.0769  0.0000  1.0000  8.000       845  0.800
+0.00000 0.91772     0.1500 7.3814e-10 1.79e-09   2.9833e-10          0.0769  0.0000  1.0000  8.000       858
+
+BB estimate of min-dist (placement) wire length: 15
+bb_cost recomputed from scratch: 0.15
+timing_cost recomputed from scratch: 7.38142e-10
+delay_cost recomputed from scratch: 1.78999e-09
+
+Completed placement consistency check successfully.
+
+Swaps called: 865
+
+Placement estimated critical path delay: 0.581418 ns
+Placement cost: 0.917718, bb_cost: 0.15, td_cost: 7.38142e-10, delay_cost: 1.78999e-09
+Placement total # of swap attempts: 865
+	Swap reject rate: 0
+	Swap accept rate: 0
+	Swap abort rate: 0
+Placement took 0.038368 seconds.
+Iteratively removing timing edges to break combinational cycles in timing graph.
+Removed 0 combinational cycles from timing graph after 0 iteration(s)
+Build rr_graph took 0.002925 seconds.
+Confirming router algorithm: TIMING_DRIVEN.
+Wire length after first iteration 19, total available wire length 1728, ratio 0.0109954
+--------- ---------- ----------- ---------------------
+Iteration       Time   Crit Path     Overused RR Nodes
+--------- ---------- ----------- ---------------------
+        1   0.00 sec  0.62139 ns   6.00e+00 (0.2038 %)
+        2   0.00 sec  0.62139 ns   6.00e+00 (0.2038 %)
+        3   0.00 sec  0.62139 ns   4.00e+00 (0.1359 %)
+        4   0.00 sec  0.69668 ns   2.00e+00 (0.0679 %)
+        5   0.00 sec  0.69668 ns   5.00e+00 (0.1698 %)
+        6   0.00 sec  0.65671 ns   3.00e+00 (0.1019 %)
+        7   0.00 sec  0.77196 ns   3.00e+00 (0.1019 %)
+        8   0.00 sec  0.69668 ns   2.00e+00 (0.0679 %)
+        9   0.00 sec  0.65671 ns   3.00e+00 (0.1019 %)
+       10   0.00 sec  0.84725 ns   3.00e+00 (0.1019 %)
+       11   0.00 sec  0.69668 ns   2.00e+00 (0.0679 %)
+       12   0.00 sec  0.65671 ns   3.00e+00 (0.1019 %)
+       13   0.00 sec  1.07311 ns   0.00e+00 (0.0000 %)
+Critical path: 1.07311 ns
+Successfully routed after 13 routing iterations.
+Completed net delay value cross check successfully.
+
+Checking to ensure routing is legal...
+Completed routing consistency check successfully.
+
+Serial number (magic cookie) for the routing is: -43278
+Circuit successfully routed with a channel width factor of 12.
+
+Average number of bends per net: 4.25000  Maximum # of bends: 7
+
+Number of routed nets (nonglobal): 4
+Wire length results (in units of 1 clb segments)...
+	Total wirelength: 27, average net length: 6.75000
+	Maximum net length: 10
+
+Wire length results in terms of physical segments...
+	Total wiring segments used: 27, average wire segments per net: 6.75000
+	Maximum segments used by a net: 10
+	Total local nets with reserved CLB opins: 0
+
+X - Directed channels: j max occ ave occ capacity
+                      -- ------- ------- --------
+                       0       0  0.0000       12
+                       1       0  0.0000       12
+                       2       0  0.0000       12
+                       3       2  0.2500       12
+                       4       3  0.3750       12
+                       5       3  0.3750       12
+                       6       1  0.1250       12
+                       7       1  0.1250       12
+                       8       0  0.0000       12
+Y - Directed channels: i max occ ave occ capacity
+                      -- ------- ------- --------
+                       0       3  1.2500       12
+                       1       3  0.8750       12
+                       2       0  0.0000       12
+                       3       0  0.0000       12
+                       4       0  0.0000       12
+                       5       0  0.0000       12
+                       6       0  0.0000       12
+                       7       0  0.0000       12
+                       8       0  0.0000       12
+
+Total tracks in x-direction: 108, in y-direction: 108
+
+Logic area (in minimum width transistor areas, excludes I/Os and empty grid tiles)...
+	Total logic block area (Warning, need to add pitch of routing to blocks with height > 3): 3.44922e+06
+	Total used logic block area: 107788
+
+Routing area (in minimum width transistor areas)...
+	Total routing area: 91265.8, per logic tile: 1426.03
+
+Segment usage by type (index): type utilization
+                               ---- -----------
+                                  0      0.0156
+
+Segment usage by length: length utilization
+                         ------ -----------
+                              1      0.0156
+
+Nets on critical path: 1 normal, 0 global.
+Total logic delay: 1.5285e-10 (s), total net delay: 8.25341e-10 (s)
+Critical path in print timing: 1.07311 ns
+Final critical path: 1.07311 ns
+Least slack in design: -1.07311 ns
+

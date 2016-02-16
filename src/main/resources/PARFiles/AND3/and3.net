@@ -1,0 +1,157 @@
+<block name="and3.net" instance="FPGA_packed_netlist[0]">
+	<inputs>
+		top^gclk top^gpio2 top^gpio1 top^gpio0 
+	</inputs>
+
+	<outputs>
+		out:top^gpio3 
+	</outputs>
+
+	<clocks>
+		top^gclk 
+	</clocks>
+
+	<block name="n17" instance="clb[0]" mode="clb">
+		<inputs>
+			<port name="I">top^gpio1 top^gpio0 open top^gpio2 open open </port>
+		</inputs>
+		<outputs>
+			<port name="O">dff[0].Q[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">top^gclk </port>
+		</clocks>
+		<block name="n17" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  open clb.I[3]->clbin  open open </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n17" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  open lut6.in[3]->direct:lut6  open open </port>
+				</inputs>
+				<outputs>
+					<port name="out">n17 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="top^temp_FF_NODE" instance="dff[0]">
+			<inputs>
+				<port name="D">lut6[0].out[0]->dffin  </port>
+			</inputs>
+			<outputs>
+				<port name="Q">top^temp_FF_NODE </port>
+			</outputs>
+			<clocks>
+				<port name="clk">clb.clk[0]->clkin  </port>
+			</clocks>
+		</block>
+	</block>
+	<block name="top^gpio1" instance="io[1]" mode="inpad">
+		<inputs>
+			<port name="outpad">open </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">inpad[0].inpad[0]->inpad  </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="top^gpio1" instance="inpad[0]">
+			<inputs>
+			</inputs>
+			<outputs>
+				<port name="inpad">top^gpio1 </port>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="top^gpio2" instance="io[2]" mode="inpad">
+		<inputs>
+			<port name="outpad">open </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">inpad[0].inpad[0]->inpad  </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="top^gpio2" instance="inpad[0]">
+			<inputs>
+			</inputs>
+			<outputs>
+				<port name="inpad">top^gpio2 </port>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="top^gpio0" instance="io[3]" mode="inpad">
+		<inputs>
+			<port name="outpad">open </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">inpad[0].inpad[0]->inpad  </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="top^gpio0" instance="inpad[0]">
+			<inputs>
+			</inputs>
+			<outputs>
+				<port name="inpad">top^gpio0 </port>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="out:top^gpio3" instance="io[4]" mode="outpad">
+		<inputs>
+			<port name="outpad">top^temp_FF_NODE </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">open </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="out:top^gpio3" instance="outpad[0]">
+			<inputs>
+				<port name="outpad">io.outpad[0]->outpad  </port>
+			</inputs>
+			<outputs>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="top^gclk" instance="io[5]" mode="inpad">
+		<inputs>
+			<port name="outpad">open </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">inpad[0].inpad[0]->inpad  </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="top^gclk" instance="inpad[0]">
+			<inputs>
+			</inputs>
+			<outputs>
+				<port name="inpad">top^gclk </port>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+</block>
+
