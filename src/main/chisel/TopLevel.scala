@@ -56,8 +56,34 @@ class TopLevelTest(c: TopLevel) extends Tester(c) {
   val testXOR3 = false 
   val testAND3 = false 
   val testMajority = false
-  val testTwoBitAdder = true
+  val testTwoBitAdder = false 
+  val testEvenOdd = true
 
+  if(testEvenOdd){
+    val stepInternal = 6
+    poke(c.io.reset_n, 1)
+    poke(c.io.gpi, int(UInt("b0")))
+    step(stepInternal)
+    expect(c.io.gpo, 2)
+    poke(c.io.gpi, int(UInt("b1")))
+    step(1)
+    poke(c.io.gpi, int(UInt("b0")))
+    step(4)
+    expect(c.io.gpo, 0)
+    poke(c.io.gpi, int(UInt("b1")))
+    step(1)
+    poke(c.io.gpi, int(UInt("b0")))
+    step(stepInternal)
+    expect(c.io.gpo, 2)
+    //Reset test case which should prevent toggle
+    poke(c.io.reset_n, 0)
+    poke(c.io.gpi, int(UInt("b1")))
+    step(1)
+    poke(c.io.gpi, int(UInt("b0")))
+    step(4)
+    expect(c.io.gpo, 2)
+    step(stepInternal)
+  }
   if(testTwoBitAdder){
     val stepInternal = 6 
     poke(c.io.gpi, int(UInt("b000")))

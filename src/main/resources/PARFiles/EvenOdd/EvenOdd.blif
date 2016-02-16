@@ -1,64 +1,13 @@
+# Benchmark "evenOddChecker" written by ABC on Tue Feb 16 11:34:44 2016
 .model evenOddChecker
-.inputs top^clock top^RESET top^in
-.outputs top^isEven
+.inputs top^gclk top^resetn top^gpio0
+.outputs top^gpio1
 
-.names gnd
-.names unconn
-.names vcc
-1
+.latch         n9 top^state_FF_NODE re   top^gclk  0
 
-.names top^RESET top^MULTI_PORT_MUX~0^LOGICAL_NOT~1 gnd top^MULTI_PORT_MUX~2^MUX_2~14 top^MULTI_PORT_MUX~0^MUX_2~12
-1-1- 1
--1-1 1
-
-.latch top^MULTI_PORT_MUX~0^MUX_2~12 top^state_FF_NODE re top^clock 0
-
-.names top^state_FF_NODE gnd top^LOGICAL_EQUAL~3^LOGICAL_XNOR~15^LOGICAL_XNOR~17
-00 1
-11 1
-
-.names top^LOGICAL_EQUAL~3^LOGICAL_XNOR~15^LOGICAL_XNOR~17 top^LOGICAL_EQUAL~3^LOGICAL_AND~16
-1 1
-
-.names top^LOGICAL_EQUAL~3^LOGICAL_AND~16 top^LOGICAL_EQUAL~4^LOGICAL_AND~19 top^MULTI_PORT_MUX~2^LOGICAL_NOR~5 vcc gnd gnd top^MULTI_PORT_MUX~2^MUX_2~13
-1--1-- 1
--1--1- 1
---1--1 1
-
-.names top^LOGICAL_EQUAL~3^LOGICAL_AND~16 top^LOGICAL_EQUAL~4^LOGICAL_AND~19 top^MULTI_PORT_MUX~2^LOGICAL_NOR~5
-00 1
-
-.names top^LOGICAL_EQUAL~3^LOGICAL_AND~16 top^LOGICAL_EQUAL~4^LOGICAL_AND~19 top^MULTI_PORT_MUX~2^LOGICAL_NOR~5 top^MULTI_PORT_MUX~6^MUX_2~21 top^MULTI_PORT_MUX~8^MUX_2~22 gnd top^MULTI_PORT_MUX~2^MUX_2~14
-1--1-- 1
--1--1- 1
---1--1 1
-
-.names top^state_FF_NODE vcc top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20
-00 1
-11 1
-
-.names top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20 top^LOGICAL_EQUAL~4^LOGICAL_AND~19
-1 1
-
-.names top^in top^MULTI_PORT_MUX~6^LOGICAL_NOT~7 vcc gnd top^MULTI_PORT_MUX~6^MUX_2~21
-1-1- 1
--1-1 1
-
-.names top^in top^MULTI_PORT_MUX~8^LOGICAL_NOT~9 gnd vcc top^MULTI_PORT_MUX~8^MUX_2~22
-1-1- 1
--1-1 1
-
-.names top^RESET top^MULTI_PORT_MUX~0^LOGICAL_NOT~1
+.names top^resetn top^gpio0 top^state_FF_NODE n9
+101 1
+110 1
+.names top^state_FF_NODE top^gpio1
 0 1
-
-.names top^in top^MULTI_PORT_MUX~6^LOGICAL_NOT~7
-0 1
-
-.names top^in top^MULTI_PORT_MUX~8^LOGICAL_NOT~9
-0 1
-
-.names top^MULTI_PORT_MUX~2^MUX_2~13 top^isEven
-1 1
-
 .end
-

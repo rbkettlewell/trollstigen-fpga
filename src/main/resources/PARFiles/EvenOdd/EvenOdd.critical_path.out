@@ -1,153 +1,63 @@
-Node: 58  TN_FF_SOURCE Block #2 (top^state_FF_NODE)
+Node: 16  TN_FF_SOURCE Block #0 (n9)
 Pin: dff.Q[0] pb (top^state_FF_NODE)
-T_arr: 9.492e-11  T_req: -2.84312e-09  Tdel: 1.261e-10
-Internal Net: #8 (top^state_FF_NODE).  Pins on net: 3.
+T_arr: 9.492e-11  T_req: -9.17413e-10  Tdel: 1.261e-10
+Internal Net: #5 (top^state_FF_NODE).  Pins on net: 3.
 
-Node: 57  TN_FF_OPIN Block #2 (top^state_FF_NODE)
+Node: 15  TN_FF_OPIN Block #0 (n9)
 Pin: dff.Q[0] pb (top^state_FF_NODE)
-T_arr: 2.2102e-10  T_req: -2.71702e-09  Tdel: 0
-Internal Net: #8 (top^state_FF_NODE).  Pins on net: 3.
+T_arr: 2.2102e-10  T_req: -7.91313e-10  Tdel: 0
+Internal Net: #5 (top^state_FF_NODE).  Pins on net: 3.
 
-Node: 43  TN_CB_OPIN Block #2 (top^state_FF_NODE)
-Pin: clb.O[0] pb (top^state_FF_NODE)
-T_arr: 2.2102e-10  T_req: -2.71702e-09  Tdel: 5.24193e-10
-External-to-Block Net: #11 (top^state_FF_NODE).  Pins on net: 3.
+Node: 3  TN_CB_OPIN Block #0 (n9)
+Pin: clb.O[0] pb (n9)
+T_arr: 2.2102e-10  T_req: -7.91313e-10  Tdel: 3.73618e-10
+External-to-Block Net: #2 (top^state_FF_NODE).  Pins on net: 3.
 
-Node: 82  TN_CB_IPIN Block #6 (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20)
-Pin: clb.I[1] pb (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20)
-T_arr: 7.45213e-10  T_req: -2.19282e-09  Tdel: 0
-Internal Net: #8 (top^state_FF_NODE).  Pins on net: 3.
+Node: 21  TN_CB_IPIN Block #2 (top^gpio1)
+Pin: clb.I[0] pb (top^gpio1)
+T_arr: 5.94638e-10  T_req: -4.17694e-10  Tdel: 0
+Internal Net: #5 (top^state_FF_NODE).  Pins on net: 3.
 
-Node: 85  TN_INTERMEDIATE_NODE Block #6 (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20)
-Pin: lut6.in[1] pb (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20)
-T_arr: 7.45213e-10  T_req: -2.19282e-09  Tdel: 0
-Internal Net: #8 (top^state_FF_NODE).  Pins on net: 3.
+Node: 23  TN_INTERMEDIATE_NODE Block #2 (top^gpio1)
+Pin: lut6.in[0] pb (top^gpio1)
+T_arr: 5.94638e-10  T_req: -4.17694e-10  Tdel: 0
+Internal Net: #5 (top^state_FF_NODE).  Pins on net: 3.
 
-Node: 88  TN_PRIMITIVE_IPIN Block #6 (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20)
-Pin: lut.in[1] pb (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20)
-T_arr: 7.45213e-10  T_req: -2.19282e-09  Tdel: 1.679e-10
-Internal Net: #8 (top^state_FF_NODE).  Pins on net: 3.
+Node: 25  TN_PRIMITIVE_IPIN Block #2 (top^gpio1)
+Pin: lut.in[0] pb (top^gpio1)
+T_arr: 5.94638e-10  T_req: -4.17694e-10  Tdel: 1.679e-10
+Internal Net: #5 (top^state_FF_NODE).  Pins on net: 3.
 
-Node: 89  TN_PRIMITIVE_OPIN Block #6 (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20)
-Pin: lut.out[0] pb (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20)
-T_arr: 9.13113e-10  T_req: -2.02492e-09  Tdel: 0
-Internal Net: #16 (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20).  Pins on net: 2.
+Node: 26  TN_PRIMITIVE_OPIN Block #2 (top^gpio1)
+Pin: lut.out[0] pb (top^gpio1)
+T_arr: 7.62538e-10  T_req: -2.49794e-10  Tdel: 0
+Internal Net: #3 (top^gpio1).  Pins on net: 2.
 
-Node: 86  TN_INTERMEDIATE_NODE Block #6 (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20)
-Pin: lut6.out[0] pb (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20)
-T_arr: 9.13113e-10  T_req: -2.02492e-09  Tdel: 0
-Internal Net: #16 (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20).  Pins on net: 2.
+Node: 24  TN_INTERMEDIATE_NODE Block #2 (top^gpio1)
+Pin: lut6.out[0] pb (top^gpio1)
+T_arr: 7.62538e-10  T_req: -2.49794e-10  Tdel: 0
+Internal Net: #3 (top^gpio1).  Pins on net: 2.
 
-Node: 83  TN_CB_OPIN Block #6 (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20)
-Pin: clb.O[0] pb (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20)
-T_arr: 9.13113e-10  T_req: -2.02492e-09  Tdel: 2.98331e-10
-External-to-Block Net: #14 (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20).  Pins on net: 2.
+Node: 22  TN_CB_OPIN Block #2 (top^gpio1)
+Pin: clb.O[0] pb (top^gpio1)
+T_arr: 7.62538e-10  T_req: -2.49794e-10  Tdel: 2.23044e-10
+External-to-Block Net: #4 (top^gpio1).  Pins on net: 2.
 
-Node: 75  TN_CB_IPIN Block #5 (top^LOGICAL_EQUAL~4^LOGICAL_AND~19)
-Pin: clb.I[0] pb (top^LOGICAL_EQUAL~4^LOGICAL_AND~19)
-T_arr: 1.21144e-09  T_req: -1.72659e-09  Tdel: 0
-Internal Net: #16 (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20).  Pins on net: 2.
+Node: 18  TN_CB_IPIN Block #1 (out:top^gpio1)
+Pin: io.outpad[0] pb (out:top^gpio1)
+T_arr: 9.85583e-10  T_req: -2.675e-11  Tdel: 2.675e-11
+Internal Net: #3 (top^gpio1).  Pins on net: 2.
 
-Node: 77  TN_INTERMEDIATE_NODE Block #5 (top^LOGICAL_EQUAL~4^LOGICAL_AND~19)
-Pin: lut6.in[0] pb (top^LOGICAL_EQUAL~4^LOGICAL_AND~19)
-T_arr: 1.21144e-09  T_req: -1.72659e-09  Tdel: 0
-Internal Net: #16 (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20).  Pins on net: 2.
+Node: 19  TN_OUTPAD_IPIN Block #1 (out:top^gpio1)
+Pin: outpad.outpad[0] pb (out:top^gpio1)
+T_arr: 1.01233e-09  T_req: 0  Tdel: 0
+Internal Net: #3 (top^gpio1).  Pins on net: 2.
 
-Node: 79  TN_PRIMITIVE_IPIN Block #5 (top^LOGICAL_EQUAL~4^LOGICAL_AND~19)
-Pin: lut.in[0] pb (top^LOGICAL_EQUAL~4^LOGICAL_AND~19)
-T_arr: 1.21144e-09  T_req: -1.72659e-09  Tdel: 1.679e-10
-Internal Net: #16 (top^LOGICAL_EQUAL~4^LOGICAL_XNOR~18^LOGICAL_XNOR~20).  Pins on net: 2.
-
-Node: 80  TN_PRIMITIVE_OPIN Block #5 (top^LOGICAL_EQUAL~4^LOGICAL_AND~19)
-Pin: lut.out[0] pb (top^LOGICAL_EQUAL~4^LOGICAL_AND~19)
-T_arr: 1.37934e-09  T_req: -1.55869e-09  Tdel: 0
-Internal Net: #11 (top^LOGICAL_EQUAL~4^LOGICAL_AND~19).  Pins on net: 4.
-
-Node: 78  TN_INTERMEDIATE_NODE Block #5 (top^LOGICAL_EQUAL~4^LOGICAL_AND~19)
-Pin: lut6.out[0] pb (top^LOGICAL_EQUAL~4^LOGICAL_AND~19)
-T_arr: 1.37934e-09  T_req: -1.55869e-09  Tdel: 0
-Internal Net: #11 (top^LOGICAL_EQUAL~4^LOGICAL_AND~19).  Pins on net: 4.
-
-Node: 76  TN_CB_OPIN Block #5 (top^LOGICAL_EQUAL~4^LOGICAL_AND~19)
-Pin: clb.O[0] pb (top^LOGICAL_EQUAL~4^LOGICAL_AND~19)
-T_arr: 1.37934e-09  T_req: -1.55869e-09  Tdel: 2.23044e-10
-External-to-Block Net: #0 (top^LOGICAL_EQUAL~4^LOGICAL_AND~19).  Pins on net: 4.
-
-Node: 60  TN_CB_IPIN Block #3 (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5)
-Pin: clb.I[0] pb (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5)
-T_arr: 1.60239e-09  T_req: -1.33565e-09  Tdel: 0
-Internal Net: #11 (top^LOGICAL_EQUAL~4^LOGICAL_AND~19).  Pins on net: 4.
-
-Node: 63  TN_INTERMEDIATE_NODE Block #3 (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5)
-Pin: lut6.in[0] pb (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5)
-T_arr: 1.60239e-09  T_req: -1.33565e-09  Tdel: 0
-Internal Net: #11 (top^LOGICAL_EQUAL~4^LOGICAL_AND~19).  Pins on net: 4.
-
-Node: 66  TN_PRIMITIVE_IPIN Block #3 (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5)
-Pin: lut.in[0] pb (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5)
-T_arr: 1.60239e-09  T_req: -1.33565e-09  Tdel: 1.679e-10
-Internal Net: #11 (top^LOGICAL_EQUAL~4^LOGICAL_AND~19).  Pins on net: 4.
-
-Node: 68  TN_PRIMITIVE_OPIN Block #3 (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5)
-Pin: lut.out[0] pb (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5)
-T_arr: 1.77029e-09  T_req: -1.16775e-09  Tdel: 0
-Internal Net: #12 (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5).  Pins on net: 3.
-
-Node: 65  TN_INTERMEDIATE_NODE Block #3 (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5)
-Pin: lut6.out[0] pb (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5)
-T_arr: 1.77029e-09  T_req: -1.16775e-09  Tdel: 0
-Internal Net: #12 (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5).  Pins on net: 3.
-
-Node: 62  TN_CB_OPIN Block #3 (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5)
-Pin: clb.O[0] pb (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5)
-T_arr: 1.77029e-09  T_req: -1.16775e-09  Tdel: 5.24193e-10
-External-to-Block Net: #4 (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5).  Pins on net: 3.
-
-Node: 25  TN_CB_IPIN Block #1 (top^MULTI_PORT_MUX~2^MUX_2~13)
-Pin: clb.I[4] pb (top^MULTI_PORT_MUX~2^MUX_2~13)
-T_arr: 2.29448e-09  T_req: -6.43556e-10  Tdel: 0
-Internal Net: #12 (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5).  Pins on net: 3.
-
-Node: 31  TN_INTERMEDIATE_NODE Block #1 (top^MULTI_PORT_MUX~2^MUX_2~13)
-Pin: lut6.in[4] pb (top^MULTI_PORT_MUX~2^MUX_2~13)
-T_arr: 2.29448e-09  T_req: -6.43556e-10  Tdel: 0
-Internal Net: #12 (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5).  Pins on net: 3.
-
-Node: 37  TN_PRIMITIVE_IPIN Block #1 (top^MULTI_PORT_MUX~2^MUX_2~13)
-Pin: lut.in[4] pb (top^MULTI_PORT_MUX~2^MUX_2~13)
-T_arr: 2.29448e-09  T_req: -6.43556e-10  Tdel: 1.679e-10
-Internal Net: #12 (top^MULTI_PORT_MUX~2^LOGICAL_NOR~5).  Pins on net: 3.
-
-Node: 38  TN_PRIMITIVE_OPIN Block #1 (top^MULTI_PORT_MUX~2^MUX_2~13)
-Pin: lut.out[0] pb (top^MULTI_PORT_MUX~2^MUX_2~13)
-T_arr: 2.46238e-09  T_req: -4.75656e-10  Tdel: 0
-Internal Net: #13 (top^MULTI_PORT_MUX~2^MUX_2~13).  Pins on net: 2.
-
-Node: 32  TN_INTERMEDIATE_NODE Block #1 (top^MULTI_PORT_MUX~2^MUX_2~13)
-Pin: lut6.out[0] pb (top^MULTI_PORT_MUX~2^MUX_2~13)
-T_arr: 2.46238e-09  T_req: -4.75656e-10  Tdel: 0
-Internal Net: #13 (top^MULTI_PORT_MUX~2^MUX_2~13).  Pins on net: 2.
-
-Node: 26  TN_CB_OPIN Block #1 (top^MULTI_PORT_MUX~2^MUX_2~13)
-Pin: clb.O[0] pb (top^MULTI_PORT_MUX~2^MUX_2~13)
-T_arr: 2.46238e-09  T_req: -4.75656e-10  Tdel: 4.48906e-10
-External-to-Block Net: #8 (top^MULTI_PORT_MUX~2^MUX_2~13).  Pins on net: 2.
-
-Node: 99  TN_CB_IPIN Block #8 (out:top^isEven)
-Pin: io.outpad[0] pb (out:top^isEven)
-T_arr: 2.91129e-09  T_req: -2.675e-11  Tdel: 2.67499e-11
-Internal Net: #13 (top^MULTI_PORT_MUX~2^MUX_2~13).  Pins on net: 2.
-
-Node: 100  TN_OUTPAD_IPIN Block #8 (out:top^isEven)
-Pin: outpad.outpad[0] pb (out:top^isEven)
-T_arr: 2.93804e-09  T_req: 0  Tdel: 0
-Internal Net: #13 (top^MULTI_PORT_MUX~2^MUX_2~13).  Pins on net: 2.
-
-Node: 101  TN_OUTPAD_SINK Block #8 (out:top^isEven)
-Pin: outpad.outpad[0] pb (out:top^isEven)T_arr: 2.93804e-09  T_req: 0  
-Internal Net: #13 (top^MULTI_PORT_MUX~2^MUX_2~13).  Pins on net: 2.
+Node: 20  TN_OUTPAD_SINK Block #1 (out:top^gpio1)
+Pin: outpad.outpad[0] pb (out:top^gpio1)T_arr: 1.01233e-09  T_req: 0  
+Internal Net: #3 (top^gpio1).  Pins on net: 2.
 
 
-Tnodes on critical path: 30  Non-global nets on critical path: 5.
+Tnodes on critical path: 12  Non-global nets on critical path: 2.
 Global nets on critical path: 0.
-Total logic delay: 8.2445e-10 (s)  Total net delay: 2.01867e-09 (s)
+Total logic delay: 3.2075e-10 (s)  Total net delay: 5.96663e-10 (s)

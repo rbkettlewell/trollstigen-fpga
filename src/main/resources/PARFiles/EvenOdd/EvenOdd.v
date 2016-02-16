@@ -13,16 +13,46 @@
 	as inputs and outputs simply put the [x:0] immediately before the
 	variable's name.
 */
-module evenOddChecker(clock, RESET, in, isEven);
+module  evenOddChecker(gclk, resetn,
+	     hip7, hip6, hip5, hip4, hip3, hip2, hip1, hip0,
+	     gpio15, gpio14, gpio13, gpio12, gpio11, gpio10,
+	     gpio9, gpio8, gpio7, gpio6, gpio5, gpio4, gpio3,
+	     gpio2, gpio1, gpio0);
+
+input	gclk;
+input	resetn;
+
+input   hip7;
+input 	hip6;
+input 	hip5;
+input 	hip4;
+input	hip3;
+input	hip2;
+input	hip1;
+input	hip0;
+
+input 	gpio15;
+input 	gpio14;
+input 	gpio13;
+input 	gpio12;
+input 	gpio11;
+input 	gpio10;
+input 	gpio9;
+input 	gpio8;
+input 	gpio7;
+input 	gpio6;
+input 	gpio5;
+input 	gpio4;
+
+input gpio3;
+input 	gpio2;
+output gpio1;
+input 	gpio0;
 
 // These variables will be used to track what state the machine is currently
 // in and what state it will transition to on the next edge of the clock.
 // 
 // REMEMBER: To represent n states, you will need log2(n) bit wide reg variables!
-input clock;
-input RESET;
-input in;
-output isEven;
 reg isEven;
 reg state, nextState;
 
@@ -32,6 +62,8 @@ reg state, nextState;
 
 parameter EVEN = 0;
 parameter ODD = 1;
+
+
 
 // An initial block allows you to specify the values of your input, output, and internal
 // variables when the machine is initialized. In this case, we want to make sure our
@@ -47,8 +79,8 @@ end
 // of the clock.
 // Note The use of the non-blocking (<=) assignment operator.
 
-always @ (posedge clock) begin
-	if(RESET) begin
+always @ (posedge gclk) begin
+	if(resetn == 1'b0) begin
 		state <= EVEN;
 	end
 	else begin
@@ -80,7 +112,7 @@ always @ (*) begin
 			// ifyou are coding a Mealy-style FSM). This can lead to nightmarish debugging! 
 			// A few more lines of code can save you many hours in the lab.
 			
-			if(in)
+			if(gpio0)
 				nextState = ODD;
 			else
 				nextState = EVEN;
@@ -88,7 +120,7 @@ always @ (*) begin
 		ODD: begin
 			isEven = 0;
 			
-			if(in)
+			if(gpio0)
 				nextState = EVEN;
 			else
 				nextState = ODD;
@@ -101,5 +133,9 @@ always @ (*) begin
 	endcase
 	
 end
+
+
+// Add assigments to improve readability and maintain the form of the original code
+assign gpio1 = isEven;
 
 endmodule

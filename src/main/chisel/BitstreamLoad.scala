@@ -12,7 +12,7 @@ class BitstreamLoad(bitFile : String){
   private val cols = xTiles*2 + 3
   private val rows = yTiles*2 + 3
   private val BlockSize = 72
-  private val Debug = true
+  private val Debug = false 
 
   
   def getBlkBits(locationXY : (Int,Int)): UInt ={
