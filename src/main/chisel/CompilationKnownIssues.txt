@@ -1,0 +1,1 @@
+1) If a registered is being placed inbetween an input pad and an internal CLB a "wire" class is inferred for the internal CLB structure, which essentially bypasses the LUT and takes the input (typically N0) and routes it to the DFF input. Our bitstream generation tool does not handle this case, so it will fail bitgen.
