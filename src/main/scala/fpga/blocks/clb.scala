@@ -37,14 +37,21 @@ package fpga.blocks{
       }
     }
 
-    def configureLUT6(cover : Covering){
+    def configureLUT6(mintermCover : Boolean, cover : Covering){
       var lut = createLUT6()
-      var lutBits = Array.fill(64){"0"}
+      var fillBits = "1"
+      var setTerm = "0"
+      if (mintermCover){
+        fillBits = "0"
+        setTerm = "1"
+      }
+        
+      var lutBits = Array.fill(64){fillBits}
       var bitPositions : Array[Int] = Array()
       cover.foreach{ c=>
         bitPositions = bitPositions ++ (recursiveCover(lut,0,c).map(fromBinary))  }
 
-      bitPositions.foreach{p => lutBits(p) = "1"}
+      bitPositions.foreach{p => lutBits(p) = setTerm}
       lutSRAMBits = lutBits
     }
 

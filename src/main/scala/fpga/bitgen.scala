@@ -338,11 +338,13 @@ package fpga{
           println("PLACE:\n" ++ placeInfo.toString)
         }
         val blifCLB = names.filter(_._3 == lutName)(0)
+        val isMinterm = blifCLB._4(0).last == '1'
         if (Debug){
           println("BLIF Name:\n" ++ blifCLB._3)
           println("BLIF Inputs:\n" ++ blifCLB._2.mkString(", "))
           println("BLIF Inputs length:\n" ++ blifCLB._2.length.toString)
           println("Old cover:\n" ++ blifCLB._4.mkString("\n"))
+          println("Cover Terms:\n" ++ isMinterm.toString)
         }
         val updatedCover = reorderCovering(clb, blifCLB)
         if (Debug){
@@ -356,7 +358,7 @@ package fpga{
         }
 
         fpga(row)(col).asInstanceOf[CLB].name = clbName
-        fpga(row)(col).asInstanceOf[CLB].configureLUT6(updatedCover)
+        fpga(row)(col).asInstanceOf[CLB].configureLUT6(isMinterm,updatedCover)
         fpga(row)(col).asInstanceOf[CLB].setInputs(clb._3)
       }
 
