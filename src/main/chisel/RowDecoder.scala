@@ -3,20 +3,22 @@ package FPGASimulation
 import Chisel._
 
 class RowDecoder extends Module {
+  private val rows = 19
+
   val io = new Bundle {
     val rAddr = UInt (INPUT, 6)
     val bAddr = UInt (INPUT, 4)
-    val gRows = Vec.fill(35){UInt(OUTPUT,9)}
+    val gRows = Vec.fill(rows){UInt(OUTPUT,9)}
   }
 
-  val decoderOutput = Vec.fill(35){Module(new BlockDecoder()).io}
+  val decoderOutput = Vec.fill(rows){Module(new BlockDecoder()).io}
 
-  (0 until 35).foreach{i=> 
+  (0 until rows).foreach{i=> 
     decoderOutput(i).bAddr := io.bAddr
     io.gRows(i):= decoderOutput(i).bRow
   }
     
-  (0 until 35).foreach{i=>
+  (0 until rows).foreach{i=>
     when (UInt(i) === io.rAddr){
       decoderOutput(i).bAddr := io.bAddr
     }.otherwise{
@@ -25,8 +27,9 @@ class RowDecoder extends Module {
   }
 }
 class RowDecoderTests(c: RowDecoder) extends Tester(c) {
-    poke(c.io.rAddr, 0)
-  (0 until 35).foreach{r=>
+  private val rows = 19
+  poke(c.io.rAddr, 0)
+  (0 until rows).foreach{r=>
     poke(c.io.rAddr, r)
     (0 until 9).foreach{i=>
       poke(c.io.bAddr, i)
