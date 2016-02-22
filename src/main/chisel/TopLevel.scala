@@ -53,11 +53,11 @@ class TopLevel extends Module{
 class TopLevelTest(c: TopLevel) extends Tester(c) {
 
 
-  val testXOR3 = false 
+  val testXOR3 = true 
   val testAND3 = false 
   val testMajority = false
   val testTwoBitAdder = false 
-  val testEvenOdd = true
+  val testEvenOdd = false 
 
   if(testEvenOdd){
     val stepInternal = 6
