@@ -8,20 +8,20 @@ class SEC extends Module {
 		val W = new FullEdge()
 		val blkBits = UInt(INPUT, 72)
 	}
-  io.N.p0  := io.W.p0 & io.blkBits(0)
-  io.N.p10 := io.W.p2 & io.blkBits(1)
-  io.N.p8  := io.W.p4 & io.blkBits(2)
-  io.N.p6  := io.W.p6 & io.blkBits(3)
-  io.N.p4  := io.W.p8 & io.blkBits(4)
-  io.N.p2  := io.W.p10 & io.blkBits(5)
+  io.N.p0  := io.W.p0 & io.blkBits(66)
+  io.N.p10 := io.W.p2 & io.blkBits(53)
+  io.N.p8  := io.W.p4 & io.blkBits(60)
+  io.N.p6  := io.W.p6 & io.blkBits(36)
+  io.N.p4  := io.W.p8 & io.blkBits(51)
+  io.N.p2  := io.W.p10 & io.blkBits(42)
 
-  io.W.p1  := io.N.p1 & io.blkBits(6)
-  io.W.p11 := io.N.p3 & io.blkBits(7)
-  io.W.p9  := io.N.p5 & io.blkBits(8)
-  io.W.p7  := io.N.p7 & io.blkBits(9)
-  io.W.p5  := io.N.p9 & io.blkBits(10)
-  io.W.p3  := io.N.p11 & io.blkBits(11)
-  
+  io.W.p1  := io.N.p1 & io.blkBits(9)
+  io.W.p11 := io.N.p3 & io.blkBits(65)
+  io.W.p9  := io.N.p5 & io.blkBits(56)
+  io.W.p7  := io.N.p7 & io.blkBits(41)
+  io.W.p5  := io.N.p9 & io.blkBits(32)
+  io.W.p3  := io.N.p11 & io.blkBits(16)
+
 }
 
 class SECTest(c: SEC) extends Tester(c) {
