@@ -33,7 +33,7 @@ class PECB extends Module {
 	io.N <> io.S
 	io.E.p0 := (io.S.p2 & io.blkBits(0)) | (io.N.p3 & io.blkBits(1)) |
 						 (io.S.p6 & io.blkBits(2)) | (io.N.p7 & io.blkBits(3)) |
-             (io.S.p8 & io.blkBits(4)) | (io.N.p9 & io.blkBits(5))
+             (io.S.p10 & io.blkBits(4)) | (io.N.p11 & io.blkBits(5))
   io.N.p0 := (io.E.p1 & io.blkBits(6)) | io.S.p0
   io.S.p1 := (io.E.p1 & io.blkBits(7)) | io.N.p1
   io.N.p2 := (io.E.p1 & io.blkBits(8)) | io.S.p2
