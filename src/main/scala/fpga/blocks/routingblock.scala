@@ -26,7 +26,7 @@ package fpga.blocks{
           }
         }
         if(!switchFound)
-          throw new IllegalStateException("Invalid " ++ blockEnumeration.toString ++ " connection at : " ++ 
+          throw new IllegalStateException("Invalid " ++ blockEnumeration.toString ++ " connection at : " ++
             location.toString ++ " " ++ fromSegment.toString ++" -> " ++ toSegment.toString)
       }catch{
         case e: Exception => println("Exception caught: " + e);
@@ -35,7 +35,7 @@ package fpga.blocks{
 
     def setBits(){
       var bitIndex = 0
-      switches.foreach{path => 
+      switches.foreach{path =>
         path._2.foreach{segment =>
           if(segment._3){
             blockBits(bitIndex) = "1"
@@ -52,7 +52,7 @@ package fpga.blocks{
     def remapBits(){
 
       var newBlockBits = Array.fill(BlockSize){"0"}
-      var newMapping : List[Int] = List() 
+      var newMapping : List[Int] = List()
 
       // Index values obtained from Layout-Optimized Connectivity
       blockEnumeration match{
@@ -69,14 +69,14 @@ package fpga.blocks{
         }
         case PSSB => {
           newMapping = List(12, -1, -1, -1, -1, -1, -1, 0,
-                            -1, 25, -1, -1, -1, -1, 24, -1,
-                            27, 14, -1, -1, -1, -1,  2, 26,
+                            -1, 24, -1, -1, -1, -1, 25, -1,
+                            26, 14, -1, -1, -1, -1,  2, 27,
                             16, -1, -1, -1, -1, -1, -1,  4,
-                            29, -1, 17, -1,  7, -1, 28, -1,
-                            18, 31,  3, -1, -1, 21, 30,  6,
+                            28, -1, 17, -1,  7, -1, 29, -1,
+                            18, 30,  3, -1, -1, 21, 31,  6,
                             -1, 20, 13,  5, 19, 11,  8, -1,
-                            33, -1, -1, 15,  9, -1, -1, 32,
-                            22, 35,  1, -1, -1, 23, 34, 10)
+                            32, -1, -1, 15,  9, -1, -1, 33,
+                            22, 34,  1, -1, -1, 23, 35, 10)
         }
         case PESB => {
           newMapping = List(-1,  0, 12, 27, 33, -1, -1, -1,
@@ -90,13 +90,13 @@ package fpga.blocks{
                             -1, 34, 13,  3,  9, -1, -1, -1)
         }
         case PNSB => {
-          newMapping = List(24,  0, 12, -1, -1, 34,  1, 13,
-                             2, -1, -1, 27, 20, -1, -1,  3,
-                            -1, 26, 25, 16, 31, 22, 15, -1,
-                            28,  4, 14, -1, -1, 33,  5, 17,
-                            -1,  6, -1, 29, -1, 18, -1,  7,
-                            30, -1, -1, -1, -1, -1, -1, 19,
-                             8, 32, -1, -1, -1, -1, 21,  9,
+          newMapping = List(25,  0, 12, -1, -1, 34,  1, 13,
+                             2, -1, -1, 26, 20, -1, -1,  3,
+                            -1, 27, 24, 16, 30, 22, 15, -1,
+                            29,  4, 14, -1, -1, 32,  5, 17,
+                            -1,  6, -1, 28, -1, 18, -1,  7,
+                            31, -1, -1, -1, -1, -1, -1, 19,
+                             8, 33, -1, -1, -1, -1, 21,  9,
                             -1, 10, -1, -1, -1, -1, 11, -1,
                             35, -1, -1, -1, -1, -1, -1, 23)
         }
@@ -157,6 +157,8 @@ package fpga.blocks{
         }
         case _ => newMapping = (0 until 72).toList
       }
+      //println("old mapping\n")
+      //println(blockBits.mkString)
       // blockBit remapping loop
       (0 until 72).foreach{i =>
         val newIndex = newMapping(i)
@@ -166,6 +168,8 @@ package fpga.blocks{
       }
       // Update blockBits with new mapping
       blockBits = newBlockBits
+      //println("new mapping\n")
+      //println(blockBits.mkString)
     }
 
     def getBits(): String ={
@@ -179,7 +183,7 @@ package fpga.blocks{
     override def toString(): String = {
       val pbStart = "Block: " ++ blockEnumeration.toString ++ "\nLocation:" ++ location.toString ++ "\n"
       val allPaths = switches.map(p => ("From: " ++ p._1.toString ++ ", To: " ++ p._2.mkString(",") ++"\n"))
-      pbStart ++ allPaths.mkString("") 
+      pbStart ++ allPaths.mkString("")
     }
   }
 }

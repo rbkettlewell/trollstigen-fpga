@@ -59,7 +59,7 @@ class ISB extends Module {
 	io.E.p10 := (io.S.p10 & io.blkBits(62)) | (io.W.p10 & io.blkBits(71)) | (io.N.p9 & io.blkBits(70))
 	io.N.p10 := (io.S.p10 & io.blkBits(61)) | (io.W.p2 & io.blkBits(53)) | (io.E.p1 & io.blkBits(69))
 	io.S.p11 := (io.W.p0 & io.blkBits(21)) | (io.E.p11 & io.blkBits(5)) | (io.N.p11 & io.blkBits(13))
-	io.S.p1 := (io.W.p2 & io.blkBits(7)) | (io.E.p9 & io.blkBits(18)) | (io.N.p1 & io.blkBits(10))
+	io.S.p1 := (io.W.p2 & io.blkBits(2)) | (io.E.p9 & io.blkBits(18)) | (io.N.p1 & io.blkBits(10))
 	io.S.p3 := (io.W.p4 & io.blkBits(26)) | (io.E.p7 & io.blkBits(11)) | (io.N.p3 & io.blkBits(3))
 	io.S.p5 := (io.W.p6 & io.blkBits(19)) | (io.E.p5 & io.blkBits(35)) | (io.N.p5 & io.blkBits(27))
 	io.S.p7 := (io.W.p8 & io.blkBits(37)) | (io.E.p3 & io.blkBits(20)) | (io.N.p7 & io.blkBits(28))
