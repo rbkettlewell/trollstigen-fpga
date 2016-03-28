@@ -31,9 +31,9 @@ package fpga.blocks{
     def setInputs(lutInputs : Array[String]){
       inputsEnable = lutInputs.map{in =>
         if (in != "open")
-          "1"
+          "0" // Inverting for schematic SRAM output inversion for select lines
         else
-          "0"
+          "1"
       }
     }
 

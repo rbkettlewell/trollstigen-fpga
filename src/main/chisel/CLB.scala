@@ -17,7 +17,7 @@ class CLB extends Module {
   val dffResetVal = io.blkBits(71)
   val dff = Reg(init=dffResetVal)
 
-  val lutEnabledSel = sel & Cat((64 to 69).map(i => UInt(io.blkBits(i))).reverse)
+  val lutEnabledSel = sel & Cat((64 to 69).map(i => ~UInt(io.blkBits(i))).reverse)
   val lut  = MuxLookup(lutEnabledSel, UInt(0), (0 until 64).map(i=> UInt(i) -> io.blkBits(i)))
 
   dff := lut
