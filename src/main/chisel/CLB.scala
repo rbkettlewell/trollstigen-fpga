@@ -12,7 +12,7 @@ class CLB extends Module {
   }
 
   val sel = Cat(io.E.p5, io.N.p4, io.W.p3, io.S.p2, io.E.p1, io.N.p0)
-  val muxSel = io.blkBits(70) === UInt(1)
+  val muxSel = io.blkBits(70) === UInt(0) // Inversion due to CLB in schematic
 
   val dffResetVal = io.blkBits(71)
   val dff = Reg(init=dffResetVal)

@@ -354,7 +354,7 @@ package fpga{
         if(clb._4){
           val resetVal = latches.filter(_._3 == dffName)(0)._5
           fpga(row)(col).asInstanceOf[CLB].dFFResetValue = resetVal
-          fpga(row)(col).asInstanceOf[CLB].muxSelect = "1"
+          fpga(row)(col).asInstanceOf[CLB].muxSelect = "0"  // Inversion in schematic clb : 0 = DFF enabled
         }
 
         fpga(row)(col).asInstanceOf[CLB].name = clbName

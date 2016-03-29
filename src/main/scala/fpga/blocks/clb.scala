@@ -8,7 +8,7 @@ package fpga.blocks{
     var name = "Unknown CLB"
     val blockEnumeration = pbEnum
     var inputsEnable = Array.fill[String](6)("0")
-    var muxSelect    = "0" // "1" will select DFF, false defaults to LUT6 output
+    var muxSelect    = "1" // "0" will select DFF due to inversion, defaults to LUT6 output
     var dFFResetValue   = "0"
     var lutSRAMBits     = Array.fill[String](64)("0")
     val BlockSize = 72
