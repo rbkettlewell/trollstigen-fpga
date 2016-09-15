@@ -1,0 +1,283 @@
+<block name="TopLevel.net" instance="FPGA_packed_netlist[0]">
+	<inputs>
+		top^gclk 
+	</inputs>
+
+	<outputs>
+		out:top^dio3 out:top^dio2 out:top^dio1 out:top^dio0 
+	</outputs>
+
+	<clocks>
+		top^gclk 
+	</clocks>
+
+	<block name="n21" instance="clb[0]" mode="clb">
+		<inputs>
+			<port name="I">top^count_reg~2_FF_NODE top^count_reg~0_FF_NODE open top^count_reg~3_FF_NODE open top^count_reg~1_FF_NODE </port>
+		</inputs>
+		<outputs>
+			<port name="O">dff[0].Q[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">top^gclk </port>
+		</clocks>
+		<block name="n21" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  open clb.I[3]->clbin  open clb.I[5]->clbin  </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n21" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  open lut6.in[3]->direct:lut6  open lut6.in[5]->direct:lut6  </port>
+				</inputs>
+				<outputs>
+					<port name="out">n21 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="top^count_reg~3_FF_NODE" instance="dff[0]">
+			<inputs>
+				<port name="D">lut6[0].out[0]->dffin  </port>
+			</inputs>
+			<outputs>
+				<port name="Q">top^count_reg~3_FF_NODE </port>
+			</outputs>
+			<clocks>
+				<port name="clk">clb.clk[0]->clkin  </port>
+			</clocks>
+		</block>
+	</block>
+	<block name="top^count_reg~0_FF_NODE" instance="clb[1]" mode="clb">
+		<inputs>
+			<port name="I">top^count_reg~0_FF_NODE open open open open open </port>
+		</inputs>
+		<outputs>
+			<port name="O">dff[0].Q[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">top^gclk </port>
+		</clocks>
+		<block name="n26" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  open open open open open </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n26" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  open open open open open </port>
+				</inputs>
+				<outputs>
+					<port name="out">n26 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="top^count_reg~0_FF_NODE" instance="dff[0]">
+			<inputs>
+				<port name="D">lut6[0].out[0]->dffin  </port>
+			</inputs>
+			<outputs>
+				<port name="Q">top^count_reg~0_FF_NODE </port>
+			</outputs>
+			<clocks>
+				<port name="clk">clb.clk[0]->clkin  </port>
+			</clocks>
+		</block>
+	</block>
+	<block name="top^count_reg~2_FF_NODE" instance="clb[2]" mode="clb">
+		<inputs>
+			<port name="I">top^count_reg~1_FF_NODE top^count_reg~0_FF_NODE open top^count_reg~2_FF_NODE open open </port>
+		</inputs>
+		<outputs>
+			<port name="O">dff[0].Q[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">top^gclk </port>
+		</clocks>
+		<block name="n16" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  clb.I[1]->clbin  open clb.I[3]->clbin  open open </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n16" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  lut6.in[1]->direct:lut6  open lut6.in[3]->direct:lut6  open open </port>
+				</inputs>
+				<outputs>
+					<port name="out">n16 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="top^count_reg~2_FF_NODE" instance="dff[0]">
+			<inputs>
+				<port name="D">lut6[0].out[0]->dffin  </port>
+			</inputs>
+			<outputs>
+				<port name="Q">top^count_reg~2_FF_NODE </port>
+			</outputs>
+			<clocks>
+				<port name="clk">clb.clk[0]->clkin  </port>
+			</clocks>
+		</block>
+	</block>
+	<block name="top^count_reg~1_FF_NODE" instance="clb[3]" mode="clb">
+		<inputs>
+			<port name="I">top^count_reg~0_FF_NODE open open top^count_reg~1_FF_NODE open open </port>
+		</inputs>
+		<outputs>
+			<port name="O">dff[0].Q[0]->muxin  </port>
+		</outputs>
+		<clocks>
+			<port name="clk">top^gclk </port>
+		</clocks>
+		<block name="n11" instance="lut6[0]" mode="lut6">
+			<inputs>
+				<port name="in">clb.I[0]->clbin  open open clb.I[3]->clbin  open open </port>
+			</inputs>
+			<outputs>
+				<port name="out">lut[0].out[0]->direct:lut6  </port>
+			</outputs>
+			<clocks>
+			</clocks>
+			<block name="n11" instance="lut[0]">
+				<inputs>
+					<port name="in">lut6.in[0]->direct:lut6  open open lut6.in[3]->direct:lut6  open open </port>
+				</inputs>
+				<outputs>
+					<port name="out">n11 </port>
+				</outputs>
+				<clocks>
+				</clocks>
+			</block>
+		</block>
+		<block name="top^count_reg~1_FF_NODE" instance="dff[0]">
+			<inputs>
+				<port name="D">lut6[0].out[0]->dffin  </port>
+			</inputs>
+			<outputs>
+				<port name="Q">top^count_reg~1_FF_NODE </port>
+			</outputs>
+			<clocks>
+				<port name="clk">clb.clk[0]->clkin  </port>
+			</clocks>
+		</block>
+	</block>
+	<block name="out:top^dio2" instance="io[4]" mode="outpad">
+		<inputs>
+			<port name="outpad">top^count_reg~2_FF_NODE </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">open </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="out:top^dio2" instance="outpad[0]">
+			<inputs>
+				<port name="outpad">io.outpad[0]->outpad  </port>
+			</inputs>
+			<outputs>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="out:top^dio0" instance="io[5]" mode="outpad">
+		<inputs>
+			<port name="outpad">top^count_reg~0_FF_NODE </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">open </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="out:top^dio0" instance="outpad[0]">
+			<inputs>
+				<port name="outpad">io.outpad[0]->outpad  </port>
+			</inputs>
+			<outputs>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="out:top^dio1" instance="io[6]" mode="outpad">
+		<inputs>
+			<port name="outpad">top^count_reg~1_FF_NODE </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">open </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="out:top^dio1" instance="outpad[0]">
+			<inputs>
+				<port name="outpad">io.outpad[0]->outpad  </port>
+			</inputs>
+			<outputs>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="out:top^dio3" instance="io[7]" mode="outpad">
+		<inputs>
+			<port name="outpad">top^count_reg~3_FF_NODE </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">open </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="out:top^dio3" instance="outpad[0]">
+			<inputs>
+				<port name="outpad">io.outpad[0]->outpad  </port>
+			</inputs>
+			<outputs>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+	<block name="top^gclk" instance="io[8]" mode="inpad">
+		<inputs>
+			<port name="outpad">open </port>
+		</inputs>
+		<outputs>
+			<port name="inpad">inpad[0].inpad[0]->inpad  </port>
+		</outputs>
+		<clocks>
+			<port name="clock">open </port>
+		</clocks>
+		<block name="top^gclk" instance="inpad[0]">
+			<inputs>
+			</inputs>
+			<outputs>
+				<port name="inpad">top^gclk </port>
+			</outputs>
+			<clocks>
+			</clocks>
+		</block>
+	</block>
+</block>
+

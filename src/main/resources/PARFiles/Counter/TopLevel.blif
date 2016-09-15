@@ -1,0 +1,35 @@
+# Benchmark "TopLevel" written by ABC on Wed Sep 14 21:35:53 2016
+.model TopLevel
+.inputs top^gclk
+.outputs top^dio3 top^dio2 top^dio1 top^dio0
+
+.latch        n11 top^count_reg~1_FF_NODE re   top^gclk  0
+.latch        n16 top^count_reg~2_FF_NODE re   top^gclk  0
+.latch        n21 top^count_reg~3_FF_NODE re   top^gclk  0
+.latch        n26 top^count_reg~0_FF_NODE re   top^gclk  0
+
+.names top^count_reg~3_FF_NODE top^dio3
+1 1
+.names top^count_reg~2_FF_NODE top^dio2
+1 1
+.names top^count_reg~1_FF_NODE top^dio1
+1 1
+.names top^count_reg~0_FF_NODE top^dio0
+1 1
+.names top^count_reg~1_FF_NODE top^count_reg~0_FF_NODE n11
+01 1
+10 1
+.names top^count_reg~1_FF_NODE top^count_reg~2_FF_NODE \
+ top^count_reg~0_FF_NODE n16
+01- 1
+101 1
+-10 1
+.names top^count_reg~1_FF_NODE top^count_reg~2_FF_NODE \
+ top^count_reg~3_FF_NODE top^count_reg~0_FF_NODE n21
+0-1- 1
+1101 1
+-01- 1
+--10 1
+.names top^count_reg~0_FF_NODE n26
+0 1
+.end

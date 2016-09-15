@@ -1,0 +1,14 @@
+Netlist file: TopLevel.net   Architecture file: troll_arch64.xml
+Array size: 8 x 8 logic blocks
+
+#block name	x	y	subblk	block number
+#----------	--	--	------	------------
+n21		2	1	0	#0
+top^count_reg~0_FF_NODE	1	2	0	#1
+top^count_reg~2_FF_NODE	1	1	0	#2
+top^count_reg~1_FF_NODE	2	2	0	#3
+out:top^dio2	2	0	-1	#4
+out:top^dio0	0	1	-1	#5
+out:top^dio1	1	0	-1	#6
+out:top^dio3	3	0	-1	#7
+top^gclk	0	8	-1	#8

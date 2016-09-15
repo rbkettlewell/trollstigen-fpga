@@ -1,0 +1,36 @@
+# Notation:
+# block_name, x-coord, y-coord, sub-block
+
+top^gclk      0 8 0
+top^cdone     0 7 0
+top^reset     0 6 0
+
+top^xclk       9 1 0
+
+top^hex_latch  9 2 0
+top^hex_sdo    9 3 0
+top^hex_sclk   9 4 0
+
+top^hip_spi_cs 9 5 0
+top^hip_sclk   9 6 0
+top^hip_miso   9 7 0
+top^hip_mosi   9 8 0
+
+top^pmod_reset_1      8 9 0
+top^pmod_int_1        7 9 0
+top^pmod_sclk_1       6 9 0
+top^pmod_miso_1       5 9 0
+top^pmod_mosi_1       4 9 0
+top^pmod_ss_1         3 9 0
+
+top^pmod_reset_0      2 9 0
+top^pmod_int_0        1 9 0
+top^pmod_sclk_0       0 5 0
+top^pmod_miso_0       0 4 0
+top^pmod_mosi_0       0 3 0
+top^pmod_ss_0         0 2 0
+
+out:top^dio0       0 1 0
+out:top^dio1       1 0 0
+out:top^dio2       2 0 0
+out:top^dio3       3 0 0

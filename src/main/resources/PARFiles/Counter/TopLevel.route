@@ -1,0 +1,112 @@
+Array size: 8 x 8 logic blocks.
+
+Routing:
+
+Net 0 (top^count_reg~2_FF_NODE)
+
+Node:	60	SOURCE (1,1)  Class: 6  
+Node:	68	  OPIN (1,1)  Pin: 6   clb.O[0] 
+Node:	1222	 CHANX (1,0)  Track: 6  
+Node:	2182	 CHANY (1,1)  Track: 6  
+Node:	1321	 CHANX (1,1)  Track: 9  
+Node:	2089	 CHANY (0,1)  Track: 9  
+Node:	65	  IPIN (1,1)  Pin: 3   clb.I[3] 
+Node:	57	  SINK (1,1)  Class: 3  
+Node:	68	  OPIN (1,1)  Pin: 6   clb.O[0] 
+Node:	1225	 CHANX (1,0)  Track: 9  
+Node:	2086	 CHANY (0,1)  Track: 6  
+Node:	1318	 CHANX (1,1)  Track: 6  
+Node:	1330	 CHANX (2,1)  Track: 6  
+Node:	202	  IPIN (2,1)  Pin: 0   clb.I[0] 
+Node:	194	  SINK (2,1)  Class: 0  
+Node:	68	  OPIN (1,1)  Pin: 6   clb.O[0] 
+Node:	1224	 CHANX (1,0)  Track: 8  
+Node:	1236	 CHANX (2,0)  Track: 8  
+Node:	191	  IPIN (2,0)  Pad: 0  
+Node:	188	  SINK (2,0)  Pad: 0  
+
+
+Net 1 (top^count_reg~0_FF_NODE)
+
+Node:	76	SOURCE (1,2)  Class: 6  
+Node:	84	  OPIN (1,2)  Pin: 6   clb.O[0] 
+Node:	1313	 CHANX (1,1)  Track: 1  
+Node:	2092	 CHANY (0,2)  Track: 0  
+Node:	1408	 CHANX (1,2)  Track: 0  
+Node:	1420	 CHANX (2,2)  Track: 0  
+Node:	218	  IPIN (2,2)  Pin: 0   clb.I[0] 
+Node:	210	  SINK (2,2)  Class: 0  
+Node:	84	  OPIN (1,2)  Pin: 6   clb.O[0] 
+Node:	1314	 CHANX (1,1)  Track: 2  
+Node:	2177	 CHANY (1,1)  Track: 1  
+Node:	1228	 CHANX (2,0)  Track: 0  
+Node:	2272	 CHANY (2,1)  Track: 0  
+Node:	203	  IPIN (2,1)  Pin: 1   clb.I[1] 
+Node:	195	  SINK (2,1)  Class: 1  
+Node:	1408	 CHANX (1,2)  Track: 0  
+Node:	78	  IPIN (1,2)  Pin: 0   clb.I[0] 
+Node:	70	  SINK (1,2)  Class: 0  
+Node:	1313	 CHANX (1,1)  Track: 1  
+Node:	2081	 CHANY (0,1)  Track: 1  
+Node:	3	  IPIN (0,1)  Pad: 0  
+Node:	0	  SINK (0,1)  Pad: 0  
+Node:	2177	 CHANY (1,1)  Track: 1  
+Node:	63	  IPIN (1,1)  Pin: 1   clb.I[1] 
+Node:	55	  SINK (1,1)  Class: 1  
+
+
+Net 2 (top^count_reg~3_FF_NODE)
+
+Node:	200	SOURCE (2,1)  Class: 6  
+Node:	208	  OPIN (2,1)  Pin: 6   clb.O[0] 
+Node:	1237	 CHANX (2,0)  Track: 9  
+Node:	2184	 CHANY (1,1)  Track: 8  
+Node:	205	  IPIN (2,1)  Pin: 3   clb.I[3] 
+Node:	197	  SINK (2,1)  Class: 3  
+Node:	208	  OPIN (2,1)  Pin: 6   clb.O[0] 
+Node:	1234	 CHANX (2,0)  Track: 6  
+Node:	2278	 CHANY (2,1)  Track: 6  
+Node:	1338	 CHANX (3,1)  Track: 2  
+Node:	2369	 CHANY (3,1)  Track: 1  
+Node:	1241	 CHANX (3,0)  Track: 1  
+Node:	331	  IPIN (3,0)  Pad: 0  
+Node:	328	  SINK (3,0)  Pad: 0  
+
+
+Net 3 (top^count_reg~1_FF_NODE)
+
+Node:	216	SOURCE (2,2)  Class: 6  
+Node:	224	  OPIN (2,2)  Pin: 6   clb.O[0] 
+Node:	1326	 CHANX (2,1)  Track: 2  
+Node:	2294	 CHANY (2,2)  Track: 10  
+Node:	1421	 CHANX (2,2)  Track: 1  
+Node:	2197	 CHANY (1,2)  Track: 9  
+Node:	221	  IPIN (2,2)  Pin: 3   clb.I[3] 
+Node:	213	  SINK (2,2)  Class: 3  
+Node:	224	  OPIN (2,2)  Pin: 6   clb.O[0] 
+Node:	1324	 CHANX (2,1)  Track: 0  
+Node:	2283	 CHANY (2,1)  Track: 11  
+Node:	207	  IPIN (2,1)  Pin: 5   clb.I[5] 
+Node:	199	  SINK (2,1)  Class: 5  
+Node:	1324	 CHANX (2,1)  Track: 0  
+Node:	2284	 CHANY (2,2)  Track: 0  
+Node:	1423	 CHANX (2,2)  Track: 3  
+Node:	2195	 CHANY (1,2)  Track: 7  
+Node:	1319	 CHANX (1,1)  Track: 7  
+Node:	62	  IPIN (1,1)  Pin: 0   clb.I[0] 
+Node:	54	  SINK (1,1)  Class: 0  
+Node:	1326	 CHANX (2,1)  Track: 2  
+Node:	2273	 CHANY (2,1)  Track: 1  
+Node:	1229	 CHANX (2,0)  Track: 1  
+Node:	1217	 CHANX (1,0)  Track: 1  
+Node:	51	  IPIN (1,0)  Pad: 0  
+Node:	48	  SINK (1,0)  Pad: 0  
+
+
+Net 4 (top^gclk): global net connecting:
+
+Block top^gclk (#8) at (0, 8), Pin class 1.
+Block n21 (#0) at (2, 1), Pin class 7.
+Block top^count_reg~0_FF_NODE (#1) at (1, 2), Pin class 7.
+Block top^count_reg~2_FF_NODE (#2) at (1, 1), Pin class 7.
+Block top^count_reg~1_FF_NODE (#3) at (2, 2), Pin class 7.
