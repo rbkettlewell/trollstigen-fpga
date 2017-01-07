@@ -1,17 +1,21 @@
 # trollstigen-fpga
 Open source fpga project leveraging vtr CAD flow.
 
-Installation Requirements:
-0) git
-1) Scala
-2) sbt
+## Installation Requirements:
 
-Compilation Instructions:
-To compile the source enter the following in a bash terminal at this level top level directory: 
-sbt "run <path to synthesis files>"
+0. git
+1. Scala
+2. sbt
 
-FPGA Block Organization Display for 8X16 CLB Device:
+## Compilation Instructions:
 
+To compile the source enter the following in a bash terminal at this level top level directory:
+
+`sbt "run <path to synthesis files>"`
+
+## FPGA Block Organization Display for 8X16 CLB Device:
+
+```
 Emp Emp IOB Emp IOB Emp IOB Emp IOB Emp IOB Emp IOB Emp IOB Emp IOB Emp Emp 
 Emp NWC PNC PNS PNC PNS PNC PNS PNC PNS PNC PNS PNC PNS PNC PNS PNC NEC Emp 
 IOB PWC Emp Emp Emp Emp Emp Emp Emp Emp Emp Emp Emp Emp Emp Emp Emp PEC IOB 
@@ -47,3 +51,4 @@ Emp PWS IVC ISB IVC ISB IVC ISB IVC ISB IVC ISB IVC ISB IVC ISB Emp PES Emp
 IOB PWC CLB IHC CLB IHC CLB IHC CLB IHC CLB IHC CLB IHC CLB IHC Emp PEC IOB 
 Emp SWC PSC PSS PSC PSS PSC PSS PSC PSS PSC PSS PSC PSS PSC PSS PSC SEC Emp 
 Emp Emp IOB Emp IOB Emp IOB Emp IOB Emp IOB Emp IOB Emp IOB Emp IOB Emp Emp 
+```
